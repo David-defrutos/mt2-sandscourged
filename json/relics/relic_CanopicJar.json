@@ -1,0 +1,87 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "relics": [
+        {
+            "id": "CanopicJar",
+            "type": "collectable",
+            "names": {
+                "english": "Canopic Jar",
+                "chinese": "卡诺匹斯罐"
+            },
+            "descriptions": {
+                "english": "<b>Torments</b> have [juice].",
+                "chinese": "<b>折磨</b>卡牌获得[juice]。"
+            },
+            "lore_tooltips": [
+                {
+                    "english": "Sealed within these jars are the preserved hearts of fallen Egos. The malevolence contained within seeps into those who dare to draw near."
+                }
+            ],
+            "disallow_in_deployment": false,
+            "lore_style": "herzal",
+            "relic_effects": [
+                "@CanopicJarRelicEffect"
+            ],
+            "icon": "@CanopicJarIcon",
+            "icon_small": "@CanopicJarIcon",
+            "extensions": [
+                {
+                    "collectable": {
+                        "class": "@ClassSandscourged",
+                        "pools": [
+                            "MegaRelicPool"
+                        ],
+                        "rarity": "common",
+                        "unlock_level": 6
+                    }
+                }
+            ]
+        }
+    ],
+    "relic_effects": [
+        {
+            "id": "CanopicJarRelicEffect",
+            "name": "RelicEffectAddTempUpgrade",
+            "target_mode": "room",
+            "source_team": "monsters",
+            "param_bool": false,
+            "param_upgrade": "@CanopicJarDoublestackUpgrade",
+            "additional_tooltips": ["@TormentTooltip"]
+        }
+    ],
+    "upgrades": [
+        {
+            "id": "CanopicJarDoublestackUpgrade",
+            "is_unique": true,
+            "trait_upgrades": [
+                {
+                    "id": "@TormentDoublestackTrait"
+                }
+            ],
+            "filters": [
+                "@OnlyTorments"
+            ]
+        }
+    ],
+    "traits": [
+        {
+            "id": "TormentDoublestackTrait",
+            "name": "CardTraitJuice"
+        }
+    ],
+    "upgrade_masks": [
+        {
+            "id": "OnlyTorments",
+            "card_type": "spell",
+            "allowed_pools": [
+                "@TormentPool"
+            ]
+        }
+    ],
+    "sprites": [
+        {
+            "id": "CanopicJarIcon",
+            "path": "textures/CanopicJarArt.png"
+        }
+    ]
+}

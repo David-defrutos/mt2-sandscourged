@@ -1,0 +1,51 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+  "status_effects": [
+    {
+      "id": "hex",
+      "class_name": "@StatusEffectHexState",
+      "names": {
+        "english": "Hex",
+        "chinese": "巫术(改)"
+      },
+      "stackable_names": {
+        "english": "Hex {0}",
+        "chinese": "<nobr>巫术(改) {0}</nobr>"
+      },
+      "card_tooltips": {
+        "english": "When a [debuff] is applied to this unit, it gains additional stacks equal to the stacks of [mt2_sandscourged.Plugin_hex].<br>[mt2_sandscourged.Plugin_hex] and [dazed] are excluded.<br>Decreases every turn and does not [propagate].",
+        "chinese": "当获得[debuff]时，每有一层[mt2_sandscourged.Plugin_hex]，单位获得的层数 +1，[mt2_sandscourged.Plugin_hex]和[dazed]除外。<br>回合结束时，层数减少 1。<br>无法被[propagate]。"
+      },
+      "character_tooltips": {
+        "english": "When a [debuff] is applied to this unit, it gains an additional +[codeint0] stacks.<br>[mt2_sandscourged.Plugin_hex] and [dazed] are excluded.<br>Decreases every turn and does not [propagate].",
+        "chinese": "当获得[debuff]时，获得的层数 +[codeint0]，[mt2_sandscourged.Plugin_hex]和[dazed]除外。<br>回合结束时，层数减少 1。<br>无法被[propagate]。"
+      },
+      "notifications": {
+        "english": "Hexed",
+        "chinese": "被施加巫术(改)"
+      },
+      "replacement_texts": {
+        "english": "<b>Hex</b>",
+        "chinese": "<b>巫术(改)</b>"
+      },
+      "display_category": "negative",
+      "trigger_stage": "none",
+      "is_stackable": true,
+      "remove_stack_at_end_of_turn": true,
+      "param_int": 1,
+      "icon": "@hex"
+    }
+  ],
+  "sprites": [
+    {
+      "id": "hex",
+      "path": "textures/status_hex.png"
+    }
+  ],
+  "atlas_icons": [
+    {
+      "id": "hex",
+      "path": "textures/status_hex_tooltip.png"
+    }
+  ]
+}

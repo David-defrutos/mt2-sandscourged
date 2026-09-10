@@ -1,0 +1,60 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "cards": [
+        {
+            "id": "TormentE",
+            "names": {
+                "english": "Torment",
+                "chinese": "折磨：[meleeweakness]"
+            },
+            "descriptions": {
+                "english": "Apply [meleeweakness] [effect0.status0.power].",
+                "chinese": "施加[meleeweakness] [effect0.status0.power]。"
+            },
+            "rarity": "common",
+            "class": "@ClassSandscourged",
+            "card_art": "@TormentEArt",
+            "hide_in_logbook": true,
+            "targets_room": true,
+            "targetless": false,
+            "cost": 0,
+            "traits": [
+                "@TormentEphemeralTrait"
+            ],
+            "effects": [
+                "@TormentEApplyMeleeWeakness"
+            ]
+        }
+    ],
+    "effects": [
+        {
+            "id": "TormentEApplyMeleeWeakness",
+            "name": "CardEffectAddStatusEffect",
+            "target_mode": "drop_target_character",
+            "target_team": "both",
+            "param_status_effects": [
+                {
+                    "status": "melee weakness",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "sprites": [
+        {
+            "id": "TormentEArt",
+            "path": "textures/TormentEArt.png"
+        }
+    ],
+    "game_objects": [
+        {
+            "id": "TormentEArt",
+            "type": "card_art",
+            "extensions": {
+                "card_art": {
+                    "sprite": "@TormentEArt"
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,99 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "cards": [
+        {
+            "id": "PlagueOfBlood",
+            "names": {
+                "english": "Plague of Blood",
+                "chinese": "鲜血瘟疫"
+            },
+            "descriptions": {
+                "english": "Draw a spell and apply -[effect1.upgrade.costreduction][ember] and +[effect1.upgrade.bonusdamage] [magicpower].",
+                "chinese": "抽一张法术牌，并使其获得 +[effect1.upgrade.bonusdamage] [magicpower]和 -[effect1.upgrade.costreduction][ember]。"
+            },
+            "lore_tooltips": [
+                {
+                    "english": "The first plague to afflict the Scourged and one of their own making. In their first days of exile, tribulation led to disagreement, disagreement to anger, and anger to violence. The bloody aftermath; a dire portent of things to come."
+                }
+            ],
+            "rarity": "uncommon",
+            "class": "@ClassSandscourged",
+            "card_art": "@PlagueOfBloodArt",
+            "card_type": "blight",
+            "targets_room": true,
+            "targetless": false,
+            "pools": [
+                "MegaPool"
+            ],
+            "cost": 0,
+            "effects": [
+                {
+                    "id": "@PlagueOfBloodSacrifice"
+                },
+                {
+                    "id": "@PlagueOfBloodBuffSpell"
+                },
+                {
+                    "id": "@PlagueOfBloodDrawSpell"
+                }
+            ],
+            "triggers": [
+                "@PlagueDamageOnUnplayed"
+            ]
+        }
+    ],
+    "traits": [
+        {
+            "id": "PlagueOfBloodShowTargets",
+            "name": "CardTraitShowCardTargets"
+        }
+    ],
+    "effects": [
+        {
+            "id": "PlagueOfBloodSacrifice",
+            "name": "CardEffectSacrifice",
+            "target_mode": "drop_target_character",
+            "target_team": "monsters",
+            "param_int": 1
+        },
+        {
+            "id": "PlagueOfBloodBuffSpell",
+            "name": "CardEffectAddTempCardUpgradeToNextDrawnCard",
+            "target_card_type": "spell",
+            "param_upgrade": "@PlagueOfBloodSpellUpgrade"
+        },
+        {
+            "id": "PlagueOfBloodDrawSpell",
+            "name": "@CardEffectDrawTypeWithDiscardFix",
+            "target_mode": "draw_pile",
+            "target_card_type": "spell",
+            "param_int": 1
+        }
+    ],
+    "upgrades": [
+        {
+            "id": "PlagueOfBloodSpellUpgrade",
+            "bonus_damage": 20,
+            "bonus_heal": 20,
+            "cost_reduction": 1,
+            "x_cost_reduction": 1
+        }
+    ],
+    "sprites": [
+        {
+            "id": "PlagueOfBloodArt",
+            "path": "textures/PlagueOfBloodArt.png"
+        }
+    ],
+    "game_objects": [
+        {
+            "id": "PlagueOfBloodArt",
+            "type": "card_art",
+            "extensions": {
+                "card_art": {
+                    "sprite": "@PlagueOfBloodArt"
+                }
+            }
+        }
+    ]
+}

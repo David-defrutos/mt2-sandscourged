@@ -1,0 +1,85 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "cards": [
+        {
+            "id": "Malediction",
+            "names": {
+                "english": "Malediction",
+                "chinese": "邪咒"
+            },
+            "descriptions": {
+                "english": "Apply [mt2_sandscourged.Plugin_hex] [effect0.status0.power] to enemy units. Add [trait1.power] random <b>Torments</b> to your hand.",
+                "chinese": "对所有敌方单位施加[mt2_sandscourged.Plugin_hex] [effect0.status0.power]。将 [trait1.power] 张随机<b>折磨</b>卡牌加入你的手牌。"
+            },
+            "lore_tooltips": [
+                {
+                    "english": "The Scourged possess all manner of curses, from the mundane to the dreadful. It's rumored that they've saved their most terrifying curse just for Seraph."
+                }
+            ],
+            "rarity": "uncommon",
+            "class": "@ClassSandscourged",
+            "unlock_level": 5,
+            "card_art": "@MaledictionArt",
+            "targets_room": true,
+            "targetless": true,
+            "pools": [
+                "MegaPool"
+            ],
+            "cost": 2,
+            "traits": [
+                "@MaledictionOffering",
+                "@MaledictionAddTorments"
+            ],
+            "effects": [
+                "@MaledictionApplyHex"
+            ]
+        }
+    ],
+    "traits": [
+        {
+            "id": "MaledictionOffering",
+            "name": "CardTraitTreasure"
+        },
+        {
+            "id": "MaledictionAddTorments",
+            "name": "@CardTraitScalingAddBattleCardToHandFromPool",
+            "param_card_pool": "@TormentPool",
+            "param_use_scaling_params": false,
+            "param_int": 2
+        }
+    ],
+    "effects": [
+        {
+            "id": "MaledictionApplyHex",
+            "name": "CardEffectAddStatusEffect",
+            "target_mode": "room",
+            "target_team": "heroes",
+            "param_status_effects": [
+                {
+                    "status": "@hex",
+                    "count": 1
+                }
+            ],
+            "additional_tooltips": [
+                "@TormentTooltip"
+            ]
+        }
+    ],
+    "sprites": [
+        {
+            "id": "MaledictionArt",
+            "path": "textures/MaledictionArt.png"
+        }
+    ],
+    "game_objects": [
+        {
+            "id": "MaledictionArt",
+            "type": "card_art",
+            "extensions": {
+                "card_art": {
+                    "sprite": "@MaledictionArt"
+                }
+            }
+        }
+    ]
+}

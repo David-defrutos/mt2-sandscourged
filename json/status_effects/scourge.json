@@ -1,0 +1,53 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+  "status_effects": [
+    {
+      "id": "scourge",
+      "class_name": "@StatusEffectScourgeState",
+      "names": {
+        "english": "Warp",
+        "chinese": "扭曲"
+      },
+      "stackable_names": {
+        "english": "<nobr>Warp {0}</nobr>",
+        "chinese": "<nobr>扭曲 {0}</nobr>"
+      },
+      "card_tooltips": {
+        "english": "Unit takes [codeint0] damage per stack at the end of turn for each distinct [debuff] it has, including this one.<br>Decreases every turn.",
+        "chinese": "回合结束时，每有一层[mt2_sandscourged.Plugin_scourge]，每有一种[debuff]（包括[mt2_sandscourged.Plugin_scourge]），单位受到 [codeint0] 点伤害。<br>回合结束时，层数减少 1。"
+      },
+      "character_tooltips": {
+        "english": "Takes [codeint0] damage at the end of turn for each distinct [debuff].<br>Decreases every turn.",
+        "chinese": "回合结束时，每有一种[debuff]（包括[mt2_sandscourged.Plugin_scourge]），受到 [codeint0] 点伤害。<br>回合结束时，层数减少 1。"
+      },
+      "replacement_texts": {
+        "english": "<b>Warp</b>",
+        "chinese": "<b>扭曲</b>"
+      },
+      "notifications": {
+        "english": "Warp",
+        "chinese": "扭曲"
+      },
+      "display_category": "negative",
+      "trigger_stage": "on_post_combat_poison",
+      "remove_stack_at_end_of_turn": true,
+      "is_stackable": true,
+      "is_propagatable": true,
+      "exclude_monster_propagation": true,
+      "param_int": 1,
+      "icon": "@Scourge"
+    }
+  ],
+  "sprites": [
+    {
+      "id": "Scourge",
+      "path": "textures/status_scourge.png"
+    }
+  ],
+  "atlas_icons": [
+    {
+      "id": "Scourge",
+      "path": "textures/status_scourge_tooltip.png"
+    }
+  ]
+}

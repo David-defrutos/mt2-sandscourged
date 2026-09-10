@@ -1,0 +1,77 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "cards": [
+        {
+            "id": "Beseech",
+            "names": {
+                "english": "Beseech",
+                "chinese": "央求"
+            },
+            "descriptions": {
+                "english": "Add a random <b>Torment</b> to your hand.",
+                "chinese": "将一张随机<b>折磨</b>卡牌加入你的手牌。"
+            },
+            "lore_tooltips": [
+                {
+                    "english": "The Scourged and the Ur-Pharaoh share a strange codependence. United in their desire to escape from the confines of Oblivion and enact retribution against their respective enemies, they rely on one another to achieve their shared goals. The Scourged beseech their god-king for power, and in return, the Ur-Pharaoh feeds upon their suffering."
+                }
+            ],
+            "rarity": "common",
+            "class": "@ClassSandscourged",
+            "pools": [
+                "StarterCardsOnly"
+            ],
+            "card_art": "@BeseechArt",
+            "targets_room": true,
+            "targetless": true,
+            "cost": 1,
+            "traits": [
+                "@BeseechTraitOffering",
+                "@BeseechTraitAddCard"
+            ],
+            "effects": [
+                "@BeseechNullEffect"
+            ]
+        }
+    ],
+    "traits": [
+        {
+            "id": "BeseechTraitOffering",
+            "name": "CardTraitTreasure"
+        },
+        {
+            "id": "BeseechTraitAddCard",
+            "name": "@CardTraitScalingAddBattleCardToHandFromPool",
+            "param_card_pool": "@TormentPool",
+            "param_use_scaling_params": false,
+            "param_int": 1
+        }
+    ],
+    "effects": [
+        {
+            "id": "BeseechNullEffect",
+            "name": "CardEffectNULL",
+            "target_mode": "room",
+            "target_team": "both",
+            "param_bool_2": true,
+            "additional_tooltips": ["@TormentTooltip"]
+        }
+    ],
+    "sprites": [
+        {
+            "id": "BeseechArt",
+            "path": "textures/BeseechArt.png"
+        }
+    ],
+    "game_objects": [
+        {
+            "id": "BeseechArt",
+            "type": "card_art",
+            "extensions": {
+                "card_art": {
+                    "sprite": "@BeseechArt"
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,135 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "cards": [
+        {
+            "id": "SpawnWretch",
+            "names": {
+                "english": "Wretch",
+                "chinese": "可怜虫"
+            },
+            "card_art": "@Wretch",
+            "cost": 0,
+            "card_type": "monster",
+            "rarity": "common",
+            "class": "@ClassSandscourged",
+            "targets_room": true,
+            "pools": [
+                "MegaPool"
+            ],
+            "effects": [
+                "@SpawnWretch"
+            ],
+            "lore_tooltips": [
+                {
+                    "english": "Perhaps the most pitiful of the Scourged. No longer useful even for tapping, they wander Oblivion aimlessly, without thought or conviction. The soul however, lingers on."
+                }
+            ]
+        },
+        {
+            "id": "WretchAbility",
+            "names": {
+                "english": "Wail",
+                "chinese": "哀嚎"
+            },
+            "descriptions": {
+                "english": "Add [effect0.secondarypower] random <b>Torments</b> to your hand. Take [effect1.power] damage.",
+                "chinese": "将 [effect0.secondarypower] 张随机<b>折磨</b>卡牌加入你的手牌。受到 [effect1.power] 点伤害。"
+            },
+            "card_art": "@Wretch",
+            "is_an_ability": true,
+            "cooldown": 2,
+            "targetless": true,
+            "targets_room": true,
+            "card_type": "spell",
+            "effects": [
+                "@WretchAddTorments",
+                "@WretchSelfDamage"
+            ]
+        }
+    ],
+    "characters": [
+        {
+            "id": "Wretch",
+            "size": 1,
+            "attack_damage": 5,
+            "health": 5,
+            "names": {
+                "english": "Wretch",
+                "chinese": "可怜虫"
+            },
+            "character_art": "@WretchCharacterArt",
+            "subtypes": [
+                "@Sub_Lost"
+            ],
+            "ability": "@WretchAbility"
+        }
+    ],
+    "effects": [
+        {
+            "id": "SpawnWretch",
+            "name": "CardEffectSpawnMonster",
+            "target_mode": "room",
+            "param_character": "@Wretch"
+        },
+        {
+            "id": "WretchAddTorments",
+            "name": "CardEffectAddBattleCard",
+            "target_mode": "room",
+            "param_int": 3,
+            "param_int_2": 2,
+            "param_card_pool": "@TormentPool",
+            "additional_tooltips": [
+                "@TormentTooltip"
+            ]
+        },
+        {
+            "id": "WretchSelfDamage",
+            "name": "CardEffectDamage",
+            "target_mode": "self",
+            "target_team": "monsters",
+            "param_int": 10
+        }
+    ],
+    "sprites": [
+        {
+            "id": "Wretch",
+            "path": "textures/WretchCardArt.png"
+        },
+        {
+            "id": "WretchCharacterArt",
+            "path": "textures/WretchCharacterArt.png"
+        }
+    ],
+    "game_objects": [
+        {
+            "id": "Wretch",
+            "type": "card_art",
+            "extensions": {
+                "card_art": {
+                    "sprite": "@Wretch"
+                }
+            }
+        },
+        {
+            "id": "WretchCharacterArt",
+            "type": "character_art",
+            "extensions": {
+                "character_art": {
+                    "sprite": "@WretchCharacterArt",
+                    "transform": {
+                        "position": {
+                            "x": 0.1,
+                            "y": 0.75,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 0.4,
+                            "y": 0.4,
+                            "z": 1
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}

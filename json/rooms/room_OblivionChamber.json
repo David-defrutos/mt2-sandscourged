@@ -1,0 +1,101 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+  "cards": [
+    {
+      "id": "OblivionChamber",
+      "names": {
+        "english": "Oblivion Chamber",
+        "chinese": "湮灭之室"
+      },
+      "descriptions": {
+        "english": "When a [debuff] is applied to an enemy unit, also apply [mt2_sandscourged.Plugin_scourge] [effect0.upgrade.roommodifier0.status0.power].",
+        "chinese": "当敌方单位获得[debuff]时，额外获得[mt2_sandscourged.Plugin_scourge] [effect0.upgrade.roommodifier0.status0.power]。"
+      },
+      "lore_tooltips": [
+        {
+          "english": "A chamber of High Vizier Izketri's design. Vents along the walls release a coarse mist of abrasive sand, scouring the flesh of interlopers."
+        }
+      ],
+      "card_art": "@OblivionChamber",
+      "cost": 2,
+      "card_type": "room",
+      "rarity": "rare",
+      "class": "@ClassSandscourged",
+      "targets_room": true,
+      "targetless": true,
+      "effects": [
+        "@OblivionChamberRoomEffect"
+      ],
+      "pools": [
+        "MegaPool",
+        "RoomAndEquipmentMerchant_RoomPool",
+        "RoomAndEquipmentDraftPool",
+        "RoomAndEquipmentMerchant_RoomAndEquipmentPool",
+        "TrainRoomPool"
+      ]
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "OblivionChamberRoomUpgrade",
+      "titles": {
+        "english": "OblivionChamber"
+      },
+      "descriptions": {
+        "english": "When a [debuff] is applied to an enemy unit, also apply [mt2_sandscourged.Plugin_scourge] [roommodifier0.status0.power].",
+        "chinese": "当敌方单位获得[debuff]时，额外获得[mt2_sandscourged.Plugin_scourge] [roommodifier0.status0.power]。"
+      },
+      "room_modifier_upgrades": [
+        "@OblivionChamberRoomModifier"
+      ],
+      "icon": "@OblivionChamber"
+    }
+  ],
+  "room_modifiers": [
+    {
+      "id": "OblivionChamberRoomModifier",
+      "name": "@RoomStateAddStatusEffectOnAnyStatusApplied",
+      "descriptions": {
+        "english": "When a [debuff] is applied to an enemy unit, also apply [mt2_sandscourged.Plugin_scourge] [status0.power].",
+        "chinese": "当敌方单位获得[debuff]时，额外获得[mt2_sandscourged.Plugin_scourge] [status0.power]。"
+      },
+      "param_status_effects": [
+        {
+          "status": "@scourge",
+          "count": 7
+        }
+      ],
+      "param_int": 2,
+      "param_int_2": 2
+    }
+  ],
+  "effects": [
+    {
+      "id": "OblivionChamberRoomEffect",
+      "name": "CardEffectAttachTrainRoomAttachment",
+      "target_mode": "room",
+      "target_ignore_bosses": false,
+      "param_upgrade": "@OblivionChamberRoomUpgrade",
+      "param_bool": false,
+      "param_bool_2": false,
+      "target_team": "heroes"
+    }
+  ],
+  "sprites": [
+    {
+      "id": "OblivionChamber",
+      "path": "textures/OblivionChamberArt.png"
+    }
+  ],
+  "game_objects": [
+    {
+      "id": "OblivionChamber",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@OblivionChamber"
+        }
+      }
+    }
+  ]
+}

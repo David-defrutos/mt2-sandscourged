@@ -1,0 +1,143 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "cards": [
+        {
+            "id": "SpawnScarabSwarm",
+            "names": {
+                "english": "Scarab Swarm",
+                "chinese": "圣甲虫群"
+            },
+            "card_art": "@ScarabSwarm",
+            "cost": 1,
+            "card_type": "monster",
+            "rarity": "rare",
+            "class": "@ClassSandscourged",
+            "unlock_level": 10,
+            "targets_room": true,
+            "pools": [
+                "MegaPool"
+            ],
+            "effects": [
+                "@SpawnScarabSwarm"
+            ],
+            "lore_tooltips": [
+                {
+                    "english": "Where the Egos collect many minds in one body, the swarm divides one mind across many bodies, a manifestation of the Ur-Pharaoh's gluttony."
+                }
+            ]
+        }
+    ],
+    "characters": [
+        {
+            "id": "ScarabSwarm",
+            "size": 1,
+            "attack_damage": 3,
+            "health": 1,
+            "names": {
+                "english": "Scarab Swarm",
+                "chinese": "圣甲虫群"
+            },
+            "character_art": "@ScarabSwarmCharacterArt",
+            "subtypes": [
+                "@Sub_Scarab"
+            ],
+            "triggers": [
+                "@ScarabSwarmTrigger"
+            ]
+        }
+    ],
+    "character_triggers": [
+        {
+            "id": "ScarabSwarmTrigger",
+            "descriptions": {
+                "english": "Apply +[effect0.upgrade.bonusdamage][attack] and +[effect0.upgrade.bonushp][health] to friendly units. Add two [ephemeral] copies of this card to your hand.",
+                "chinese": "友方单位获得 +[effect0.upgrade.bonusdamage][attack]，+[effect0.upgrade.bonushp][health]。添加两张该单位带有[ephemeral]的复制体到你的手牌。"
+            },
+            "trigger": "on_death",
+            "effects": [
+                "@ScarabSwarmGiveStats",
+                "@ScarabSwarmAddCopy",
+                "@ScarabSwarmAddCopy"
+            ]
+        }
+    ],
+    "effects": [
+        {
+            "id": "SpawnScarabSwarm",
+            "name": "CardEffectSpawnMonster",
+            "target_mode": "room",
+            "param_character": "@ScarabSwarm"
+        },
+        {
+            "id": "ScarabSwarmGiveStats",
+            "name": "CardEffectAddTempCardUpgradeToUnits",
+            "target_mode": "room",
+            "target_team": "monsters",
+            "param_upgrade": "@ScarabThreeAttackThreeHealth"
+        },
+        {
+            "id": "ScarabSwarmAddCopy",
+            "name": "CardEffectAddUpgradedCopy",
+            "param_int": 3,
+            "copy_modifiers_from_source": true,
+            "ignore_temporary_modifiers_from_source": false,
+            "param_upgrade": "@ScarabSwarmEphemeralUpgrade"
+        }
+    ],
+    "upgrades": [
+        {
+            "id": "ScarabSwarmEphemeralUpgrade",
+            "trait_upgrades": [
+                "@ScarabSwarmEphemeralTrait"
+            ]
+        }
+    ],
+    "traits": [
+        {
+            "id": "ScarabSwarmEphemeralTrait",
+            "name": "CardTraitEphemeral"
+        }
+    ],
+    "sprites": [
+        {
+            "id": "ScarabSwarm",
+            "path": "textures/ScarabSwarmCardArt.png"
+        },
+        {
+            "id": "ScarabSwarmCharacterArt",
+            "path": "textures/ScarabSwarmCharacterArt.png"
+        }
+    ],
+    "game_objects": [
+        {
+            "id": "ScarabSwarm",
+            "type": "card_art",
+            "extensions": {
+                "card_art": {
+                    "sprite": "@ScarabSwarm"
+                }
+            }
+        },
+        {
+            "id": "ScarabSwarmCharacterArt",
+            "type": "character_art",
+            "extensions": {
+                "character_art": {
+                    "sprite": "@ScarabSwarmCharacterArt",
+                    "transform": {
+                        "position": {
+                            "x": 0,
+                            "y": 0.5,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 0.2,
+                            "y": 0.2,
+                            "z": 1
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}

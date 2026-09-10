@@ -1,0 +1,125 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "cards": [
+        {
+            "id": "SpawnTwistedHusk",
+            "names": {
+                "english": "Twisted Husk",
+                "chinese": "扭曲躯壳"
+            },
+            "lore_tooltips": [
+                {
+                    "english": "Absent of mind, but whole of body and soul, the Lost suffer in their masses. Their flesh warps and tears, and yet they cannot even think to scream."
+                }
+            ],
+            "card_art": "@TwistedHusk",
+            "cost": 1,
+            "card_type": "monster",
+            "rarity": "uncommon",
+            "class": "@ClassSandscourged",
+            "unlock_level": 0,
+            "targets_room": true,
+            "pools": [
+                "UnitsAllBanner"
+            ],
+            "effects": [
+                "@SpawnTwistedHusk"
+            ]
+        }
+    ],
+    "characters": [
+        {
+            "id": "TwistedHusk",
+            "size": 1,
+            "attack_damage": 7,
+            "health": 3,
+            "names": {
+                "english": "Twisted Husk",
+                "chinese": "扭曲躯壳"
+            },
+            "character_art": "@TwistedHuskCharacterArt",
+            "subtypes": [
+                "@Sub_Lost",
+                "SubtypesData_BannerUnit"
+            ],
+            "triggers": [
+                "@TwistedHuskIncantTrigger"
+            ]
+        }
+    ],
+    "character_triggers": [
+        {
+            "id": "TwistedHuskIncantTrigger",
+            "descriptions": {
+                "english": "Apply [mt2_sandscourged.Plugin_scourge] [effect0.status0.power] to enemy units.",
+                "chinese": "对所有敌方单位施加[mt2_sandscourged.Plugin_scourge] [effect0.status0.power]。"
+            },
+            "trigger": "card_spell_played",
+            "effects": [
+                "@TwistedHuskApplyScourge"
+            ]
+        }
+    ],
+    "effects": [
+        {
+            "id": "SpawnTwistedHusk",
+            "name": "CardEffectSpawnMonster",
+            "target_mode": "room",
+            "param_character": "@TwistedHusk"
+        },
+        {
+            "id": "TwistedHuskApplyScourge",
+            "name": "CardEffectAddStatusEffect",
+            "target_mode": "room",
+            "target_team": "heroes",
+            "param_status_effects": [
+                {
+                    "status": "@scourge",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "sprites": [
+        {
+            "id": "TwistedHusk",
+            "path": "textures/TwistedHuskCardArt.png"
+        },
+        {
+            "id": "TwistedHuskCharacterArt",
+            "path": "textures/TwistedHuskCharacterArt.png"
+        }
+    ],
+    "game_objects": [
+        {
+            "id": "TwistedHusk",
+            "type": "card_art",
+            "extensions": {
+                "card_art": {
+                    "sprite": "@TwistedHusk"
+                }
+            }
+        },
+        {
+            "id": "TwistedHuskCharacterArt",
+            "type": "character_art",
+            "extensions": {
+                "character_art": {
+                    "sprite": "@TwistedHuskCharacterArt",
+                    "transform": {
+                        "position": {
+                            "x": 0,
+                            "y": 0.9,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 0.4,
+                            "y": 0.4,
+                            "z": 1
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}

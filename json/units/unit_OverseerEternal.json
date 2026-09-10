@@ -1,0 +1,136 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "cards": [
+        {
+            "id": "SpawnOverseerEternal",
+            "names": {
+                "english": "Overseer Eternal",
+                "chinese": "不朽监督者"
+            },
+            "card_art": "@OverseerEternal",
+            "cost": 1,
+            "card_type": "monster",
+            "rarity": "uncommon",
+            "class": "@ClassSandscourged",
+            "targets_room": true,
+            "effects": [
+                "@SpawnOverseerEternal"
+            ],
+            "lore_tooltips": [
+                {
+                    "english": "Eternals are a class of Ego with myriad Lost minds bound to their own. They are forbidden from dying, and are permitted to use any means necessary to ensure their survival, for the sake of preserving the Lost within them."
+                }
+            ],
+            "pools": [
+                "UnitsAllBanner"
+            ]
+        }
+    ],
+    "characters": [
+        {
+            "id": "OverseerEternal",
+            "size": 2,
+            "attack_damage": 5,
+            "health": 25,
+            "names": {
+                "english": "Overseer Eternal",
+                "chinese": "不朽监督者"
+            },
+            "character_art": "@OverseerEternalCharacterArt",
+            "subtypes": [
+                "SubtypesData_BannerUnit",
+                "@Sub_Ego"
+            ],
+            "triggers": [
+                "@OverseerEternalTrigger"
+            ]
+        }
+    ],
+    "character_triggers": [
+        {
+            "id": "OverseerEternalTrigger",
+            "descriptions": {
+                "english": "Gain +[effect0.upgrade.bonusdamage][attack] and [lifesteal] [effect1.status0.power].",
+                "chinese": "获得 +[effect0.upgrade.bonusdamage][attack] 和[lifesteal] [effect1.status0.power]。"
+            },
+            "trigger": "on_any_unit_death_on_floor",
+            "effects": [
+                "@OverseerEternalGainAttack",
+                "@OverseerEternalGainLifesteal"
+            ]
+        }
+    ],
+    "effects": [
+        {
+            "id": "SpawnOverseerEternal",
+            "name": "CardEffectSpawnMonster",
+            "target_mode": "room",
+            "param_character": "@OverseerEternal"
+        },
+        {
+            "id": "OverseerEternalGainAttack",
+            "name": "CardEffectAddTempCardUpgradeToUnits",
+            "target_mode": "self",
+            "param_upgrade": "@OverseerEternalOneAttack"
+        },
+        {
+            "id": "OverseerEternalGainLifesteal",
+            "name": "CardEffectAddStatusEffect",
+            "target_mode": "self",
+            "param_status_effects": [
+                {
+                    "status": "lifesteal",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "upgrades": [
+        {
+            "id": "OverseerEternalOneAttack",
+            "bonus_damage": 1
+        }
+    ],
+    "sprites": [
+        {
+            "id": "OverseerEternal",
+            "path": "textures/OverseerEternalCardArt.png"
+        },
+        {
+            "id": "OverseerEternalCharacterArt",
+            "path": "textures/OverseerEternalCharacterArt.png"
+        }
+    ],
+    "game_objects": [
+        {
+            "id": "OverseerEternal",
+            "type": "card_art",
+            "extensions": {
+                "card_art": {
+                    "sprite": "@OverseerEternal"
+                }
+            }
+        },
+        {
+            "id": "OverseerEternalCharacterArt",
+            "type": "character_art",
+            "extensions": {
+                "character_art": {
+                    "sprite": "@OverseerEternalCharacterArt",
+                    "transform": {
+                        "position": {
+                            "x": 0.1,
+                            "y": 0.73,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 0.4,
+                            "y": 0.4,
+                            "z": 1
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}

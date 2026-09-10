@@ -1,0 +1,88 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "localization_terms": [
+        {
+            "key": "CardTraitRancorUpgrade_CurrentScaling_CardText",
+            "texts": {
+                "english": "<nobr><i>(+{0} [attack] and +{1} [health])</i></nobr>"
+            }
+        }
+    ],
+    "cards": [
+        {
+            "id": "Rancor",
+            "names": {
+                "english": "Rancor",
+                "chinese": "怨恨"
+            },
+            "descriptions": {
+                "english": "Apply [rage] [trait0.power] to friendly units for each card in your hand other than this one. Discard your hand.",
+                "chinese": "使所有友方单位获得[rage]，数值等同于其他手牌数量的 [trait0.power] 倍。<br>舍弃全部手牌。"
+            },
+            "lore_tooltips": [
+                {
+                    "english": "The Scourged do not forgive, and they most certainly do not forget."
+                }
+            ],
+            "rarity": "uncommon",
+            "class": "@ClassSandscourged",
+            "card_art": "@RancorArt",
+            "targets_room": true,
+            "targetless": true,
+            "pools": [
+                "MegaPool"
+            ],
+            "cost": 2,
+            "traits": [
+                "@RancorScaleRage"
+            ],
+            "effects": [
+                "@RancorApplyRage",
+                "@RancorDiscardHand"
+            ]
+        }
+    ],
+    "traits": [
+        {
+            "id": "RancorScaleRage",
+            "name": "@CardTraitScalingByHandCount",
+            "param_int": 2,
+            "param_int_2": 1
+        }
+    ],
+    "effects": [
+        {
+            "id": "RancorApplyRage",
+            "name": "CardEffectAddStatusEffect",
+            "target_mode": "room",
+            "target_team": "monsters",
+            "param_status_effects": [
+                {
+                    "status": "buff",
+                    "count": 1
+                }
+            ]
+        },
+        {
+            "id": "RancorDiscardHand",
+            "name": "CardEffectDiscardHand"
+        }
+    ],
+    "sprites": [
+        {
+            "id": "RancorArt",
+            "path": "textures/RancorArt.png"
+        }
+    ],
+    "game_objects": [
+        {
+            "id": "RancorArt",
+            "type": "card_art",
+            "extensions": {
+                "card_art": {
+                    "sprite": "@RancorArt"
+                }
+            }
+        }
+    ]
+}

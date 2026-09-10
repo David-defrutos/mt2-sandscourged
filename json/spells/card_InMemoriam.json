@@ -1,0 +1,91 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "cards": [
+        {
+            "id": "InMemoriam",
+            "names": {
+                "english": "In Memoriam",
+                "chinese": "悼念"
+            },
+            "descriptions": {
+                "english": "Apply [mt2_sandscourged.Plugin_scourge] [effect1.status0.power] and [mute] [effect2.status0.power] to enemy units.<br>Draw +[effect3.power] next turn.",
+                "chinese": "对所有敌方单位施加[mt2_sandscourged.Plugin_scourge] [effect1.status0.power] 和[mute] [effect2.status0.power]。<br>下个回合抽 +[effect3.power] 张牌。"
+            },
+            "lore_tooltips": [
+                {
+                    "english": "Every day at dusk, the Scourged gather in ritual silence to honor those they have lost to the desert's embrace. Through solemn remembrance, they find strength to continue their journey."
+                }
+            ],
+            "rarity": "common",
+            "class": "@ClassSandscourged",
+            "card_art": "@InMemoriamArt",
+            "targets_room": true,
+            "targetless": false,
+            "card_type": "spell",
+            "pools": [
+                "MegaPool"
+            ],
+            "cost": 1,
+            "effects": [
+                "@InMemoriamSacrifice",
+                "@InMemoriamApplyScourge",
+                "@InMemoriamApplyMute",
+                "@InMemoriamDraw"
+            ]
+        }
+    ],
+    "effects": [
+        {
+            "id": "InMemoriamSacrifice",
+            "name": "CardEffectSacrifice",
+            "target_mode": "drop_target_character",
+            "target_team": "monsters"
+        },
+        {
+            "id": "InMemoriamApplyScourge",
+            "name": "CardEffectAddStatusEffect",
+            "target_mode": "room",
+            "target_team": "heroes",
+            "param_status_effects": [
+                {
+                    "status": "@scourge",
+                    "count": 5
+                }
+            ]
+        },
+        {
+            "id": "InMemoriamApplyMute",
+            "name": "CardEffectAddStatusEffect",
+            "target_mode": "room",
+            "target_team": "heroes",
+            "param_status_effects": [
+                {
+                    "status": "muted",
+                    "count": 1
+                }
+            ]
+        },
+        {
+            "id": "InMemoriamDraw",
+            "name": "CardEffectDrawAdditionalNextTurn",
+            "param_int": 1
+        }
+    ],
+    "sprites": [
+        {
+            "id": "InMemoriamArt",
+            "path": "textures/InMemoriamArt.png"
+        }
+    ],
+    "game_objects": [
+        {
+            "id": "InMemoriamArt",
+            "type": "card_art",
+            "extensions": {
+                "card_art": {
+                    "sprite": "@InMemoriamArt"
+                }
+            }
+        }
+    ]
+}

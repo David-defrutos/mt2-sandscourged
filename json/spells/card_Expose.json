@@ -1,0 +1,90 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "cards": [
+        {
+            "id": "Expose",
+            "names": {
+                "english": "Expose",
+                "chinese": "暴露"
+            },
+            "descriptions": {
+                "english": "Apply [sap] [effect0.status0.power], [meleeweakness] [effect1.status0.power], and [spellweakness] [effect2.status0.power].",
+                "chinese": "施加[sap] [effect0.status0.power]，[meleeweakness] [effect1.status0.power] 和[spellweakness] [effect2.status0.power]。"
+            },
+            "lore_tooltips": [
+                {
+                    "english": "In the time before Heaven and Hell, there was a curious child. One day the child made a friend, but when the child's father shone his light upon the friend, its terrible true form was revealed. The child became frightened, and so the father hid the child's friend away, never to be seen again."
+                }
+            ],
+            "rarity": "uncommon",
+            "class": "@ClassSandscourged",
+            "card_art": "@ExposeArt",
+            "targets_room": true,
+            "targetless": false,
+            "pools": [
+                "MegaPool"
+            ],
+            "cost": 1,
+            "effects": [
+                "@ExposeApplySap",
+                "@ExposeApplyMeleeWeakness",
+                "@ExposeApplySpellWeakness"
+            ]
+        }
+    ],
+    "effects": [
+        {
+            "id": "ExposeApplySap",
+            "name": "CardEffectAddStatusEffect",
+            "target_mode": "drop_target_character",
+            "target_team": "both",
+            "param_status_effects": [
+                {
+                    "status": "debuff",
+                    "count": 1
+                }
+            ]
+        },
+        {
+            "id": "ExposeApplyMeleeWeakness",
+            "name": "CardEffectAddStatusEffect",
+            "target_mode": "last_targeted_characters",
+            "target_team": "both",
+            "param_status_effects": [
+                {
+                    "status": "melee weakness",
+                    "count": 1
+                }
+            ]
+        },
+        {
+            "id": "ExposeApplySpellWeakness",
+            "name": "CardEffectAddStatusEffect",
+            "target_mode": "last_targeted_characters",
+            "target_team": "both",
+            "param_status_effects": [
+                {
+                    "status": "spell weakness",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "sprites": [
+        {
+            "id": "ExposeArt",
+            "path": "textures/ExposeArt.png"
+        }
+    ],
+    "game_objects": [
+        {
+            "id": "ExposeArt",
+            "type": "card_art",
+            "extensions": {
+                "card_art": {
+                    "sprite": "@ExposeArt"
+                }
+            }
+        }
+    ]
+}

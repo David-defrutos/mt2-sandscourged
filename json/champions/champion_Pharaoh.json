@@ -1,0 +1,902 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/schemas/cards.json",
+    "cards": [
+        {
+            "id": "SpawnPharaoh",
+            "names": {
+                "english": "Ur-Pharaoh",
+                "chinese": "乌尔法老"
+            },
+            "card_art": "@Pharaoh",
+            "cost": 0,
+            "card_type": "monster",
+            "rarity": "champion",
+            "class": "@ClassSandscourged",
+            "targets_room": true,
+            "targetless": false,
+            "effects": [
+                "@SpawnPharaoh"
+            ],
+            "initial_upgrades": [
+                {
+                    "id": "@PharaohInitialUpgrade"
+                }
+            ],
+            "lore_tooltips": [
+                {
+                    "english": "Deep within Limbo, hidden away within Oblivion, the Ur-Pharaoh rules over the Sandscourged, as both king and god. None know why the Ur-Pharaoh was confined to Oblivion, but the creature seems to predate even Heaven itself."
+                }
+            ]
+        },
+        {
+            "id": "SwarmLord1Ability",
+            "names": {
+                "english": "Swarm",
+                "chinese": "虫群之力"
+            },
+            "descriptions": {
+                "english": "Apply +[effect1.upgrade.bonusdamage][attack] and +[effect1.upgrade.bonushp][health] to friendly units and [mt2_sandscourged.Plugin_scourge] [effect2.status0.power] per [soul] to enemy units.",
+                "chinese": "友方单位获得 +[effect1.upgrade.bonusdamage][attack]，+[effect1.upgrade.bonushp][health]。对敌方单位施加[mt2_sandscourged.Plugin_scourge]，层数相当于[effect2.status0.power]x [soul]。"
+            },
+            "card_art": "@Pharaoh",
+            "is_an_ability": true,
+            "cooldown": 1,
+            "targetless": false,
+            "targets_room": true,
+            "card_type": "spell",
+            "effects": [
+                "@SwarmLordSacrificeScarab",
+                "@SwarmLord1GiveStats",
+                "@SwarmLord1ApplyScourge"
+            ]
+        },
+        {
+            "id": "SwarmLord2Ability",
+            "names": {
+                "english": "Swarm II",
+                "chinese": "虫群之力 II"
+            },
+            "descriptions": {
+                "english": "Apply +[effect1.upgrade.bonusdamage][attack] and +[effect1.upgrade.bonushp][health] to friendly units and [mt2_sandscourged.Plugin_scourge] [effect2.status0.power] per [soul] to enemy units.",
+                "chinese": "友方单位获得 +[effect1.upgrade.bonusdamage][attack]，+[effect1.upgrade.bonushp][health]。对敌方单位施加[mt2_sandscourged.Plugin_scourge]，层数相当于[effect2.status0.power]x [soul]。"
+            },
+            "card_art": "@Pharaoh",
+            "is_an_ability": true,
+            "cooldown": 1,
+            "targetless": false,
+            "targets_room": true,
+            "card_type": "spell",
+            "effects": [
+                "@SwarmLordSacrificeScarab",
+                "@SwarmLord2GiveStats",
+                "@SwarmLord2ApplyScourge"
+            ]
+        },
+        {
+            "id": "SwarmLord3Ability",
+            "names": {
+                "english": "Swarm III",
+                "chinese": "虫群之力 III"
+            },
+            "descriptions": {
+                "english": "Apply +[effect1.upgrade.bonusdamage][attack] and +[effect1.upgrade.bonushp][health] to friendly units and [mt2_sandscourged.Plugin_scourge] [effect2.status0.power] per [soul] to enemy units.",
+                "chinese": "友方单位获得 +[effect1.upgrade.bonusdamage][attack]，+[effect1.upgrade.bonushp][health]。对敌方单位施加[mt2_sandscourged.Plugin_scourge]，层数相当于[effect2.status0.power]x [soul]。"
+            },
+            "card_art": "@Pharaoh",
+            "is_an_ability": true,
+            "cooldown": 1,
+            "targetless": false,
+            "targets_room": true,
+            "card_type": "spell",
+            "effects": [
+                "@SwarmLordSacrificeScarab",
+                "@SwarmLord3GiveStats",
+                "@SwarmLord3ApplyScourge"
+            ]
+        }
+    ],
+    "characters": [
+        {
+            "id": "Pharaoh",
+            "names": {
+                "english": "Ur-Pharaoh",
+                "chinese": "乌尔法老"
+            },
+            "character_art": "@PharaohCharacterArt",
+            "chatter": "@CTR_Pharaoh",
+            "size": 2,
+            "attack_damage": 15,
+            "health": 15,
+            "death_type": "large",
+            "subtypes": [
+                "SubtypesData_Champion_83f21cbe-9d9b-4566-a2c3-ca559ab8ff34"
+            ]
+        }
+    ],
+    "upgrades": [
+        {
+            "id": "PharaohInitialUpgrade",
+            "titles": {
+                "english": "Pharaoh"
+            },
+            "descriptions": {
+                "english": "initial upgrade yo"
+            },
+            "trigger_upgrades": [
+                "@PharaohHarvest"
+            ]
+        },
+        {
+            "id": "Pharaoh1HarvestSoulUprade",
+            "bonus_damage": 1
+        },
+        {
+            "id": "Pharaoh2HarvestSoulUprade",
+            "bonus_damage": 2
+        },
+        {
+            "id": "Pharaoh3HarvestSoulUprade",
+            "bonus_damage": 3
+        },        
+        {
+            "id": "upg_SwarmLord1",
+            "titles": {
+                "english": "Swarm Lord",
+                "chinese": "虫群领主"
+            },
+            "descriptions": {
+                "english": "Why do i need this"
+            },
+            "bonus_damage": 0,
+            "bonus_hp": 0,
+            "ability_upgrade": "@SwarmLord1Ability"
+        },
+        {
+            "id": "upg_SwarmLord2",
+            "titles": {
+                "english": "Swarm Lord II",
+                "chinese": "虫群领主 II"
+            },
+            "descriptions": {
+                "english": "Do I really need this"
+            },
+            "bonus_damage": 5,
+            "bonus_hp": 5,
+            "ability_upgrade": "@SwarmLord2Ability"
+        },
+        {
+            "id": "upg_SwarmLord3",
+            "titles": {
+                "english": "Swarm Lord III",
+                "chinese": "虫群领主 III"
+            },
+            "descriptions": {
+                "english": "Still not sure I need this"
+            },
+            "bonus_damage": 15,
+            "bonus_hp": 15,
+            "ability_upgrade": "@SwarmLord3Ability"
+        },
+        {
+            "id": "SwarmLord1Buff",
+            "bonus_damage": 3,
+            "bonus_hp": 1
+        },
+        {
+            "id": "SwarmLord2Buff",
+            "bonus_damage": 6,
+            "bonus_hp": 2
+        },
+        {
+            "id": "SwarmLord3Buff",
+            "bonus_damage": 9,
+            "bonus_hp": 3
+        },
+        {
+            "id": "upg_Pearlescent1",
+            "titles": {
+                "english": "Pearlescent",
+                "chinese": "珍珠光泽"
+            },
+            "descriptions": {
+                "english": "wow its pearls"
+            },
+            "remove_upgrades": [
+                "@PharaohInitialUpgrade"
+            ],
+            "bonus_damage": 10,
+            "bonus_hp": 10,
+            "bonus_size": 0,
+            "status_effect_upgrades": [
+                {
+                    "status": "trample",
+                    "count": 1
+                }
+            ],
+            "trigger_upgrades": [
+                "@Pearlescent1Trigger"
+            ]
+        },
+        {
+            "id": "upg_Pearlescent2",
+            "titles": {
+                "english": "Pearlescent II",
+                "chinese": "珍珠光泽 II"
+            },
+            "descriptions": {
+                "english": "wow its still pearls"
+            },
+            "remove_upgrades": [
+                "@PharaohInitialUpgrade"
+            ],
+            "bonus_damage": 30,
+            "bonus_hp": 30,
+            "bonus_size": 0,
+            "status_effect_upgrades": [
+                {
+                    "status": "trample",
+                    "count": 1
+                }
+            ],
+            "trigger_upgrades": [
+                "@Pearlescent2Trigger"
+            ]
+        },
+        {
+            "id": "upg_Pearlescent3",
+            "titles": {
+                "english": "Pearlescent III",
+                "chinese": "珍珠光泽 III"
+            },
+            "descriptions": {
+                "english": "I guess we doing pearls now"
+            },
+            "remove_upgrades": [
+                "@PharaohInitialUpgrade"
+            ],
+            "bonus_damage": 65,
+            "bonus_hp": 65,
+            "bonus_size": 0,
+            "status_effect_upgrades": [
+                {
+                    "status": "trample",
+                    "count": 1
+                }
+            ],
+            "trigger_upgrades": [
+                "@Pearlescent3Trigger"
+            ]
+        },
+        {
+            "id": "Pearlescent1Bonus",
+            "bonus_damage": 10,
+            "bonus_hp": 12
+        },
+        {
+            "id": "Pearlescent2Bonus",
+            "bonus_damage": 12,
+            "bonus_hp": 14
+        },
+        {
+            "id": "Pearlescent3Bonus",
+            "bonus_damage": 14,
+            "bonus_hp": 16
+        },
+        {
+            "id": "upg_SoulTender1",
+            "titles": {
+                "english": "Soulmonger",
+                "chinese": "灵魂商贩"
+            },
+            "descriptions": {
+                "english": "what a tender soul"
+            },
+            "bonus_damage": 0,
+            "bonus_hp": 15,
+            "trigger_upgrades": [
+                "@SoulTender1Trigger"
+            ]
+        },
+        {
+            "id": "upg_SoulTender2",
+            "titles": {
+                "english": "Soulmonger II",
+                "chinese": "灵魂商贩 II"
+            },
+            "descriptions": {
+                "english": "what a tenderer soul"
+            },
+            "bonus_damage": 15,
+            "bonus_hp": 15,
+            "trigger_upgrades": [
+                "@SoulTender2Trigger"
+            ]
+        },
+        {
+            "id": "upg_SoulTender3",
+            "titles": {
+                "english": "Soulmonger III",
+                "chinese": "灵魂商贩 III"
+            },
+            "descriptions": {
+                "english": "what a tenderist soul"
+            },
+            "bonus_damage": 30,
+            "bonus_hp": 30,
+            "trigger_upgrades": [
+                "@SoulTender3Trigger"
+            ]
+        },
+        {
+            "id": "SoulTender1DeadUpgrade",
+            "bonus_damage": 12
+        },
+        {
+            "id": "SoulTender2DeadUpgrade",
+            "bonus_damage": 25
+        },
+        {
+            "id": "SoulTender3DeadUpgrade",
+            "bonus_damage": 25,
+            "status_effect_upgrades": [
+                {
+                    "status": "undying",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "character_triggers": [
+        {
+            "id": "PharaohHarvest",
+            "descriptions": {
+                "english": "Gain [soul] [effect0.status0.power].",
+                "chinese": "获得[soul] [effect0.status0.power]。"
+            },
+            "trigger": "on_any_unit_death_on_floor",
+            "effects": [
+                "@PharaohGainSoul"
+            ]
+        },
+        {
+            "id": "SwarmLord1Trigger",
+            "descriptions": {
+                "english": "Apply [mt2_sandscourged.Plugin_scourge] [effect0.status0.power_unmodified] per [soul] to the attacked unit."
+            },
+            "trigger": "on_attacking",
+            "effects": [
+                "@SwarmLord1ApplyScourge"
+            ]
+        },
+        {
+            "id": "SwarmLord2Trigger",
+            "descriptions": {
+                "english": "Apply [mt2_sandscourged.Plugin_scourge] [effect0.status0.power_unmodified] per [soul] to the attacked unit."
+            },
+            "trigger": "on_attacking",
+            "effects": [
+                "@SwarmLord2ApplyScourge"
+            ]
+        },
+        {
+            "id": "SwarmLord3Trigger",
+            "descriptions": {
+                "english": "Apply [mt2_sandscourged.Plugin_scourge] [effect0.status0.power_unmodified] per [soul] to the attacked unit."
+            },
+            "trigger": "on_attacking",
+            "effects": [
+                "@SwarmLord3ApplyScourge"
+            ]
+        },
+        {
+            "id": "Pearlescent1Trigger",
+            "descriptions": {
+                "english": "Gain [soul] [effect0.status0.power]. Spend [effect1.status0.power_unmodified] [soul] stacks to gain +[effect3.upgrade.bonusdamage][attack], +[effect3.upgrade.bonushp][health] and +[effect4.upgrade.bonusdamage][attack] permanently."
+            },
+            "trigger": "on_any_unit_death_on_floor",
+            "effects": [
+                "@PharaohGainSoul",
+                "@Pearlescent1CheckSoul",
+                "@Pearlescent1RemoveSoul",
+                "@Pearlescent1Buff",
+                "@Pharaoh1GainStats"                
+            ]
+        },
+        {
+            "id": "Pearlescent2Trigger",
+            "descriptions": {
+                "english": "Gain [soul] [effect0.status0.power]. Spend [effect1.status0.power_unmodified] [soul] stacks to gain +[effect3.upgrade.bonusdamage][attack], +[effect3.upgrade.bonushp][health], +[effect5.upgrade.bonusdamage][attack] permanently and [lifesteal] [effect4.status0.power]."
+            },
+            "trigger": "on_any_unit_death_on_floor",
+            "effects": [
+                "@PharaohGainSoul",
+                "@Pearlescent2CheckSoul",
+                "@Pearlescent2RemoveSoul",
+                "@Pearlescent2Buff",
+                "@Pearlescent2AddLifesteal",
+                "@Pharaoh2GainStats"
+            ]
+        },
+        {
+            "id": "Pearlescent3Trigger",
+            "descriptions": {
+                "english": "Gain [soul] [effect0.status0.power]. Spend [effect1.status0.power_unmodified] [soul] stacks to gain +[effect3.upgrade.bonusdamage][attack], +[effect3.upgrade.bonushp][health], +[effect5.upgrade.bonusdamage][attack] permanently and [lifesteal] [effect4.status0.power]."
+            },
+            "trigger": "on_any_unit_death_on_floor",
+            "effects": [
+                "@PharaohGainSoul",
+                "@Pearlescent3CheckSoul",
+                "@Pearlescent3RemoveSoul",
+                "@Pearlescent3Buff",
+                "@Pearlescent3AddLifesteal",
+                "@Pharaoh3GainStats"
+            ]
+        },
+        {
+            "id": "SoulTender1Trigger",
+            "descriptions": {
+                "english": "Spend [effect0.status0.power_unmodified] [soul] stacks to give dead friendly units +[effect2.upgrade.bonusdamage][attack] permanently."
+            },
+            "trigger": "on_encounter_complete",
+            "effects": [
+                "@SoulTender1CheckSouls",
+                "@SoulTender1RemoveSouls",
+                "@SoulTender1AddUpgrade"
+            ]
+        },
+        {
+            "id": "SoulTender2Trigger",
+            "descriptions": {
+                "english": "Spend [effect0.status0.power_unmodified] [soul] stacks to give dead friendly units +[effect2.upgrade.bonusdamage][attack] permanently.",
+                "chinese": "如果有[soul] [effect0.status0.power_unmodified]，则将其花费并使阵亡友方单位永久获得 +[effect2.upgrade.bonusdamage][attack]。"
+            },
+            "trigger": "on_encounter_complete",
+            "effects": [
+                "@SoulTender2CheckSouls",
+                "@SoulTender2RemoveSouls",
+                "@SoulTender2AddUpgrade"
+            ]
+        },
+        {
+            "id": "SoulTender3Trigger",
+            "descriptions": {
+                "english": "Spend [effect0.status0.power_unmodified] [soul] stacks to give dead friendly units +[effect2.upgrade.bonusdamage][attack] and [undying] [effect2.upgrade.status0.power] permanently.",
+                "chinese": "如果有[soul] [effect0.status0.power_unmodified]，则将其花费并使阵亡友方单位永久获得 +[effect2.upgrade.bonusdamage][attack] 和[undying] [effect2.upgrade.status0.power]。"
+            },
+            "trigger": "on_encounter_complete",
+            "effects": [
+                "@SoulTender3CheckSouls",
+                "@SoulTender3RemoveSouls",
+                "@SoulTender3AddUpgrade"
+            ]
+        }
+    ],
+    "effects": [
+        {
+            "id": "SpawnPharaoh",
+            "name": "CardEffectSpawnMonster",
+            "target_mode": "room",
+            "target_card_type": "spell",
+            "param_character": "@Pharaoh"
+        },
+        {
+            "id": "PharaohGainSoul",
+            "name": "CardEffectAddStatusEffect",
+            "target_mode": "self",
+            "param_status_effects": [
+                {
+                    "status": "captured_soul",
+                    "count": 1
+                }
+            ]
+        },
+        {
+            "id": "Pharaoh1GainStats",
+            "name": "CardEffectAddCardUpgradeToUnits",
+            "target_mode": "self",
+            "param_upgrade": "@Pharaoh1HarvestSoulUprade",
+            "param_bool": true,
+            "param_int": 0,
+            "param_int_2": 1,
+            "param_int_3": 2
+        },
+        {
+            "id": "Pharaoh2GainStats",
+            "name": "CardEffectAddCardUpgradeToUnits",
+            "target_mode": "self",
+            "param_upgrade": "@Pharaoh2HarvestSoulUprade",
+            "param_bool": true,
+            "param_int": 0,
+            "param_int_2": 1,
+            "param_int_3": 2
+        },
+        {
+            "id": "Pharaoh3GainStats",
+            "name": "CardEffectAddCardUpgradeToUnits",
+            "target_mode": "self",
+            "param_upgrade": "@Pharaoh3HarvestSoulUprade",
+            "param_bool": true,
+            "param_int": 0,
+            "param_int_2": 1,
+            "param_int_3": 2
+        },
+        {
+            "id": "Pearlescent1CheckSoul",
+            "name": {
+                "id": "@CardEffectRequireStatusThreshold",
+                "mod_reference": "Conductor"
+            },
+            "target_mode": "self",
+            "should_test": true,
+            "should_cancel_subsequent_effects_if_test_fails": true,
+            "param_bool": true,
+            "param_status_effects": [
+                {
+                    "status": "captured_soul",
+                    "count": 4
+                }
+            ]
+        },
+        {
+            "id": "Pearlescent2CheckSoul",
+            "name": {
+                "id": "@CardEffectRequireStatusThreshold",
+                "mod_reference": "Conductor"
+            },
+            "target_mode": "self",
+            "should_test": true,
+            "should_cancel_subsequent_effects_if_test_fails": true,
+            "param_bool": true,
+            "param_status_effects": [
+                {
+                    "status": "captured_soul",
+                    "count": 5
+                }
+            ]
+        },
+        {
+            "id": "Pearlescent3CheckSoul",
+            "name": {
+                "id": "@CardEffectRequireStatusThreshold",
+                "mod_reference": "Conductor"
+            },
+            "target_mode": "self",
+            "should_test": true,
+            "should_cancel_subsequent_effects_if_test_fails": true,
+            "param_bool": true,
+            "param_status_effects": [
+                {
+                    "status": "captured_soul",
+                    "count": 6
+                }
+            ]
+        },
+        {
+            "id": "Pearlescent1RemoveSoul",
+            "name": "CardEffectRemoveStatusEffect",
+            "target_mode": "self",
+            "param_status_effects": [
+                {
+                    "status": "captured_soul",
+                    "count": 4
+                }
+            ]
+        },
+        {
+            "id": "Pearlescent2RemoveSoul",
+            "name": "CardEffectRemoveStatusEffect",
+            "target_mode": "self",
+            "param_status_effects": [
+                {
+                    "status": "captured_soul",
+                    "count": 5
+                }
+            ]
+        },
+        {
+            "id": "Pearlescent3RemoveSoul",
+            "name": "CardEffectRemoveStatusEffect",
+            "target_mode": "self",
+            "param_status_effects": [
+                {
+                    "status": "captured_soul",
+                    "count": 6
+                }
+            ]
+        },
+        {
+            "id": "Pearlescent1Buff",
+            "name": "CardEffectAddTempCardUpgradeToUnits",
+            "target_mode": "self",
+            "param_upgrade": "@Pearlescent1Bonus"
+        },
+        {
+            "id": "Pearlescent2Buff",
+            "name": "CardEffectAddTempCardUpgradeToUnits",
+            "target_mode": "self",
+            "param_upgrade": "@Pearlescent2Bonus"
+        },
+        {
+            "id": "Pearlescent3Buff",
+            "name": "CardEffectAddTempCardUpgradeToUnits",
+            "target_mode": "self",
+            "param_upgrade": "@Pearlescent3Bonus"
+        },
+        {
+            "id": "Pearlescent2AddLifesteal",
+            "name": "CardEffectAddStatusEffect",
+            "target_mode": "self",
+            "param_status_effects": [
+                {
+                    "status": "lifesteal",
+                    "count": 1
+                }
+            ]
+        },
+        {
+            "id": "Pearlescent3AddLifesteal",
+            "name": "CardEffectAddStatusEffect",
+            "target_mode": "self",
+            "param_status_effects": [
+                {
+                    "status": "lifesteal",
+                    "count": 2
+                }
+            ]
+        },
+        {
+            "id": "SoulTender1CheckSouls",
+            "name": {
+                "id": "@CardEffectRequireStatusThreshold",
+                "mod_reference": "Conductor"
+            },
+            "target_mode": "self",
+            "should_test": true,
+            "should_cancel_subsequent_effects_if_test_fails": true,
+            "param_bool": true,
+            "param_status_effects": [
+                {
+                    "status": "captured_soul",
+                    "count": 4
+                }
+            ]
+        },
+        {
+            "id": "SoulTender2CheckSouls",
+            "name": {
+                "id": "@CardEffectRequireStatusThreshold",
+                "mod_reference": "Conductor"
+            },
+            "target_mode": "self",
+            "should_test": true,
+            "should_cancel_subsequent_effects_if_test_fails": true,
+            "param_bool": true,
+            "param_status_effects": [
+                {
+                    "status": "captured_soul",
+                    "count": 8
+                }
+            ]
+        },
+        {
+            "id": "SoulTender3CheckSouls",
+            "name": {
+                "id": "@CardEffectRequireStatusThreshold",
+                "mod_reference": "Conductor"
+            },
+            "target_mode": "self",
+            "should_test": true,
+            "should_cancel_subsequent_effects_if_test_fails": true,
+            "param_bool": true,
+            "param_status_effects": [
+                {
+                    "status": "captured_soul",
+                    "count": 12
+                }
+            ]
+        },
+        {
+            "id": "SoulTender1RemoveSouls",
+            "name": "CardEffectRemoveStatusEffect",
+            "target_mode": "self",
+            "param_status_effects": [
+                {
+                    "status": "captured_soul",
+                    "count": 4
+                }
+            ]
+        },
+        {
+            "id": "SoulTender2RemoveSouls",
+            "name": "CardEffectRemoveStatusEffect",
+            "target_mode": "self",
+            "param_status_effects": [
+                {
+                    "status": "captured_soul",
+                    "count": 8
+                }
+            ]
+        },
+        {
+            "id": "SoulTender3RemoveSouls",
+            "name": "CardEffectRemoveStatusEffect",
+            "target_mode": "self",
+            "param_status_effects": [
+                {
+                    "status": "captured_soul",
+                    "count": 12
+                }
+            ]
+        },
+        {
+            "id": "SoulTender1AddUpgrade",
+            "name": "@CardEffectAddUpgradeToDeadUnits",
+            "target_team": "monsters",
+            "param_upgrade": "@SoulTender1DeadUpgrade",
+            "param_int": 2
+        },
+        {
+            "id": "SoulTender2AddUpgrade",
+            "name": "@CardEffectAddUpgradeToDeadUnits",
+            "target_team": "monsters",
+            "param_upgrade": "@SoulTender2DeadUpgrade",
+            "param_int": 2
+        },
+        {
+            "id": "SoulTender3AddUpgrade",
+            "name": "@CardEffectAddUpgradeToDeadUnits",
+            "target_team": "monsters",
+            "param_upgrade": "@SoulTender3DeadUpgrade",
+            "param_int": 2
+        },
+        {
+            "id": "SwarmLordSacrificeScarab",
+            "name": "CardEffectSacrifice",
+            "target_mode": "drop_target_character",
+            "target_team": "monsters",
+            "param_subtype": "@Sub_Scarab"
+        },
+        {
+            "id": "SwarmLord1GiveStats",
+            "name": "CardEffectAddTempCardUpgradeToUnits",
+            "target_mode": "room",
+            "target_team": "monsters",
+            "param_upgrade": "@SwarmLord1Buff"
+        },
+        {
+            "id": "SwarmLord2GiveStats",
+            "name": "CardEffectAddTempCardUpgradeToUnits",
+            "target_mode": "room",
+            "target_team": "monsters",
+            "param_upgrade": "@SwarmLord2Buff"
+        },
+        {
+            "id": "SwarmLord3GiveStats",
+            "name": "CardEffectAddTempCardUpgradeToUnits",
+            "target_mode": "room",
+            "target_team": "monsters",
+            "param_upgrade": "@SwarmLord3Buff"
+        },
+        {
+            "id": "SwarmLord1ApplyScourge",
+            "name": "CardEffectAddStatusEffect",
+            "target_mode": "room",
+            "target_team": "heroes",
+            "use_status_effect_multiplier": true,
+            "status_effect_multiplier": "captured_soul",
+            "param_status_effects": [
+                {
+                    "status": "@scourge",
+                    "count": 1
+                }
+            ]
+        },
+        {
+            "id": "SwarmLord2ApplyScourge",
+            "name": "CardEffectAddStatusEffect",
+            "target_mode": "room",
+            "target_team": "heroes",
+            "use_status_effect_multiplier": true,
+            "status_effect_multiplier": "captured_soul",
+            "param_status_effects": [
+                {
+                    "status": "@scourge",
+                    "count": 2
+                }
+            ]
+        },
+        {
+            "id": "SwarmLord3ApplyScourge",
+            "name": "CardEffectAddStatusEffect",
+            "target_mode": "room",
+            "target_team": "heroes",
+            "use_status_effect_multiplier": true,
+            "status_effect_multiplier": "captured_soul",
+            "param_status_effects": [
+                {
+                    "status": "@scourge",
+                    "count": 3
+                }
+            ]
+        }
+    ],
+    "sprites": [
+        {
+            "id": "Pharaoh",
+            "path": "textures/PharaohCardArt.png"
+        },
+        {
+            "id": "PharaohCharacterArt",
+            "path": "textures/PharaohCharacterArt.png"
+        }
+    ],
+    "game_objects": [
+        {
+            "id": "Pharaoh",
+            "type": "card_art",
+            "extensions": {
+                "card_art": {
+                    "sprite": "@Pharaoh"
+                }
+            }
+        },
+        {
+            "id": "PharaohCharacterArt",
+            "type": "character_art",
+            "extensions": {
+                "character_art": {
+                    "sprite": "@PharaohCharacterArt",
+                    "transform": {
+                        "position": {
+                            "x": 0,
+                            "y": 1,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 1,
+                            "y": 1,
+                            "z": 1
+                        }
+                    }
+                }
+            }
+        }
+    ],
+    "chatter": [
+        {
+            "id": "CTR_Pharaoh",
+            "gender": "male",
+            "added_expressions": [
+                {
+                    "english": "You too shall worship me."
+                },
+                {
+                    "english": "Your souls are mine."
+                },
+                {
+                    "english": "Tell the Father of my return. Let him tremble."
+                }
+            ],
+            "idle_expressions": [
+                {
+                    "english": "What is this place?"
+                },
+                {
+                    "english": "*Chittering*"
+                },
+                {
+                    "english": "Why do you look so strange?"
+                },
+                {
+                    "english": "My subjects pray for revenge..."
+                },
+                {
+                    "english": "The pearl shall grow grander still."
+                },
+                {
+                    "english": "Where is the Child?"
+                }
+            ]
+        }
+    ]
+}

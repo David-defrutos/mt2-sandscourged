@@ -1,0 +1,62 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "relics": [
+        {
+            "id": "EvokingFlute",
+            "type": "collectable",
+            "names": {
+                "english": "Evoking Flute",
+                "chinese": "回忆长笛"
+            },
+            "descriptions": {
+                "english": "Scarabs enter with [undying] [effect0.status0.power].",
+                "chinese": "圣甲虫单位在[summon]时获得[undying] [effect0.status0.power]。"
+            },
+            "lore_tooltips": [
+                {
+                    "english": "Strange melodies drift across the desert winds, played upon flutes of fused stone and tarnished gold. The tune wakes the Ur-Pharaoh's progeny from their subterranean slumber."
+                }
+            ],
+            "disallow_in_deployment": false,
+            "lore_style": "herzal",
+            "relic_effects": [
+                "@EvokingFluteRelicEffectScarab"
+            ],
+            "icon": "@EvokingFluteIcon",
+            "icon_small": "@EvokingFluteIcon",
+            "extensions": [
+                {
+                    "collectable": {
+                        "class": "@ClassSandscourged",
+                        "pools": [
+                            "MegaRelicPool"
+                        ],
+                        "rarity": "uncommon",
+                        "unlock_level": 0
+                    }
+                }
+            ]
+        }
+    ],
+    "relic_effects": [
+        {
+            "id": "EvokingFluteRelicEffectScarab",
+            "name": "RelicEffectAddStatusEffectOnSpawn",
+            "source_team": "monsters",
+            "param_subtype": "@Sub_Scarab",
+            "param_bool": false,
+            "param_status_effects": [
+                {
+                    "status": "undying",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "sprites": [
+        {
+            "id": "EvokingFluteIcon",
+            "path": "textures/EvokingFluteArt.png"
+        }
+    ]
+}

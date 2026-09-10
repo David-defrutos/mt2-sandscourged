@@ -1,0 +1,94 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "cards": [
+        {
+            "id": "PearlTap",
+            "names": {
+                "english": "Pearl Tap",
+                "chinese": "珍珠植入"
+            },
+            "lore_tooltips": [
+                {
+                    "english": "The Ur-Pharaoh has instructed the Scourged in a process known as \"pearl tapping\". Dark pearls are embedded into an unfortunate host. When the host inhales the sands of Oblivion, they are absorbed into the body and eventually secreted onto the pearl - enlarging it. Such pearls are used to power the Egos' terrible magic, but the process seems a needlessly tortuous ordeal."
+                }
+            ],
+            "card_type": "equipment",
+            "rarity": "uncommon",
+            "class": "@ClassSandscourged",
+            "unlock_level": 4,
+            "card_art": "@PearlTapArt",
+            "targets_room": true,
+            "targetless": false,
+            "pools": [
+                "MegaPool",
+                "RoomAndEquipmentMerchant_EquipmentPool",
+                "RoomAndEquipmentDraftPool",
+                "EquipmentPoolNonEnemy",
+                "FreeEquipmentMutatorPool"
+            ],
+            "cost": 1,
+            "effects": [
+                "@Equip_PearlTap"
+            ]
+        }
+    ],
+    "upgrades": [
+        {
+            "id": "upg_PearlTap",
+            "bonus_damage": 15,
+            "bonus_hp": 0,
+            "status_effect_upgrades": [
+                {
+                    "status": "undying",
+                    "count": 3
+                }
+            ],
+            "trigger_upgrades": [
+                "@PearlTapResolveTrigger"
+            ],
+            "icon": "@PearlTapArt"
+        }
+    ],
+    "character_triggers": [
+        {
+            "id": "PearlTapResolveTrigger",
+            "trigger": "post_combat",
+            "descriptions": {
+                "english": "Die.",
+                "chinese": "死亡。"
+            },
+            "effects": ["@PearlTapDie"]
+        }
+    ],
+    "effects": [
+        {
+            "id": "Equip_PearlTap",
+            "name": "CardEffectAttachEquipment",
+            "target_mode": "drop_target_character",
+            "target_team": "monsters",
+            "param_upgrade": "@upg_PearlTap"
+        },
+        {
+            "id": "PearlTapDie",
+            "name": "CardEffectKill",
+            "target_mode": "self"
+        }
+    ],
+    "sprites": [
+        {
+            "id": "PearlTapArt",
+            "path": "textures/PearlTapArt.png"
+        }
+    ],
+    "game_objects": [
+        {
+            "id": "PearlTapArt",
+            "type": "card_art",
+            "extensions": {
+                "card_art": {
+                    "sprite": "@PearlTapArt"
+                }
+            }
+        }
+    ]
+}

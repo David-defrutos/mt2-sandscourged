@@ -1,0 +1,101 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "cards": [
+        {
+            "id": "SpearOfTheDeserted",
+            "names": {
+                "english": "Spear of the Deserted",
+                "chinese": "荒芜之矛"
+            },
+            "lore_tooltips": [
+                {
+                    "english": "Once this was the spear of a simple soldier, the husband of a merchant. Now it is a relic of a forgotten war, its owner long gone."
+                }
+            ],
+            "card_type": "equipment",
+            "rarity": "uncommon",
+            "class": "@ClassSandscourged",
+            "card_art": "@SpearOfTheDesertedArt",
+            "targets_room": true,
+            "targetless": false,
+            "pools": [
+                "MegaPool",
+                "RoomAndEquipmentMerchant_EquipmentPool",
+                "RoomAndEquipmentDraftPool",
+                "EquipmentPoolNonEnemy",
+                "FreeEquipmentMutatorPool",
+                "RedCrownEquipmentPool",
+                "RandomGraftedEquipmentForEvent_NoVoidArms_EquipmentPool"
+            ],
+            "cost": 2,
+            "effects": [
+                "@Equip_SpearOfTheDeserted"
+            ]
+        }
+    ],
+    "upgrades": [
+        {
+            "id": "upg_SpearOfTheDeserted",
+            "bonus_damage": 10,
+            "bonus_hp": 0,
+            "trigger_upgrades": [
+                "@SpearAccursedTrigger"
+            ],
+            "icon": "@SpearOfTheDesertedArt"
+        }
+    ],
+    "character_triggers": [
+        {
+            "id": "SpearAccursedTrigger",
+            "descriptions": {
+                "english": "Gain [rage] [effect0.status0.power].",
+                "chinese": "获得[rage] [effect0.status0.power]。"
+            },
+            "trigger": {
+                "id": "@Accursed",
+                "mod_reference": "Conductor"
+            },
+            "effects": [
+                "@SpearGainRage"
+            ]
+        }
+    ],
+    "effects": [
+        {
+            "id": "Equip_SpearOfTheDeserted",
+            "name": "CardEffectAttachEquipment",
+            "target_mode": "drop_target_character",
+            "target_team": "monsters",
+            "param_upgrade": "@upg_SpearOfTheDeserted"
+        },
+        {
+            "id": "SpearGainRage",
+            "name": "CardEffectAddStatusEffect",
+            "target_mode": "self",
+            "target_team": "monsters",
+            "param_status_effects": [
+                {
+                    "status": "buff",
+                    "count": 5
+                }
+            ]
+        }
+    ],
+    "sprites": [
+        {
+            "id": "SpearOfTheDesertedArt",
+            "path": "textures/SpearOfTheDesertedArt.png"
+        }
+    ],
+    "game_objects": [
+        {
+            "id": "SpearOfTheDesertedArt",
+            "type": "card_art",
+            "extensions": {
+                "card_art": {
+                    "sprite": "@SpearOfTheDesertedArt"
+                }
+            }
+        }
+    ]
+}

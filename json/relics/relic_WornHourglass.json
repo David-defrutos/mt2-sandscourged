@@ -1,0 +1,76 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+  "relics": [
+    {
+      "id": "WornHourglass",
+      "type": "collectable",
+      "names": {
+        "english": "Worn Hourglass",
+        "chinese": "磨损沙漏"
+      },
+      "descriptions": {
+        "english": "Draw +[effect4.power] each turn. At the start of battle, shuffle [effect0.power] <b>Vexations</b> into your draw pile.",
+        "chinese": "每回合抽 +[effect4.power] 张牌。在战斗开始时，将 [effect0.power] 张<b>苦恼</b>卡牌加入你的抽牌堆。"
+      },
+      "lore_tooltips": [
+        {
+          "english": "The scuffed glass and worn frame of this hourglass tell of countless turnings, each fallen grain a damnation upon Seraph."
+        }
+      ],
+      "disallow_in_deployment": false,
+      "lore_style": "herzal",
+      "relic_effects": [
+        "@WornHourglassRelicEffectNull",
+        "@WornHourglassRelicEffectVexation",
+        "@WornHourglassRelicEffectVexation",
+        "@WornHourglassRelicEffectVexation",
+        "@WornHourglassRelicEffectDraw"
+      ],
+      "icon": "@WornHourglassIcon",
+      "icon_small": "@WornHourglassIcon",
+      "extensions": [
+        {
+          "collectable": {
+            "class": "@ClassSandscourged",
+            "pools": [
+              "MegaRelicPool"
+            ],
+            "rarity": "common",
+            "unlock_level": 0
+          }
+        }
+      ]
+    }
+  ],
+  "relic_effects": [
+    {
+      "id": "WornHourglassRelicEffectNull",
+      "name": "RelicEffectNull",
+      "param_int": 3
+    },
+    {
+      "id": "WornHourglassRelicEffectVexation",
+      "name": "RelicEffectAddCardsStartOfBattle",
+      "target_mode": "room",
+      "source_team": "none",
+      "param_bool": false,
+      "param_bool_2": false,
+      "param_card_pool": "@VexationOnlyPool",
+      "additional_tooltips": ["@TormentTooltip"]
+    },
+    {
+      "id": "WornHourglassRelicEffectDraw",
+      "name": "RelicEffectChangeStartingHandSize",
+      "target_mode": "front_in_room",
+      "source_team": "none",
+      "param_bool": false,
+      "param_int": 1
+    }
+  ],
+  "sprites": [
+    {
+      "id": "WornHourglassIcon",
+      "path": "textures/WornHourglassArt.png"
+    }
+  ]
+}

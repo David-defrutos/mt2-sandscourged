@@ -1,0 +1,81 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "cards": [
+        {
+            "id": "Sandstorm",
+            "names": {
+                "english": "Sandstorm",
+                "chinese": "沙尘暴"
+            },
+            "descriptions": {
+                "english": "Deal [effect0.power] damage to enemy units and apply [mt2_sandscourged.Plugin_scourge] [effect1.status0.power].",
+                "chinese": "对所有敌方单位造成 [effect0.power] 点伤害，并施加[mt2_sandscourged.Plugin_scourge] [effect1.status0.power]。"
+            },
+            "lore_tooltips": [
+                {
+                    "english": "For the aeons the Scourged were bound by Oblivion's storm, not one soul in Limbo ever found them. Now they wield the same sands that once veiled and warped them as a terrifying weapon."
+                }
+            ],
+            "rarity": "common",
+            "class": "@ClassSandscourged",
+            "card_art": "@SandstormArt",
+            "targets_room": true,
+            "targetless": true,
+            "pools": [
+                "MegaPool"
+            ],
+            "cost": 3,
+            "traits": [
+                "@SandstormOffering"
+            ],
+            "effects": [
+                "@SandstormDealDamage",
+                "@SandstormApplyScourge"
+            ]
+        }
+    ],
+    "traits": [
+        {
+            "id": "SandstormOffering",
+            "name": "CardTraitTreasure"
+        }
+    ],
+    "effects": [
+        {
+            "id": "SandstormDealDamage",
+            "name": "CardEffectDamage",
+            "target_mode": "room",
+            "target_team": "heroes",
+            "param_int": 10
+        },
+        {
+            "id": "SandstormApplyScourge",
+            "name": "CardEffectAddStatusEffect",
+            "target_mode": "room",
+            "target_team": "heroes",
+            "param_status_effects": [
+                {
+                    "status": "@scourge",
+                    "count": 3
+                }
+            ]
+        }
+    ],
+    "sprites": [
+        {
+            "id": "SandstormArt",
+            "path": "textures/SandstormArt.png"
+        }
+    ],
+    "game_objects": [
+        {
+            "id": "SandstormArt",
+            "type": "card_art",
+            "extensions": {
+                "card_art": {
+                    "sprite": "@SandstormArt"
+                }
+            }
+        }
+    ]
+}

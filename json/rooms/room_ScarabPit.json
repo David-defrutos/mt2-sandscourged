@@ -1,0 +1,120 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+  "cards": [
+    {
+      "id": "ScarabPit",
+      "names": {
+        "english": "Scarab Pit",
+        "chinese": "圣甲虫巢"
+      },
+      "descriptions": {
+        "english": "+[effect0.upgrade.roommodifier0.power][capacity]. When a friendly unit dies, apply +[effect0.upgrade.charactertrigger0.effect0.upgrade.bonusdamage][attack] and +[effect0.upgrade.charactertrigger0.effect0.upgrade.bonushp][health] to friendly units.",
+        "chinese": "+[effect0.upgrade.roommodifier0.power][capacity]。每当一个友方单位在[extinguish]时，所有友方单位获得 +[effect0.upgrade.charactertrigger0.effect0.upgrade.bonusdamage][attack]，+[effect0.upgrade.charactertrigger0.effect0.upgrade.bonushp][health]。"
+      },
+      "lore_tooltips": [
+        {
+          "english": "Among the Scourged, 'Waste not, want not.' is a sacred tenet. There is naught to be salvaged from the blasted desert sands. When a body is too broken to be of further use, the Scourged gather the remains and feed them to the scarabs."
+        }
+      ],
+      "card_art": "@ScarabPitArt",
+      "cost": 1,
+      "card_type": "room",
+      "rarity": "uncommon",
+      "class": "@ClassSandscourged",
+      "targets_room": true,
+      "targetless": true,
+      "effects": [
+        "@ScarabPitRoomEffect"
+      ],
+      "pools": [
+        "MegaPool",
+        "RoomAndEquipmentMerchant_RoomPool",
+        "RoomAndEquipmentDraftPool",
+        "TrainRoomPool"
+      ]
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "ScarabPitRoomUpgrade",
+      "titles": {
+        "english": "ScarabPit"
+      },
+      "descriptions": {
+        "english": "+[roommodifier0.power][capacity]. When a friendly unit dies, apply +[charactertrigger0.effect0.upgrade.bonusdamage][attack] and +[charactertrigger0.effect0.upgrade.bonushp][health] to friendly units.",
+        "chinese": "+[roommodifier0.power][capacity]。每当一个友方单位在[extinguish]时，所有友方单位获得 +[charactertrigger0.effect0.upgrade.bonusdamage][attack]，+[charactertrigger0.effect0.upgrade.bonushp][health]。"
+      },
+      "trigger_upgrades": [
+        "@ScarabPitTrigger"
+      ],
+      "room_modifier_upgrades": [
+        "@ScarabPitRoomModifier"
+      ],
+      "hide_icon_on_card": true,
+      "icon": "@ScarabPitArt"
+    },
+    {
+      "id": "ScarabPitThreeAttackOneHealth",
+      "bonus_damage": 3,
+      "bonus_hp": 1
+    }
+  ],
+  "room_modifiers": [
+    {
+      "id": "ScarabPitRoomModifier",
+      "name": "RoomStateCapacityModifier",
+      "disallow_in_deployment": false,
+      "target_mode": "room",
+      "param_int": 1
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "ScarabPitTrigger",
+      "descriptions": {
+        "english": "When a friendly unit dies, apply +[effect0.upgrade.bonusdamage][attack] and +[effect0.upgrade.bonushp][health] to friendly units.",
+        "chinese": "每当一个友方单位在[extinguish]时，所有友方单位获得 +[effect0.upgrade.bonusdamage][attack]，+[effect0.upgrade.bonushp][health]。"
+      },
+      "trigger": "on_death",
+      "hide_visual_and_ignore_silence": true,
+      "effects": [
+        "@ApplyScarabUpgrade"
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "ScarabPitRoomEffect",
+      "name": "CardEffectAttachTrainRoomAttachment",
+      "target_mode": "room",
+      "param_upgrade": "@ScarabPitRoomUpgrade",
+      "param_bool": false,
+      "param_bool_2": false,
+      "target_team": "monsters"
+    },
+    {
+      "id": "ApplyScarabUpgrade",
+      "name": "CardEffectAddTempCardUpgradeToUnits",
+      "target_mode": "room",
+      "target_team": "monsters",
+      "param_upgrade": "@ScarabPitThreeAttackOneHealth"
+    }
+  ],
+  "sprites": [
+    {
+      "id": "ScarabPitArt",
+      "path": "textures/ScarabPitArt.png"
+    }
+  ],
+  "game_objects": [
+    {
+      "id": "ScarabPitArt",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@ScarabPitArt"
+        }
+      }
+    }
+  ]
+}

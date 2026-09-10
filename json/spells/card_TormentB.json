@@ -1,0 +1,60 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "cards": [
+        {
+            "id": "TormentB",
+            "names": {
+                "english": "Torment",
+                "chinese": "折磨：[mute]"
+            },
+            "descriptions": {
+                "english": "Apply [mute] [effect0.status0.power].",
+                "chinese": "施加[mute] [effect0.status0.power]。"
+            },
+            "rarity": "common",
+            "class": "@ClassSandscourged",
+            "card_art": "@TormentBArt",
+            "hide_in_logbook": true,
+            "targets_room": true,
+            "targetless": false,
+            "cost": 0,
+            "traits": [
+                "@TormentEphemeralTrait"
+            ],
+            "effects": [
+                "@TormentBApplyMute"
+            ]
+        }
+    ],
+    "effects": [
+        {
+            "id": "TormentBApplyMute",
+            "name": "CardEffectAddStatusEffect",
+            "target_mode": "drop_target_character",
+            "target_team": "both",
+            "param_status_effects": [
+                {
+                    "status": "muted",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "sprites": [
+        {
+            "id": "TormentBArt",
+            "path": "textures/TormentBArt.png"
+        }
+    ],
+    "game_objects": [
+        {
+            "id": "TormentBArt",
+            "type": "card_art",
+            "extensions": {
+                "card_art": {
+                    "sprite": "@TormentBArt"
+                }
+            }
+        }
+    ]
+}

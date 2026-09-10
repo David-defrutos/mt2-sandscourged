@@ -1,0 +1,129 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "cards": [
+        {
+            "id": "SpawnSphinxHierarch",
+            "names": {
+                "english": "Sphinx Hierarch",
+                "chinese": "狮身人面鹫"
+            },
+            "card_art": "@SphinxHierarch",
+            "cost": 1,
+            "card_type": "monster",
+            "rarity": "uncommon",
+            "class": "@ClassSandscourged",
+            "targets_room": true,
+            "effects": [
+                "@SpawnSphinxHierarch"
+            ],
+            "lore_tooltips": [
+                {
+                    "english": "Exalted sages - they recount the histories and grievances of the Scourged and instruct their bretherin in magic both old and new."
+                }
+            ],
+            "pools": [
+                "UnitsAllBanner"
+            ]
+        }
+    ],
+    "characters": [
+        {
+            "id": "SphinxHierarch",
+            "size": 2,
+            "attack_damage": 5,
+            "health": 15,
+            "names": {
+                "english": "Sphinx Hierarch",
+                "chinese": "狮身人面鹫"
+            },
+            "character_art": "@SphinxHierarchCharacterArt",
+            "subtypes": [
+                "SubtypesData_BannerUnit",
+                "@Sub_Ego"
+            ],
+            "triggers": [
+                "@SphinxHierarchTrigger"
+            ],
+            "starting_status_effects": [
+                {
+                    "status": "multistrike",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "character_triggers": [
+        {
+            "id": "SphinxHierarchTrigger",
+            "descriptions": {
+                "english": "Apply [mt2_sandscourged.Plugin_hex] [effect0.status0.power].",
+                "chinese": "施加[mt2_sandscourged.Plugin_hex] [effect0.status0.power]。"
+            },
+            "trigger": "on_attacking",
+            "effects": [
+                "@SphinxHierarchApplyHex"
+            ]
+        }
+    ],
+    "effects": [
+        {
+            "id": "SpawnSphinxHierarch",
+            "name": "CardEffectSpawnMonster",
+            "target_mode": "room",
+            "param_character": "@SphinxHierarch"
+        },
+        {
+            "id": "SphinxHierarchApplyHex",
+            "name": "CardEffectAddStatusEffect",
+            "target_mode": "last_attacked_character",
+            "param_status_effects": [
+                {
+                    "status": "@hex",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "sprites": [
+        {
+            "id": "SphinxHierarch",
+            "path": "textures/SphinxHierarchCardArt.png"
+        },
+        {
+            "id": "SphinxHierarchCharacterArt",
+            "path": "textures/SphinxHierarchCharacterArt.png"
+        }
+    ],
+    "game_objects": [
+        {
+            "id": "SphinxHierarch",
+            "type": "card_art",
+            "extensions": {
+                "card_art": {
+                    "sprite": "@SphinxHierarch"
+                }
+            }
+        },
+        {
+            "id": "SphinxHierarchCharacterArt",
+            "type": "character_art",
+            "extensions": {
+                "character_art": {
+                    "sprite": "@SphinxHierarchCharacterArt",
+                    "transform": {
+                        "position": {
+                            "x": 0,
+                            "y": 1,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 0.35,
+                            "y": 0.35,
+                            "z": 1
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}

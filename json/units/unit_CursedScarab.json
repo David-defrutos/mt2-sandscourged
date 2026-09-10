@@ -1,0 +1,131 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "cards": [
+        {
+            "id": "SpawnCursedScarab",
+            "names": {
+                "english": "Cursed Scarab",
+                "chinese": "诅咒圣甲虫"
+            },
+            "card_art": "@CursedScarab",
+            "cost": 1,
+            "card_type": "monster",
+            "rarity": "uncommon",
+            "class": "@ClassSandscourged",
+            "pools": [
+                "MegaPool"
+            ],
+            "targets_room": true,
+            "effects": [
+                "@SpawnCursedScarab"
+            ],
+            "lore_tooltips": [
+                {
+                    "english": "The Ur-Pharaoh permits some of his scions to be used as instruments in the rituals of the Scourged. Their intrinsic malevolence acts as a catalyst to inflict even greater torment."
+                }
+            ]
+        }
+    ],
+    "characters": [
+        {
+            "id": "CursedScarab",
+            "size": 1,
+            "attack_damage": 3,
+            "health": 1,
+            "names": {
+                "english": "Cursed Scarab",
+                "chinese": "诅咒圣甲虫"
+            },
+            "character_art": "@CursedScarabCharacterArt",
+            "subtypes": [
+                "@Sub_Scarab"
+            ],
+            "triggers": [
+                "@CursedScarabTrigger"
+            ]
+        }
+    ],
+    "character_triggers": [
+        {
+            "id": "CursedScarabTrigger",
+            "descriptions": {
+                "english": "Apply +[effect0.upgrade.bonusdamage][attack] and +[effect0.upgrade.bonushp][health] to friendly units and [mt2_sandscourged.Plugin_hex] [effect1.status0.power] to enemy units.",
+                "chinese": "友方单位获得 +[effect0.upgrade.bonusdamage][attack]，+[effect0.upgrade.bonushp][health]。对敌方单位施加[mt2_sandscourged.Plugin_hex] [effect1.status0.power]。"
+            },
+            "trigger": "on_death",
+            "effects": [
+                "@CursedScarabGiveStats",
+                "@CursedScarabApplyHex"
+            ]
+        }
+    ],
+    "effects": [
+        {
+            "id": "SpawnCursedScarab",
+            "name": "CardEffectSpawnMonster",
+            "target_mode": "room",
+            "param_character": "@CursedScarab"
+        },
+        {
+            "id": "CursedScarabGiveStats",
+            "name": "CardEffectAddTempCardUpgradeToUnits",
+            "target_mode": "room",
+            "target_team": "monsters",
+            "param_upgrade": "@ScarabThreeAttackOneHealth"
+        },
+        {
+            "id": "CursedScarabApplyHex",
+            "name": "CardEffectAddStatusEffect",
+            "target_mode": "room",
+            "target_team": "heroes",
+            "param_status_effects": [
+                {
+                    "status": "@hex",
+                    "count": 3
+                }
+            ]
+        }
+    ],
+    "sprites": [
+        {
+            "id": "CursedScarab",
+            "path": "textures/CursedScarabCardArt.png"
+        },
+        {
+            "id": "CursedScarabCharacterArt",
+            "path": "textures/CursedScarabCharacterArt.png"
+        }
+    ],
+    "game_objects": [
+        {
+            "id": "CursedScarab",
+            "type": "card_art",
+            "extensions": {
+                "card_art": {
+                    "sprite": "@CursedScarab"
+                }
+            }
+        },
+        {
+            "id": "CursedScarabCharacterArt",
+            "type": "character_art",
+            "extensions": {
+                "character_art": {
+                    "sprite": "@CursedScarabCharacterArt",
+                    "transform": {
+                        "position": {
+                            "x": 0,
+                            "y": 0.4,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 0.4,
+                            "y": 0.4,
+                            "z": 1
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}

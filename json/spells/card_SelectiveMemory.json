@@ -1,0 +1,117 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "cards": [
+        {
+            "id": "SelectiveMemory",
+            "names": {
+                "english": "Selective Memory",
+                "chinese": "选择性记忆"
+            },
+            "descriptions": {
+                "english": "Discard your hand.<br>Draw [effect1.power] card of each type.<br>Increase this card's [ember] by [effect7.upgrade.costreductionabs].",
+                "chinese": "舍弃全部手牌。<br>抽取每种类型的卡牌各 [effect1.power] 张。<br>这张牌费用 +[effect7.upgrade.costreductionabs][ember]。"
+            },
+            "lore_tooltips": [
+                {
+                    "english": "Unwelcome thoughts disquiet the mind, and so the Scourged have learned to cast them away. In the harsh sands of Oblivion, tenderness is a liability best forgotten."
+                }
+            ],
+            "rarity": "rare",
+            "class": "@ClassSandscourged",
+            "unlock_level": 0,
+            "card_art": "@SelectiveMemoryArt",
+            "targets_room": true,
+            "targetless": true,
+            "pools": [
+                "MegaPool"
+            ],
+            "cost": 1,
+            "effects": [
+                "@SelectiveMemoryDiscardHand",
+                "@SelectiveMemoryDrawSpell",
+                "@SelectiveMemoryDrawUnit",
+                "@SelectiveMemoryDrawBlight",
+                "@SelectiveMemoryDrawScourge",
+                "@SelectiveMemoryDrawEquipment",
+                "@SelectiveMemoryDrawRoom",
+                "@SelectiveMemoryIncreaseCost"
+            ]
+        }
+    ],
+    "effects": [
+        {
+            "id": "SelectiveMemoryDiscardHand",
+            "name": "CardEffectDiscardHand"
+        },
+        {
+            "id": "SelectiveMemoryDrawSpell",
+            "name": "@CardEffectDrawTypeWithDiscardFix",
+            "target_mode": "draw_pile",
+            "target_card_type": "spell",
+            "param_int": 1
+        },
+        {
+            "id": "SelectiveMemoryDrawUnit",
+            "name": "@CardEffectDrawTypeWithDiscardFix",
+            "target_mode": "draw_pile",
+            "target_card_type": "monster",
+            "param_int": 1
+        },
+        {
+            "id": "SelectiveMemoryDrawBlight",
+            "name": "@CardEffectDrawTypeWithDiscardFix",
+            "target_mode": "draw_pile",
+            "target_card_type": "blight",
+            "param_int": 1
+        },
+        {
+            "id": "SelectiveMemoryDrawScourge",
+            "name": "@CardEffectDrawTypeWithDiscardFix",
+            "target_mode": "draw_pile",
+            "target_card_type": "junk",
+            "param_int": 1
+        },
+        {
+            "id": "SelectiveMemoryDrawEquipment",
+            "name": "@CardEffectDrawTypeWithDiscardFix",
+            "target_mode": "draw_pile",
+            "target_card_type": "equipment",
+            "param_int": 1
+        },
+        {
+            "id": "SelectiveMemoryDrawRoom",
+            "name": "@CardEffectDrawTypeWithDiscardFix",
+            "target_mode": "draw_pile",
+            "target_card_type": "room",
+            "param_int": 1
+        },
+        {
+            "id": "SelectiveMemoryIncreaseCost",
+            "name": "@CardEffectAddTempUpgradeToCurrentCard",
+            "param_upgrade": "@SelectiveMemoryCostUpgrade"
+        }
+    ],
+    "upgrades": [
+        {
+            "id": "SelectiveMemoryCostUpgrade",
+            "cost_reduction": -1
+        }
+    ],
+    "sprites": [
+        {
+            "id": "SelectiveMemoryArt",
+            "path": "textures/SelectiveMemoryArt.png"
+        }
+    ],
+    "game_objects": [
+        {
+            "id": "SelectiveMemoryArt",
+            "type": "card_art",
+            "extensions": {
+                "card_art": {
+                    "sprite": "@SelectiveMemoryArt"
+                }
+            }
+        }
+    ]
+}

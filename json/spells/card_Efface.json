@@ -1,0 +1,69 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "cards": [
+        {
+            "id": "Efface",
+            "names": {
+                "english": "Efface",
+                "chinese": "抹去"
+            },
+            "descriptions": {
+                "english": "Deal [effect0.power] damage. Shuffle a <b>Vexation</b> into your draw pile.",
+                "chinese": "造成 [effect0.power] 点伤害。将一张<b>苦恼</b>卡牌加入你的抽牌堆。"
+            },
+            "lore_tooltips": [
+                {
+                    "english": "In the Scourged's march across Oblivion, affections and attachments of their past lives fade like footprints in the sand. Each step forward is a step away from who they once were."
+                }
+            ],
+            "rarity": "common",
+            "class": "@ClassSandscourged",
+            "card_art": "@EffaceArt",
+            "targets_room": true,
+            "targetless": false,
+            "pools": [
+                "MegaPool"
+            ],
+            "cost": 1,
+            "traits": [
+                "@EffaceAttuned"
+            ],
+            "effects": [
+                "@EffaceDamage",
+                "@ShuffleVexationSingle"
+            ]
+        }
+    ],
+    "traits": [
+        {
+            "id": "EffaceAttuned",
+            "name": "CardTraitStrongerMagicPower"
+        }
+    ],
+    "effects": [
+        {
+            "id": "EffaceDamage",
+            "name": "CardEffectDamage",
+            "target_mode": "drop_target_character",
+            "target_team": "both",
+            "param_int": 25
+        }
+    ],
+    "sprites": [
+        {
+            "id": "EffaceArt",
+            "path": "textures/EffaceArt.png"
+        }
+    ],
+    "game_objects": [
+        {
+            "id": "EffaceArt",
+            "type": "card_art",
+            "extensions": {
+                "card_art": {
+                    "sprite": "@EffaceArt"
+                }
+            }
+        }
+    ]
+}

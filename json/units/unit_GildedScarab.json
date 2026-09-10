@@ -1,0 +1,371 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "cards": [
+        {
+            "id": "SpawnGildedScarab",
+            "names": {
+                "english": "Gilded Scarab",
+                "chinese": "镀金圣甲虫"
+            },
+            "card_art": "@GildedScarab",
+            "cost": 1,
+            "card_type": "monster",
+            "rarity": "common",
+            "class": "@ClassSandscourged",
+            "targets_room": true,
+            "pools": [
+                "MegaPool"
+            ],
+            "effects": [
+                "@SpawnGildedScarab"
+            ],
+            "lore_tooltips": [
+                {
+                    "english": "The Ur-Pharaoh revels in greed and opulence. Some of his spawn are adorned in precious metals and gems, taken from what little the Scourged have to give."
+                }
+            ]
+        },
+        {
+            "id": "SpawnBlessedScarab",
+            "names": {
+                "english": "Blessed Scarab",
+                "chinese": "镀金圣甲虫"
+            },
+            "card_art": "@BlessedScarab",        
+            "cost": 1,
+            "card_type": "monster",
+            "rarity": "uncommon",
+            "class": "@ClassSandscourged",
+            "targets_room": true,
+            "pools": [
+                "MegaPool"
+            ],
+            "effects": [
+                "@SpawnBlessedScarab"
+            ],           
+            "lore_tooltips": [
+                {
+                    "english": "The Ur-Pharaoh revels in greed and opulence. Some of his spawn are adorned in precious metals and gems, taken from what little the Scourged have to give."
+                }
+            ]
+        },
+        {
+            "id": "SpawnGoldenScarab",
+            "names": {
+                "english": "Golden Scarab",
+                "chinese": "镀金圣甲虫"
+            },
+            "card_art": "@GoldenScarab",
+            "cost": 0,
+            "card_type": "monster",
+            "rarity": "common",
+            "class": "@ClassSandscourged",
+            "targets_room": true,
+            "pools": [
+                "MegaPool"
+            ],
+            "effects": [
+                "@SpawnGoldenScarab"
+            ],
+            "lore_tooltips": [
+                {
+                    "english": "The Ur-Pharaoh revels in greed and opulence. Some of his spawn are adorned in precious metals and gems, taken from what little the Scourged have to give."
+                }
+            ]
+        },        
+        {
+          "id": "ScarabAutoSacrificeAbility",
+          "names": {
+            "english": "Sacrifice."
+          },
+          "descriptions": {
+            "english": "Sacrifice. Gain 10 [coin] on dying."
+          },
+          "card_art": "@BlessedScarab",
+          "is_an_ability": true,
+          "cooldown": 1,
+          "targetless": true,
+          "targets_room": true,
+          "card_type": "spell",
+          "effects": [
+            "@ScarabAutoSacrifice"
+          ]
+        }
+    ],
+    "characters": [
+        {
+            "id": "GildedScarab",
+            "size": 1,
+            "attack_damage": 3,
+            "health": 1,
+            "names": {
+                "english": "Gilded Scarab",
+                "chinese": "镀金圣甲虫"
+            },
+            "character_art": "@GildedScarabCharacterArt",
+            "subtypes": [
+                "@Sub_Scarab"
+            ],
+            "starting_status_effects": [
+                {
+                    "status": "undying",
+                    "count": 1
+                }
+            ],
+            "triggers": [
+                "@GildedScarabTrigger"
+            ]
+        },
+        {
+            "id": "BlessedScarab",
+            "size": 1,
+            "attack_damage": 1,
+            "health": 1,
+            "names": {
+                "english": "Blessed Scarab",
+                "chinese": "镀金圣甲虫"
+            },
+            "character_art": "@BlessedScarabCharacterArt",
+            "subtypes": [
+                "@Sub_Scarab"
+            ],
+            "ability": "@ScarabAutoSacrificeAbility",
+            "starting_status_effects": [
+                {
+                    "status": "undying",
+                    "count": 2
+                }
+            ],
+            "triggers": [
+                "@BlessedScarabTrigger"
+            ]
+        },
+        {
+            "id": "GoldenScarab",
+            "size": 1,
+            "attack_damage": 0,
+            "health": 1,
+            "names": {
+                "english": "Golden Scarab",
+                "chinese": "镀金圣甲虫"
+            },
+            "character_art": "@GoldenScarabCharacterArt",
+            "subtypes": [
+                "@Sub_Scarab"
+            ],
+            "ability": "@ScarabAutoSacrificeAbility",
+            "starting_status_effects": [
+              {
+                "status": "avarice",
+                "count": 10
+              }
+            ],
+            "triggers": [
+                "@GoldenScarabTrigger"
+            ]
+        }        
+    ],
+    "character_triggers": [
+        {
+            "id": "GildedScarabTrigger",
+            "descriptions": {
+                "english": "Apply +[effect0.upgrade.bonusdamage][attack] and +[effect0.upgrade.bonushp][health] to friendly units."
+            },
+            "trigger": "on_death",
+            "effects": [
+                "@GildedScarabGiveStats"
+            ]
+        },
+        {
+            "id": "BlessedScarabTrigger",
+            "descriptions": {
+                "english": "Apply +[effect0.upgrade.bonusdamage][attack] and +[effect0.upgrade.bonushp][health] to friendly units."
+            },
+            "trigger": "on_death",
+            "effects": [
+                "@BlessedScarabGiveStats"
+            ]
+        },
+        {
+            "id": "GoldenScarabTrigger",
+            "descriptions": {
+                "english": "Apply +[effect0.upgrade.bonusdamage][attack] and +[effect0.upgrade.bonushp][health] to friendly units. Gain 10 [coin]",
+            },
+            "trigger": "on_death",
+            "effects": [
+                "@GoldenScarabGiveStats",
+                "@GoldenScarabGold"                
+            ]
+        }        
+    ],
+    "effects": [
+        {
+            "id": "SpawnGildedScarab",
+            "name": "CardEffectSpawnMonster",
+            "target_mode": "room",
+            "param_character": "@GildedScarab"
+        },
+        {
+            "id": "GildedScarabGiveStats",
+            "name": "CardEffectAddTempCardUpgradeToUnits",
+            "target_mode": "room",
+            "target_team": "monsters",
+            "param_upgrade": "@ScarabThreeAttackOneHealth"
+        },
+        {
+            "id": "SpawnBlessedScarab",
+            "name": "CardEffectSpawnMonster",
+            "target_mode": "room",
+            "param_character": "@BlessedScarab"
+        },
+        {
+            "id": "BlessedScarabGiveStats",
+            "name": "CardEffectAddTempCardUpgradeToUnits",
+            "target_mode": "room",
+            "target_team": "monsters",
+            "param_upgrade": "@ScarabZeroAttackFourHealth"
+        },
+        {
+            "id": "ScarabAutoSacrifice",
+            "name": "CardEffectSacrifice",
+            "target_mode": "self",
+            "target_team": "monsters"
+        },    
+        {
+          "id": "GoldenScarabGold",
+          "name": "CardEffectRewardGold",
+          "param_int": 10
+        },
+        {
+            "id": "SpawnGoldenScarab",
+            "name": "CardEffectSpawnMonster",
+            "target_mode": "room",
+            "param_character": "@GoldenScarab"
+        },
+        {
+            "id": "GoldenScarabGiveStats",
+            "name": "CardEffectAddTempCardUpgradeToUnits",
+            "target_mode": "room",
+            "target_team": "monsters",
+            "param_upgrade": "@ScarabZeroAttackOneHealth"
+        }        
+    ],
+    "sprites": [
+        {
+            "id": "GildedScarab",
+            "path": "textures/GildedScarabCardArt.png"
+        },
+        {
+            "id": "GildedScarabCharacterArt",
+            "path": "textures/GildedScarabCharacterArt.png"
+        },
+        {
+            "id": "BlessedScarab",
+            "path": "textures/BlessedScarabCardArt.png"
+        },
+        {
+            "id": "BlessedScarabCharacterArt",
+            "path": "textures/BlessedScarabCharacterArt.png"
+        },
+        {
+            "id": "GoldenScarab",
+            "path": "textures/GoldenScarabCardArt.png"
+        },
+        {
+            "id": "GoldenScarabCharacterArt",
+            "path": "textures/GoldenScarabCharacterArt.png"
+        }        
+    ],
+    "game_objects": [
+        {
+            "id": "GildedScarab",
+            "type": "card_art",
+            "extensions": {
+                "card_art": {
+                    "sprite": "@GildedScarab"
+                }
+            }
+        },
+        {
+            "id": "GildedScarabCharacterArt",
+            "type": "character_art",
+            "extensions": {
+                "character_art": {
+                    "sprite": "@GildedScarabCharacterArt",
+                    "transform": {
+                        "position": {
+                            "x": 0,
+                            "y": 0.4,
+                            "z": 0.1
+                        },
+                        "scale": {
+                            "x": 0.4,
+                            "y": 0.4,
+                            "z": 1
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": "BlessedScarab",
+            "type": "card_art",
+            "extensions": {
+                "card_art": {
+                    "sprite": "@BlessedScarab"
+                }
+            }
+        },
+        {
+            "id": "BlessedScarabCharacterArt",
+            "type": "character_art",
+            "extensions": {
+                "character_art": {
+                    "sprite": "@BlessedScarabCharacterArt",
+                    "transform": {
+                        "position": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0.2
+                        },
+                        "scale": {
+                            "x": 0.4,
+                            "y": 0.4,
+                            "z": 1
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": "GoldenScarab",
+            "type": "card_art",
+            "extensions": {
+                "card_art": {
+                    "sprite": "@GoldenScarab"
+                }
+            }
+        },
+        {
+            "id": "GoldenScarabCharacterArt",
+            "type": "character_art",
+            "extensions": {
+                "character_art": {
+                    "sprite": "@GoldenScarabCharacterArt",
+                    "transform": {
+                        "position": {
+                            "x": 0,
+                            "y": 0.3,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 0.2,
+                            "y": 0.2,
+                            "z": 1
+                        }
+                    }
+                }
+            }
+        }        
+    ]
+}

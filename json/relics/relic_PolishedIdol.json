@@ -1,0 +1,70 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "relics": [
+        {
+            "id": "PolishedIdol",
+            "type": "collectable",
+            "names": {
+                "english": "Polished Idol",
+                "chinese": "抛光神像"
+            },
+            "descriptions": {
+                "english": "At the start of turn, add a random Scarab unit with [ephemeral] to hand.",
+                "chinese": "回合开始时，随机将一个带有[ephemeral]的圣甲虫单位加入你的手牌。"
+            },
+            "lore_tooltips": [
+                {
+                    "english": "Sculpted from a single piece of onyx, this idol has been polished to a mirror sheen by the fervent worshippers of the Ur-Pharaoh. Its reflections never seem quite right."
+                }
+            ],
+            "disallow_in_deployment": true,
+            "lore_style": "herzal",
+            "relic_effects": [
+                "@PolishedIdolRelicEffect"
+            ],
+            "icon": "@PolishedIdolIcon",
+            "icon_small": "@PolishedIdolIcon",
+            "extensions": [
+                {
+                    "collectable": {
+                        "class": "@ClassSandscourged",
+                        "pools": [
+                            "MegaRelicPool"
+                        ],
+                        "rarity": "common",
+                        "unlock_level": 2
+                    }
+                }
+            ]
+        }
+    ],
+    "relic_effects": [
+        {
+            "id": "PolishedIdolRelicEffect",
+            "name": "RelicEffectAddBattleCardToHand",
+            "target_mode": "front_in_room",
+            "source_team": "none",
+            "param_int": 1,
+            "param_bool": false,
+            "param_trigger": "pre_combat",
+            "param_card_pool": "@RandomScarabPool",
+            "param_upgrade": "@PolishedIdolUpgrade"
+        }
+    ],
+    "upgrades": [
+        {
+            "id": "PolishedIdolUpgrade",
+            "trait_upgrades": [
+                {
+                    "id": "@TormentEphemeralTrait"
+                }
+            ]
+        }
+    ],
+    "sprites": [
+        {
+            "id": "PolishedIdolIcon",
+            "path": "textures/PolishedIdolArt.png"
+        }
+    ]
+}

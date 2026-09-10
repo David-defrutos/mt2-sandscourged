@@ -1,0 +1,96 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "cards": [
+        {
+            "id": "Jinx",
+            "names": {
+                "english": "Jinx",
+                "chinese": "厄运"
+            },
+            "descriptions": {
+                "english": "Deal [effect0.power] damage, twice.",
+                "chinese": "造成[effect0.power] 点伤害，重复两次。"
+            },
+            "lore_tooltips": [
+                {
+                    "english": "Priests of the Scourged recite spells from incantations carved into stone cartouches. The stones crack from the strain of the magic, but their power endures."
+                }
+            ],
+            "rarity": "common",
+            "class": "@ClassSandscourged",
+            "card_art": "@JinxArt",
+            "unlock_level": 2,
+            "targets_room": true,
+            "targetless": false,
+            "pools": [
+                "MegaPool"
+            ],
+            "cost": 1,
+            "effects": [
+                "@JinxDealDamage",
+                "@JinxRepeatDamage"
+            ],
+            "triggers": [
+                "@JinxSlayTrigger"
+            ]
+        }
+    ],
+    "effects": [
+        {
+            "id": "JinxDealDamage",
+            "name": "CardEffectDamage",
+            "target_mode": "drop_target_character",
+            "target_team": "both",
+            "param_int": 5
+        },
+        {
+            "id": "JinxRepeatDamage",
+            "name": "CardEffectDamage",
+            "target_mode": "last_targeted_characters",
+            "target_team": "both",
+            "param_int": 5
+        },
+        {
+            "id": "JinxApplyHex",
+            "name": "CardEffectAddStatusEffect",
+            "target_mode": "room",
+            "target_team": "heroes",
+            "param_status_effects": [
+                {
+                    "status": "@hex",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "card_triggers": [
+        {
+            "id": "JinxSlayTrigger",
+            "trigger": "on_kill",
+            "descriptions": {
+                "english": "Apply [mt2_sandscourged.Plugin_hex] [effect0.status0.power] to enemy units.",
+                "chinese": "对所有敌方单位施加[mt2_sandscourged.Plugin_hex] [effect0.status0.power]。"
+            },
+            "effects": [
+                "@JinxApplyHex"
+            ]
+        }
+    ],
+    "sprites": [
+        {
+            "id": "JinxArt",
+            "path": "textures/JinxArt.png"
+        }
+    ],
+    "game_objects": [
+        {
+            "id": "JinxArt",
+            "type": "card_art",
+            "extensions": {
+                "card_art": {
+                    "sprite": "@JinxArt"
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,33 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "localization_terms": [
+        {
+            "key": "CardTraitScalingByHandCount_TooltipTitleOutOfBattle",
+            "texts": {
+                "english": "Hand Count",
+                "chinese": "手牌数量"
+            }
+        },
+        {
+            "key": "CardTraitScalingByHandCount_TooltipTextOutOfBattle",
+            "texts": {
+                "english": "The effect is magnified by the number of cards in your hand.",
+                "chinese": "效果会随着手牌数量增加而变强。"
+            }
+        },
+        {
+            "key": "CardTraitScalingByHandCount_TooltipTitleInBattle",
+            "texts": {
+                "english": "Hand Count ({0})",
+                "chinese": "手牌数量 ({0})"
+            }
+        },
+        {
+            "key": "CardTraitScalingByHandCount_TooltipTextInBattle",
+            "texts": {
+                "english": "The effect is magnified by the number of cards in your hand. You currently have {0} card(s) in your hand.",
+                "chinese": "效果会随着手牌数量增加而变强。目前手牌中有 {0} 张牌。"
+            }
+        }
+    ]
+}

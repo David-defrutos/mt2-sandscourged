@@ -1,0 +1,86 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+  "relics": [
+    {
+      "id": "SandBowl",
+      "type": "collectable",
+      "names": {
+        "english": "Sand Bowl",
+        "chinese": "沙碗"
+      },
+      "descriptions": {
+        "english": "Egos apply [mt2_sandscourged.Plugin_scourge] [effect0.power] on [strike].",
+        "chinese": "本源单位在[strike]时施加[mt2_sandscourged.Plugin_scourge] [effect0.power]。"
+      },
+      "lore_tooltips": [
+        {
+          "english": "\"May your bowl never run dry.\" - A sarcastic farewell among the Scourged."
+        }
+      ],
+      "disallow_in_deployment": false,
+      "lore_style": "herzal",
+      "relic_effects": [
+        "@SandBowlRelicEffect"
+      ],
+      "icon": "@SandBowlIcon",
+      "icon_small": "@SandBowlIcon",
+      "extensions": [
+        {
+          "collectable": {
+            "class": "@ClassSandscourged",
+            "pools": [ "MegaRelicPool" ],
+            "rarity": "common",
+            "unlock_level": 0
+          }
+        }
+      ]
+    }
+  ],
+    "relic_effects": [
+    {
+      "id": "SandBowlRelicEffect",
+      "name": "RelicEffectAddTrigger",
+      "param_subtype": "@Sub_Ego",
+      "target_mode": "room",
+      "source_team": "monsters",
+      "param_bool": true,
+      "param_int": 5,
+      "triggers": ["@SandBowlStrikeTrigger"]
+    }
+  ],
+  "character_triggers": [
+    {
+        "id": "SandBowlStrikeTrigger",
+        "trigger": "on_attacking",
+        "descriptions": {
+          "english": "Is there a point to this description?"
+        },
+        "hide_visual_and_ignore_silence": true,
+        "effects": [
+            {
+                "id": "@SandBowlApplyScourge"
+            }
+        ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "SandBowlApplyScourge",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "last_attacked_character",
+      "target_team": "heroes",
+      "param_status_effects": [
+        {
+          "status": "@scourge",
+          "count": 5
+        }
+      ]
+    }
+  ],
+  "sprites": [
+    {
+      "id": "SandBowlIcon",
+      "path": "textures/SandBowlArt.png"
+    }
+  ]
+}

@@ -1,0 +1,336 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "classes": [
+        {
+            "id": "ClassSandscourged",
+            "titles": {
+                "english": "Sandscourged",
+                "chinese": "沙蚀"
+            },
+            "descriptions": {
+                "english": "Lead the warriors of Limbo, revenants serving an ancient power, as they call upon the warping sands of Oblivion.",
+                "chinese": "率领来自地狱边缘的侍奉远古之力的亡魂战士们，使用湮灭之地的扭曲之沙。"
+            },
+            "subclass_descriptions": {
+                "english": "Subclass description"
+            },
+            "icons": {
+                "small": "@ClanLogo_48",
+                "medium": "@ClanLogo_92_Outline",
+                "large": "@ClanLogo_128",
+                "silhouette": "@ClanLogo_Silhouette"
+            },
+            "card_draft_icon": "@ClanCardDraftIcon",
+            "card_style": "@SandscourgedClanCardStyle",
+            "ui_color": {
+                "r": 0.91,
+                "g": 0.76,
+                "b": 0.24
+            },
+            "ui_color_dark": {
+                "r": 0.50,
+                "g": 0.42,
+                "b": 0.15
+            },
+            "ui_gradient": [
+                {
+                    "time": 0.0,
+                    "color": {
+                        "r": 1.0
+                    }
+                },
+                {
+                    "time": 1.0,
+                    "color": {
+                        "r": 0.91,
+                        "g": 0.76,
+                        "b": 0.24
+                    }
+                }
+            ],
+            "champions": [
+                {
+                    "id": "PharaohChampion",
+                    "card_data": "@SpawnPharaoh",
+                    "starter_card": "@SpawnReveredScarab",
+                    "upgrade_tree": [
+                        [
+                            "@upg_SwarmLord1",
+                            "@upg_SwarmLord2",
+                            "@upg_SwarmLord3"
+                        ],
+                        [
+                            "@upg_Pearlescent1",
+                            "@upg_Pearlescent2",
+                            "@upg_Pearlescent3"
+                        ],
+                        [
+                            "@upg_SoulTender1",
+                            "@upg_SoulTender2",
+                            "@upg_SoulTender3"
+                        ]
+                    ],
+                    "icon": "@icon_Pharaoh",
+                    "portrait": "@icon_Pharaoh"
+                },
+                {
+                    "id": "VizierChampion",
+                    "card_data": "@SpawnVizier",
+                    "starter_card": "@Beseech",
+                    "upgrade_tree": [
+                        [
+                            "@upg_FirstBlessed1",
+                            "@upg_FirstBlessed2",
+                            "@upg_FirstBlessed3"
+                        ],
+                        [
+                            "@upg_EvilEye1",
+                            "@upg_EvilEye2",
+                            "@upg_EvilEye3"
+                        ],
+                        [
+                            "@upg_StormSplitter1",
+                            "@upg_StormSplitter2",
+                            "@upg_StormSplitter3"
+                        ]
+                    ],
+                    "icon": "@icon_Vizier",
+                    "portrait": "@icon_Vizier"
+                }
+            ],
+            "is_crew": false,
+            "class_select_character_displays": [
+                "@PharaohClassDisplayCharacterArt",
+                "@VizierClassDisplayCharacterArt"
+            ]
+        }
+    ],
+    "map_nodes": [
+        {
+            "id": "RewardNodeUnitPackSandscourged",
+            "type": "reward",
+            "map_icon": "@ClanLogo_48",
+            "minimap_icon": "@ClanLogo_48",
+            "prefab": "@SandscourgedMapIcon",
+            "titles": {
+                "english": "Sandscourged Banner",
+                "chinese": "沙蚀战旗"
+            },
+            "descriptions": {
+                "english": "Gain a Sandscourged Unit",
+                "chinese": "获得一个沙蚀单位。"
+            },
+            "pools": [
+                "RandomChosenMainClassUnit",
+                "RandomChosenSubClassUnit"
+            ],
+            "is_banner_node": true,
+            "extensions": [
+                {
+                    "reward": {
+                        "class": "@ClassSandscourged",
+                        "rewards": [
+                            "@SandscourgedBannerReward"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "card_pools": [
+        {
+            "id": "SandscourgedBannerCardPool",
+            "cards": [
+                "@SpawnEvermaw",
+                "@SpawnSuperiorEgo",
+                "@SpawnRevenant",
+                "@SpawnForgottenHulk",
+                "@SpawnTwistedHusk",
+                "@SpawnOverseerEternal",
+                "@SpawnPriestOfLostThoughts",
+                "@SpawnPearlHost",
+                "@SpawnSphinxHierarch"
+            ]
+        }
+    ],
+    "rewards": [
+        {
+            "id": "SandscourgedBannerReward",
+            "type": "draft",
+            "costs": [
+                100
+            ],
+            "extensions": [
+                {
+                    "draft": {
+                        "draft_pool": "@SandscourgedBannerCardPool",
+                        "class_type": "main|subclass|nonclass",
+                        "draft_options_count": 2,
+                        "rarity_floor": "uncommon",
+                        "ignore_relic_rarity_override": true,
+                        "is_service_merchant_reward": true
+                    }
+                }
+            ]
+        }
+    ],
+    "subtypes": [
+        {
+            "id": "Sub_Scarab",
+            "names": {
+                "english": "Scarab",
+                "chinese": "圣甲虫"
+            }
+        },
+        {
+            "id": "Sub_Lost",
+            "names": {
+                "english": "Lost",
+                "chinese": "失魂者"
+            }
+        },
+        {
+            "id": "Sub_Ego",
+            "names": {
+                "english": "Ego",
+                "chinese": "本源"
+            }
+        }
+    ],
+    "game_objects": [
+        {
+            "id": "SandscourgedMapIcon",
+            "type": "map_node_icon",
+            "extensions": {
+                "map_node_icon": {
+                    "disabled_sprite": "@Sandscourged_Disabled",
+                    "enabled_sprite": "@Sandscourged_Enabled",
+                    "frozen_sprite": "@Sandscourged_Enabled",
+                    "visited_sprite_disabled": "@Sandscourged_VisitedDisabled",
+                    "visited_sprite_enabled": "@Sandscourged_VisitedEnabled"
+                }
+            }
+        },
+        {
+            "id": "PharaohClassDisplayCharacterArt",
+            "type": "character_art",
+            "extensions": {
+                "character_art": {
+                    "sprite": "@PharaohCharacterArt",
+                    "transform": {
+                        "position": {
+                            "x": 1.7,
+                            "y": 0.9,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 2.7,
+                            "y": 2.7,
+                            "z": 1
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": "VizierClassDisplayCharacterArt",
+            "type": "character_art",
+            "extensions": {
+                "character_art": {
+                    "sprite": "@VizierCharacterArt",
+                    "transform": {
+                        "position": {
+                            "x": 2.1,
+                            "y": 0.8,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 2.5,
+                            "y": 2.5,
+                            "z": 1
+                        }
+                    }
+                }
+            }
+        }
+    ],
+    "class_card_styles": [
+        {
+            "id": "SandscourgedClanCardStyle",
+            "equipment_card_frame_sprite": "@ClanCardBorderEquipment",
+            "unit_card_frame_sprite": "@ClanCardBorderUnit",
+            "room_card_frame_sprite": "@ClanCardBorderRoom",
+            "spell_card_frame_sprite": "@ClanCardBorderSpell"
+        }
+    ],
+    "sprites": [
+        {
+            "id": "Sandscourged_Disabled",
+            "path": "textures/ClanAssets/Sandscourged_Disabled.png"
+        },
+        {
+            "id": "Sandscourged_Enabled",
+            "path": "textures/ClanAssets/Sandscourged_Enabled.png"
+        },
+        {
+            "id": "Sandscourged_Frozen",
+            "path": "textures/ClanAssets/Sandscourged_Frozen.png"
+        },
+        {
+            "id": "Sandscourged_VisitedDisabled",
+            "path": "textures/ClanAssets/Sandscourged_VisitedDisabled.png"
+        },
+        {
+            "id": "Sandscourged_VisitedEnabled",
+            "path": "textures/ClanAssets/Sandscourged_VisitedDisabled.png"
+        },
+        {
+            "id": "ClanLogo_48",
+            "path": "textures/ClanAssets/ClanLogo_48.png"
+        },
+        {
+            "id": "ClanLogo_92",
+            "path": "textures/ClanAssets/ClanLogo_92.png"
+        },
+        {
+            "id": "ClanLogo_92_Outline",
+            "path": "textures/ClanAssets/ClanLogo_92_Outline.png"
+        },
+        {
+            "id": "ClanLogo_128",
+            "path": "textures/ClanAssets/ClanLogo_128.png"
+        },
+        {
+            "id": "ClanLogo_Silhouette",
+            "path": "textures/ClanAssets/ClanLogo_Silhouette.png"
+        },
+        {
+            "id": "ClanCardDraftIcon",
+            "path": "textures/ClanAssets/ClanCardDraftIcon.png"
+        },
+        {
+            "id": "ClanCardBorderEquipment",
+            "path": "textures/ClanAssets/ClanBorderEquipment.png"
+        },
+        {
+            "id": "ClanCardBorderUnit",
+            "path": "textures/ClanAssets/ClanBorderUnit.png"
+        },
+        {
+            "id": "ClanCardBorderRoom",
+            "path": "textures/ClanAssets/ClanBorderRoom.png"
+        },
+        {
+            "id": "ClanCardBorderSpell",
+            "path": "textures/ClanAssets/ClanBorderSpell.png"
+        },
+        {
+            "id": "icon_Pharaoh",
+            "path": "textures/ClanAssets/icon_Pharaoh.png"
+        },
+        {
+            "id": "icon_Vizier",
+            "path": "textures/ClanAssets/icon_Vizier.png"
+        }
+    ]
+}

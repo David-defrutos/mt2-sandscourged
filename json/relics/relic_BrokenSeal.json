@@ -1,0 +1,67 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+  "relics": [
+    {
+      "id": "BrokenSeal",
+      "type": "collectable",
+      "names": {
+        "english": "Broken Seal",
+        "chinese": "破碎印记"
+      },
+      "descriptions": {
+        "english": "[mt2_sandscourged.Plugin_scourge] deals twice as much damage.",
+        "chinese": "[mt2_sandscourged.Plugin_scourge]造成两倍伤害。"
+      },
+      "lore_tooltips": [
+        {
+          "english": "When Izketri split the warping storm, this seal was ceremonially broken. It's destruction - an emblem of the spurned and hateful, and a promise of retribution."
+        }
+      ],
+      "disallow_in_deployment": false,
+      "lore_style": "herzal",
+      "relic_effects": [
+        "@BrokenSealRelicEffect"
+      ],
+      "relic_activated_texts": {
+        "english": "Broken Seal"
+      },
+      "icon": "@BrokenSealIcon",
+      "icon_small": "@BrokenSealIcon",
+      "additional_tooltips": [
+        "@TestTooltip"
+      ],
+      "extensions": [
+        {
+          "collectable": {
+            "class": "@ClassSandscourged",
+            "pools": [
+              "MegaRelicPool"
+            ],
+            "rarity": "uncommon",
+            "unlock_level": 0
+          }
+        }
+      ]
+    }
+  ],
+  "relic_effects": [
+    {
+      "id": "BrokenSealRelicEffect",
+      "name": "RelicEffectModifyStatusMagnitude",
+      "source_team": "none",
+      "param_int": 1,
+      "param_status_effects": [
+        {
+          "status": "@scourge",
+          "count": 0
+        }
+      ]
+    }
+  ],
+  "sprites": [
+    {
+      "id": "BrokenSealIcon",
+      "path": "textures/BrokenSealArt.png"
+    }
+  ]
+}

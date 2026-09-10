@@ -1,0 +1,72 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "cards": [
+        {
+            "id": "PartTheStorm",
+            "names": {
+                "english": "Part the Storm",
+                "chinese": "劈开风暴"
+            },
+            "descriptions": {
+                "english": "Costs -[trait0.power][ember] for each friendly unit death this battle.<br>Deal [effect0.power] damage.",
+                "chinese": "每有一个友方单位在战斗中阵亡，费用 -[trait0.power][ember]。<br>造成 [effect0.power] 点伤害。"
+            },
+            "lore_tooltips": [
+                {
+                    "english": "With great power fueled by immeasurable sacrifice, Izketri split the swirling sandstorm that bound the Scourged. And there ahead - the warpath."
+                }
+            ],
+            "rarity": "rare",
+            "class": "@ClassSandscourged",
+            "card_art": "@PartTheStormArt",
+            "targets_room": true,
+            "targetless": false,
+            "pools": [
+                "MegaPool"
+            ],
+            "cost": 6,
+            "traits": [
+                "@PartTheStormReduceCostTrait"
+            ],
+            "effects": [
+                "@PartTheStormDamage"
+            ]
+        }
+    ],
+    "traits": [
+        {
+            "id": "PartTheStormReduceCostTrait",
+            "name": "CardTraitScalingReduceCost",
+            "param_tracked_value": "any_monster_death",
+            "param_entry_duration": "this_battle",
+            "param_int": 1,
+            "effect_text_suppressed": true
+        }
+    ],
+    "effects": [
+        {
+            "id": "PartTheStormDamage",
+            "name": "CardEffectDamage",
+            "target_mode": "drop_target_character",
+            "target_team": "both",
+            "param_int": 100
+        }
+    ],
+    "sprites": [
+        {
+            "id": "PartTheStormArt",
+            "path": "textures/PartTheStormArt.png"
+        }
+    ],
+    "game_objects": [
+        {
+            "id": "PartTheStormArt",
+            "type": "card_art",
+            "extensions": {
+                "card_art": {
+                    "sprite": "@PartTheStormArt"
+                }
+            }
+        }
+    ]
+}

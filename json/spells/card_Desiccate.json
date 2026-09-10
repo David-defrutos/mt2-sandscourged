@@ -1,0 +1,75 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "cards": [
+        {
+            "id": "Desiccate",
+            "names": {
+                "english": "Desiccate",
+                "chinese": "枯竭"
+            },
+            "descriptions": {
+                "english": "Deal [effect0.power] damage to the front enemy unit, three times.",
+                "chinese": "对前排敌方单位造成 [effect0.power] 点伤害，重复三次。"
+            },
+            "lore_tooltips": [
+                {
+                    "english": "In Oblivion, oases are illusions, mere tricks of the light. True salvation lies in freeing oneself from the yoke of water and instead drinking of the Ur-Pharaoh's glory."
+                }
+            ],
+            "rarity": "uncommon",
+            "class": "@ClassSandscourged",
+            "card_art": "@DesiccateArt",
+            "targets_room": true,
+            "targetless": true,
+            "pools": [
+                "MegaPool"
+            ],
+            "cost": 3,
+            "traits": [
+                "@DesiccateOffering",
+                "@DesiccatePiercing"
+            ],
+            "effects": [
+                "@DesiccateDamage",
+                "@DesiccateDamage",
+                "@DesiccateDamage"
+            ]
+        }
+    ],
+    "traits": [
+        {
+            "id": "DesiccateOffering",
+            "name": "CardTraitTreasure"
+        },
+        {
+            "id": "DesiccatePiercing",
+            "name": "CardTraitIgnoreArmor"
+        }
+    ],
+    "effects": [
+        {
+            "id": "DesiccateDamage",
+            "name": "CardEffectDamage",
+            "target_mode": "front_in_room",
+            "target_team": "heroes",
+            "param_int": 30
+        }
+    ],
+    "sprites": [
+        {
+            "id": "DesiccateArt",
+            "path": "textures/DesiccateArt.png"
+        }
+    ],
+    "game_objects": [
+        {
+            "id": "DesiccateArt",
+            "type": "card_art",
+            "extensions": {
+                "card_art": {
+                    "sprite": "@DesiccateArt"
+                }
+            }
+        }
+    ]
+}

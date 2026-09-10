@@ -1,0 +1,76 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+  "relics": [
+    {
+      "id": "CarnelianMask",
+      "type": "collectable",
+      "names": {
+        "english": "Carnelian Mask",
+        "chinese": "玛瑙面具"
+      },
+      "descriptions": {
+        "english": "The first time each turn you discard a card before the end of turn, friendly units on the floor gain [rage] [effect0.status0.power].",
+        "chinese": "每回合在回合结束前首次有卡牌被舍弃时，该层的所有友方单位获得[rage] [effect0.status0.power]。"
+      },
+      "lore_tooltips": [
+        {
+          "english": "When a Lost is selected to become a host, a stone mask such as this one is fused to their face. Only once the host has fully accepted and embraced their new purpose does the mask fall away."
+        }
+      ],
+      "disallow_in_deployment": false,
+      "lore_style": "herzal",
+      "relic_effects": [
+        "@CarnelianMaskRelicEffect"
+      ],
+      "icon": "@CarnelianMaskIcon",
+      "icon_small": "@CarnelianMaskIcon",
+      "extensions": [
+        {
+          "collectable": {
+            "class": "@ClassSandscourged",
+            "pools": [
+              "MegaRelicPool"
+            ],
+            "rarity": "common",
+            "unlock_level": 0
+          }
+        }
+      ]
+    }
+  ],
+  "relic_effects": [
+    {
+      "id": "CarnelianMaskRelicEffect",
+      "name": "@RelicEffectApplyStatusEffectOnCardEarlyDiscard",
+      "source_team": "monsters",
+      "target_mode": "room",
+      "param_status_effects": [
+        {
+          "status": "buff",
+          "count": 5
+        }
+      ],
+      "conditions": [
+        {
+          "id": "@CarnelianMaskRelicEffectCondition"
+        }
+      ],
+      "param_int": 1
+    }
+  ],
+  "relic_effect_conditions": [
+    {
+      "id": "CarnelianMaskRelicEffectCondition",
+      "param_track_trigger_count": true,
+      "allow_multiple_triggers_per_duration": false,
+      "param_entry_duration": "this_turn",
+      "param_int": 1
+    }
+  ],
+  "sprites": [
+    {
+      "id": "CarnelianMaskIcon",
+      "path": "textures/CarnelianMaskArt.png"
+    }
+  ]
+}

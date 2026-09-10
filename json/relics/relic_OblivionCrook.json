@@ -1,0 +1,58 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+  "relics": [
+    {
+      "id": "OblivionCrook",
+      "type": "collectable",
+      "names": {
+        "english": "Oblivion Crook",
+        "chinese": "湮没之杖"
+      },
+      "descriptions": {
+        "english": "<b>Accursed</b> triggers an additional time.",
+        "chinese": "<b>被咒</b>额外触发一次。"
+      },
+      "lore_tooltips": [
+        {
+          "english": "This staff was fashioned from the bone of a lost lover, its twisted form a testament to the anguish of separation. Now its wielder shepherds the Scourged out of Oblivion, away from the relentless suffering and onwards, to a new beginning."
+        }
+      ],
+      "disallow_in_deployment": false,
+      "lore_style": "herzal",
+      "relic_effects": [
+        "@OblivionCrookRelicEffect"
+      ],
+      "icon": "@OblivionCrookIcon",
+      "icon_small": "@OblivionCrookIcon",
+      "extensions": [
+        {
+          "collectable": {
+            "class": "@ClassSandscourged",
+            "pools": [ "MegaRelicPool" ],
+            "rarity": "uncommon",
+            "unlock_level": 8
+          }
+        }
+      ]
+    }
+  ],
+    "relic_effects": [
+    {
+      "id": "OblivionCrookRelicEffect",
+      "name": "RelicEffectModifyTriggerCount",
+      "target_mode": "front_in_room",
+      "source_team": "monsters",
+      "param_int": 1,
+      "param_trigger": {
+        "id": "@Accursed",
+        "mod_reference": "Conductor"
+      }
+    }
+  ],
+  "sprites": [
+    {
+      "id": "OblivionCrookIcon",
+      "path": "textures/OblivionCrookArt.png"
+    }
+  ]
+}

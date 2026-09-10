@@ -1,0 +1,145 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "cards": [
+        {
+            "id": "SpawnPriestOfLostThoughts",
+            "names": {
+                "english": "Priest of Lost Thoughts",
+                "chinese": "失落思想的祭司"
+            },
+            "card_art": "@PriestOfLostThoughts",
+            "cost": 2,
+            "card_type": "monster",
+            "rarity": "uncommon",
+            "class": "@ClassSandscourged",
+            "targets_room": true,
+            "effects": [
+                "@SpawnPriestOfLostThoughts"
+            ],
+            "lore_tooltips": [
+                {
+                    "english": "Every Ego has the thoughts and memories of countless Lost melded with their own, to eternalize those that could not be saved. When the time comes, every Lost mind shall be placed into a new body, albeit one lacking a soul."
+                }
+            ],
+            "pools": [
+                "UnitsAllBanner"
+            ]
+        },
+        {
+            "id": "PriestOfLostThoughtsAbility",
+            "names": {
+                "english": "Eternalize",
+                "chinese": "永恒化"
+            },
+            "descriptions": {
+                "english": "Apply [undying] [effect0.status0.power] to the front friendly unit for every [trait0.secondarypower] cards in your hand.<br>Discard your hand.",
+                "chinese": "使前排友方单位获得[undying]，层数相当于手牌数量的 [effect0.status0.power]/[trait0.secondarypower]。<br>舍弃全部手牌。"
+            },
+            "card_art": "@PriestOfLostThoughts",
+            "is_an_ability": true,
+            "cooldown": 3,
+            "targetless": true,
+            "targets_room": false,
+            "card_type": "spell",
+            "traits": [
+                "@PriestOfLostThoughtsStatusTrait"
+            ],
+            "effects": [
+                "@PriestOfLostThoughtsApplyReanimate",
+                "@PriestOfLostThoughtsDiscardHand"
+            ]
+        }
+    ],
+    "traits": [
+        {
+            "id": "PriestOfLostThoughtsStatusTrait",
+            "name": "@CardTraitScalingByHandCount",
+            "param_int": 1,
+            "param_int_2": 2
+        }
+    ],
+    "characters": [
+        {
+            "id": "PriestOfLostThoughts",
+            "size": 2,
+            "attack_damage": 20,
+            "health": 10,
+            "names": {
+                "english": "Priest of Lost Thoughts",
+                "chinese": "失落思想的祭司"
+            },
+            "character_art": "@PriestOfLostThoughtsCharacterArt",
+            "subtypes": [
+                "SubtypesData_BannerUnit",
+                "@Sub_Ego"
+            ],
+            "ability": "@PriestOfLostThoughtsAbility"
+        }
+    ],
+    "effects": [
+        {
+            "id": "SpawnPriestOfLostThoughts",
+            "name": "CardEffectSpawnMonster",
+            "target_mode": "room",
+            "param_character": "@PriestOfLostThoughts"
+        },
+        {
+            "id": "PriestOfLostThoughtsDiscardHand",
+            "name": "CardEffectDiscardHand"
+        },
+        {
+            "id": "PriestOfLostThoughtsApplyReanimate",
+            "name": "CardEffectAddStatusEffect",
+            "target_mode": "front_in_room",
+            "target_team": "monsters",
+            "param_status_effects": [
+                {
+                    "status": "undying",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "sprites": [
+        {
+            "id": "PriestOfLostThoughts",
+            "path": "textures/PriestOfLostThoughtsCardArt.png"
+        },
+        {
+            "id": "PriestOfLostThoughtsCharacterArt",
+            "path": "textures/PriestOfLostThoughtsCharacterArt.png"
+        }
+    ],
+    "game_objects": [
+        {
+            "id": "PriestOfLostThoughts",
+            "type": "card_art",
+            "extensions": {
+                "card_art": {
+                    "sprite": "@PriestOfLostThoughts"
+                }
+            }
+        },
+        {
+            "id": "PriestOfLostThoughtsCharacterArt",
+            "type": "character_art",
+            "extensions": {
+                "character_art": {
+                    "sprite": "@PriestOfLostThoughtsCharacterArt",
+                    "transform": {
+                        "position": {
+                            "x": 0,
+                            "y": 0.4,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 0.4,
+                            "y": 0.4,
+                            "z": 1
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}

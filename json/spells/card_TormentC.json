@@ -1,0 +1,60 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "cards": [
+        {
+            "id": "TormentC",
+            "names": {
+                "english": "Torment",
+                "chinese": "折磨：[sap]"
+            },
+            "descriptions": {
+                "english": "Apply [sap] [effect0.status0.power].",
+                "chinese": "施加[sap] [effect0.status0.power]。"
+            },
+            "rarity": "common",
+            "class": "@ClassSandscourged",
+            "card_art": "@TormentCArt",
+            "hide_in_logbook": true,
+            "targets_room": true,
+            "targetless": false,
+            "cost": 0,
+            "traits": [
+                "@TormentEphemeralTrait"
+            ],
+            "effects": [
+                "@TormentCApplySap"
+            ]
+        }
+    ],
+    "effects": [
+        {
+            "id": "TormentCApplySap",
+            "name": "CardEffectAddStatusEffect",
+            "target_mode": "drop_target_character",
+            "target_team": "both",
+            "param_status_effects": [
+                {
+                    "status": "debuff",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "sprites": [
+        {
+            "id": "TormentCArt",
+            "path": "textures/TormentCArt.png"
+        }
+    ],
+    "game_objects": [
+        {
+            "id": "TormentCArt",
+            "type": "card_art",
+            "extensions": {
+                "card_art": {
+                    "sprite": "@TormentCArt"
+                }
+            }
+        }
+    ]
+}

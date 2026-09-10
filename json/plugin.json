@@ -1,0 +1,154 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "card_triggers": [
+        {
+            "id": "PlagueDamageOnUnplayed",
+            "trigger": "on_unplayed_negative",
+            "descriptions": {
+                "english": "Your Pyre takes [effect0.power] damage.",
+                "chinese": "薪火受到 [effect0.power] 点伤害。"
+            },
+            "effects": [
+                "@PlagueDamage"
+            ]
+        }
+    ],
+    "effects": [
+        {
+            "id": "AddRandomTorment",
+            "name": "CardEffectAddBattleCard",
+            "target_mode": "room",
+            "param_int": 3,
+            "param_int_2": 1,
+            "param_card_pool": "@TormentPool",
+            "additional_tooltips": [
+                "@TormentTooltip"
+            ]
+        },
+        {
+            "id": "ShuffleVexationSingle",
+            "name": "CardEffectAddBattleCard",
+            "target_mode": "room",
+            "target_team": "none",
+            "param_card_pool": "@VexationOnlyPool",
+            "param_int": 7,
+            "param_int_2": 1,
+            "additional_tooltips": [
+                "@TormentTooltip"
+            ]
+        },
+        {
+            "id": "PlagueDamage",
+            "name": "CardEffectDamage",
+            "target_mode": "pyre",
+            "target_team": "both",
+            "param_int": 3,
+            "supress_pyre_room_focus": true
+        },
+        {
+            "id": "EphemeralTooltipEffect",
+            "name": "CardEffectNULL",
+            "param_status_effects": [
+                {
+                    "status": "ephemeral",
+                    "count": 0
+                }
+            ]
+        }
+    ],
+    "card_pools": [
+        {
+            "id": "TormentPool",
+            "cards": [
+                "@TormentA",
+                "@TormentB",
+                "@TormentC",
+                "@TormentD",
+                "@TormentE"
+            ]
+        },
+        {
+            "id": "VexationOnlyPool",
+            "cards": [
+                "@Vexation"
+            ]
+        },
+        {
+            "id": "ReveredScarabOnlyPool",
+            "cards": [
+                "@SpawnReveredScarab"
+            ]
+        },
+        {
+            "id": "RandomScarabPool",
+            "cards": [
+                "@SpawnGoldenScarab",
+                "@SpawnGoldenScarab",
+                "@SpawnGoldenScarab",            
+                "@SpawnReveredScarab",
+                "@SpawnReveredScarab",
+                "@SpawnReveredScarab",
+                "@SpawnReveredScarab",
+                "@SpawnReveredScarab",
+                "@SpawnReveredScarab",
+                "@SpawnReveredScarab",
+                "@SpawnGildedScarab",
+                "@SpawnGildedScarab",
+                "@SpawnGildedScarab",
+                "@SpawnGildedScarab",
+                "@SpawnGildedScarab",
+                "@SpawnCursedScarab",
+                "@SpawnCursedScarab",
+                "@SpawnBlessedScarab",
+                "@SpawnScarabSwarm"
+            ]
+        }
+    ],
+    "traits": [
+        {
+            "id": "TormentEphemeralTrait",
+            "name": "CardTraitEphemeral"
+        },
+        {
+            "id": "Consume",
+            "name": "CardTraitExhaustState"
+        }
+    ],
+    "upgrades": [
+        {
+            "id": "ScarabThreeAttackOneHealth",
+            "bonus_damage": 3,
+            "bonus_hp": 1
+        },
+        {
+            "id": "ScarabZeroAttackOneHealth",
+            "bonus_damage": 0,
+            "bonus_hp": 1
+        },
+      {
+            "id": "ScarabZeroAttackFourHealth",
+            "bonus_damage": 0,
+            "bonus_hp": 4
+        },
+      {
+            "id": "ScarabThreeAttackThreeHealth",
+            "bonus_damage": 3,
+            "bonus_hp": 3
+        }                
+    ],
+    "additional_tooltips": [
+        {
+            "id": "TormentTooltip",
+            "titles": {
+                "english": "Torments",
+                "chinese": "折磨"
+            },
+            "descriptions": {
+                "english": "<b>Torments</b> are 0[ember] spells with [ephemeral] that apply various [debuff]<b>s</b>.",
+                "chinese": "<b>折磨</b>是一些 0[ember] 且具有[ephemeral]的法术牌，它们会施加各种各样的[debuff]。"
+            },
+            "style": "keyword",
+            "allow_secondary_placement": true
+        }
+    ]
+}

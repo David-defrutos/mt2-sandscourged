@@ -1,0 +1,82 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "cards": [
+        {
+            "id": "GravenRite",
+            "names": {
+                "english": "Graven Rite",
+                "chinese": "铭刻仪式"
+            },
+            "descriptions": {
+                "english": "Apply [undying] [effect0.status0.power] to friendly units, then deal [effect1.power] damage to them.",
+                "chinese": "所有友方单位获得[undying] [effect0.status0.power]，然后受到 [effect1.power] 点伤害。"
+            },
+            "lore_tooltips": [
+                {
+                    "english": "Oblivion places a heavy toll on its occupants. Resources are scarce and bodies are frail. Rites etched into flesh bind the soul to the body, allowing it to persist beyond natural limits, no matter how damaged the body may become."
+                }
+            ],
+            "rarity": "rare",
+            "class": "@ClassSandscourged",
+            "card_art": "@GravenRiteArt",
+            "targets_room": true,
+            "targetless": true,
+            "pools": [
+                "MegaPool"
+            ],
+            "cost": 3,
+            "traits": [
+                "@GravenRiteOffering",
+                "@Consume"
+            ],
+            "effects": [
+                "@GravenRiteApplyReanimate",
+                "@GravenRiteDealDamage"
+            ]
+        }
+    ],
+    "traits": [
+        {
+            "id": "GravenRiteOffering",
+            "name": "CardTraitTreasure"
+        }
+    ],
+    "effects": [
+        {
+            "id": "GravenRiteApplyReanimate",
+            "name": "CardEffectAddStatusEffect",
+            "target_mode": "room",
+            "target_team": "monsters",
+            "param_status_effects": [
+                {
+                    "status": "undying",
+                    "count": 1
+                }
+            ]
+        },
+        {
+            "id": "GravenRiteDealDamage",
+            "name": "CardEffectDamage",
+            "target_mode": "room",
+            "target_team": "monsters",
+            "param_int": 5
+        }
+    ],
+    "sprites": [
+        {
+            "id": "GravenRiteArt",
+            "path": "textures/GravenRiteArt.png"
+        }
+    ],
+    "game_objects": [
+        {
+            "id": "GravenRiteArt",
+            "type": "card_art",
+            "extensions": {
+                "card_art": {
+                    "sprite": "@GravenRiteArt"
+                }
+            }
+        }
+    ]
+}

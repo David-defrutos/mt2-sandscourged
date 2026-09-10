@@ -1,0 +1,100 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "cards": [
+        {
+            "id": "CorruptedSceptre",
+            "names": {
+                "english": "Corrupted Sceptre",
+                "chinese": "腐化权杖"
+            },
+            "lore_tooltips": [
+                {
+                    "english": "This curious sceptre bears faded glyphs that seems to predate even the Ur-Pharaoh. They show a bird perched atop a man, with the man's words drowned out by the bird's song. Whoever this man was, he has been long forgotten."
+                }
+            ],
+            "card_type": "equipment",
+            "rarity": "rare",
+            "class": "@ClassSandscourged",
+            "unlock_level": 3,
+            "card_art": "@CorruptedSceptreArt",
+            "targets_room": true,
+            "targetless": false,
+            "pools": [
+                "MegaPool",
+                "RoomAndEquipmentMerchant_EquipmentPool",
+                "RoomAndEquipmentDraftPool",
+                "RoomAndEquipmentMerchant_RoomAndEquipmentPool",
+                "EquipmentPoolNonEnemy",
+                "FreeEquipmentMutatorPool",
+                "RedCrownEquipmentPool",
+                "RandomGraftedEquipmentForEvent_NoVoidArms_EquipmentPool"
+            ],
+            "cost": 2,
+            "descriptions": {
+                "english": "+[effect0.upgrade0.roommodifier0.power][attack] for each distinct [debuff] among enemy units.",
+                "chinese": "敌方单位之中每有一种[debuff]，获得 +[effect0.upgrade0.roommodifier0.power][attack]。"
+            },
+            "effects": [
+                "@Equip_CorruptedSceptre"
+            ]
+        }
+    ],
+    "upgrades": [
+        {
+            "id": "upg_CorruptedSceptre",
+            "bonus_damage": 20,
+            "bonus_hp": 0,
+            "room_modifier_upgrades": [
+                "@CorruptedSceptreRoomModifier"
+            ],
+            "icon": "@CorruptedSceptreArt"
+        }
+    ],
+    "localization_terms": [
+        {
+            "key": "RoomStateAttackPerDebuffOnTeam",
+            "texts": {
+                "english": "<nobr>Bonus [attack] per distinct [debuff]</nobr>",
+                "chinese": "<nobr>根据敌方单位之中的[debuff]种类数量，获得[attack]。<nobr>"
+            }
+        }
+    ],
+    "room_modifiers": [
+        {
+            "id": "CorruptedSceptreRoomModifier",
+            "name": "@RoomStateAttackPerDebuffOnTeam",
+            "in_play_descriptions": {
+                "english": "+[power][attack] for each distinct [debuff] among enemy units.",
+                "chinese": "敌方单位之中每有一种[debuff]，获得 +[power][attack]。"
+            },
+            "param_int": 20,
+            "param_int_2": 2
+        }
+    ],
+    "effects": [
+        {
+            "id": "Equip_CorruptedSceptre",
+            "name": "CardEffectAttachEquipment",
+            "target_mode": "drop_target_character",
+            "target_team": "monsters",
+            "param_upgrade": "@upg_CorruptedSceptre"
+        }
+    ],
+    "sprites": [
+        {
+            "id": "CorruptedSceptreArt",
+            "path": "textures/CorruptedSceptreArt.png"
+        }
+    ],
+    "game_objects": [
+        {
+            "id": "CorruptedSceptreArt",
+            "type": "card_art",
+            "extensions": {
+                "card_art": {
+                    "sprite": "@CorruptedSceptreArt"
+                }
+            }
+        }
+    ]
+}

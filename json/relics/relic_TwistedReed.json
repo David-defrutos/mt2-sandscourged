@@ -1,0 +1,73 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "relics": [
+        {
+            "id": "TwistedReed",
+            "type": "collectable",
+            "names": {
+                "english": "Twisted Reed",
+                "chinese": "扭曲芦苇"
+            },
+            "descriptions": {
+                "english": "Bosses start with [mt2_sandscourged.Plugin_hex] [effect0.status0.power]. [mt2_sandscourged.Plugin_hex] does not decay.",
+                "chinese": "首领开局获得[mt2_sandscourged.Plugin_hex] [effect0.status0.power]。[mt2_sandscourged.Plugin_hex]效果不会减弱。"
+            },
+            "lore_tooltips": [
+                {
+                    "english": "Little remains from the time before the Scourged's exile, but some mementos persist - preserved memories of a kinder land."
+                }
+            ],
+            "disallow_in_deployment": false,
+            "lore_style": "herzal",
+            "relic_effects": [
+                "@TwistedReedApplyHexRelicEffect",
+                "@TwistedReedPreventDecayRelicEffect"
+            ],
+            "icon": "@TwistedReedIcon",
+            "icon_small": "@TwistedReedIcon",
+            "extensions": [
+                {
+                    "collectable": {
+                        "class": "@ClassSandscourged",
+                        "pools": [
+                            "MegaRelicPool"
+                        ],
+                        "rarity": "common",
+                        "unlock_level": 0
+                    }
+                }
+            ]
+        }
+    ],
+    "relic_effects": [
+        {
+            "id": "TwistedReedApplyHexRelicEffect",
+            "name": "RelicEffectAddStatusEffectOnSpawn",
+            "source_team": "heroes",
+            "param_subtype": "SubtypesData_BossAll",
+            "param_status_effects": [
+                {
+                    "status": "@hex",
+                    "count": 1
+                }
+            ]
+        },
+        {
+            "id": "TwistedReedPreventDecayRelicEffect",
+            "name": "RelicEffectPreventStatusEffectDecay",
+            "source_team": "none",
+            "param_status_effects": [
+                {
+                    "status": "@hex",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "sprites": [
+        {
+            "id": "TwistedReedIcon",
+            "path": "textures/TwistedReedArt.png"
+        }
+    ]
+}

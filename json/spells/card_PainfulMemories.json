@@ -1,0 +1,69 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "cards": [
+        {
+            "id": "PainfulMemories",
+            "names": {
+                "english": "Painful Memories",
+                "chinese": "痛苦的记忆"
+            },
+            "descriptions": {
+                "english": "Shuffle [effect2.power] <b>Vexations</b> into your draw pile. Gain [effect3.power][ember] and draw [effect2.power].",
+                "chinese": "将 [effect2.power] 张<b>苦恼</b>卡牌加入你的抽牌堆。获得 [effect3.power][ember]。抽 [effect2.power] 张牌。"
+            },
+            "lore_tooltips": [
+                {
+                    "english": "Long ago, Seraph quelled an uprising that had the potential to end his reign. To make sure it would never happen again, he exiled the dissidents from Heaven, erased all record of their existence, and forbade mention of their name. Now they have returned, warped and vengeful."
+                }
+            ],
+            "rarity": "uncommon",
+            "class": "@ClassSandscourged",
+            "card_art": "@PainfulMemoriesArt",
+            "card_type": "spell",
+            "targets_room": true,
+            "targetless": true,
+            "pools": [
+                "MegaPool"
+            ],
+            "cost": 0,
+            "traits": [
+                "@Consume"
+            ],
+            "effects": [
+                "@ShuffleVexationSingle",
+                "@ShuffleVexationSingle",
+                "@PainfulMemoriesDraw",
+                "@PainfulMemoriesGainEmber"
+            ]
+        }
+    ],
+    "effects": [
+        {
+            "id": "PainfulMemoriesDraw",
+            "name": "CardEffectDraw",
+            "param_int": 2
+        },
+        {
+            "id": "PainfulMemoriesGainEmber",
+            "name": "CardEffectGainEnergy",
+            "param_int": 1
+        }
+    ],
+    "sprites": [
+        {
+            "id": "PainfulMemoriesArt",
+            "path": "textures/PainfulMemoriesArt.png"
+        }
+    ],
+    "game_objects": [
+        {
+            "id": "PainfulMemoriesArt",
+            "type": "card_art",
+            "extensions": {
+                "card_art": {
+                    "sprite": "@PainfulMemoriesArt"
+                }
+            }
+        }
+    ]
+}

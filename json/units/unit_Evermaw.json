@@ -1,0 +1,161 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "cards": [
+        {
+            "id": "SpawnEvermaw",
+            "names": {
+                "english": "Evermaw",
+                "chinese": "巨鳄"
+            },
+            "card_art": "@Evermaw",
+            "cost": 2,
+            "card_type": "monster",
+            "rarity": "rare",
+            "class": "@ClassSandscourged",
+            "unlock_level": 6,
+            "targets_room": true,
+            "effects": [
+                "@SpawnEvermaw"
+            ],
+            "lore_tooltips": [
+                {
+                    "english": "The Ur-Pharaoh has blessed select Egos with it's endless hunger. Forces of destruction - they devour everything in their path, their gaping maws never closing, forever yearning for more."
+                }
+            ],
+            "pools": [
+                "UnitsAllBanner"
+            ]
+        },
+        {
+            "id": "EvermawAbility",
+            "names": {
+                "english": "Guzzle",
+                "chinese": "豪饮"
+            },
+            "descriptions": {
+                "english": "Purge a card from your hand.",
+                "chinese": "从你的手牌里移除一张卡牌。"
+            },
+            "card_art": "@Evermaw",
+            "is_an_ability": true,
+            "cooldown": 5,
+            "targetless": true,
+            "targets_room": false,
+            "card_type": "spell",
+            "effects": [
+                "@EvermawPurgeCard"
+            ]
+        }
+    ],
+    "characters": [
+        {
+            "id": "Evermaw",
+            "size": 2,
+            "attack_damage": 15,
+            "health": 20,
+            "names": {
+                "english": "Evermaw",
+                "chinese": "巨鳄"
+            },
+            "character_art": "@EvermawCharacterArt",
+            "subtypes": [
+                "SubtypesData_BannerUnit",
+                "@Sub_Ego"
+            ],
+            "ability": "@EvermawAbility",
+            "triggers": [
+                "@EvermawConjureTrigger"
+            ]
+        }
+    ],
+    "character_triggers": [
+        {
+            "id": "EvermawConjureTrigger",
+            "trigger": "on_own_ability_activated",
+            "descriptions": {
+                "english": "Gain [rage] [effect0.upgrade.status0.power] permanently.",
+                "chinese": "永久获得[rage] [effect0.upgrade.status0.power]。"
+            },
+            "effects": [
+                "@EvermawApplyUpgrade"
+            ]
+        }
+    ],
+    "effects": [
+        {
+            "id": "SpawnEvermaw",
+            "name": "CardEffectSpawnMonster",
+            "target_mode": "room",
+            "param_character": "@Evermaw"
+        },
+        {
+            "id": "EvermawPurgeCard",
+            "name": "@CardEffectPurgeCardFromHand",
+            "should_test": true,
+            "should_fail_to_cast_if_test_fails": true
+        },
+        {
+            "id": "EvermawApplyUpgrade",
+            "name": "CardEffectAddCardUpgradeToUnits",
+            "target_mode": "self",
+            "param_upgrade": "@EvermawRageUpgrade",
+            "param_int": 0,
+            "param_int_2": 0,
+            "param_int_3": 2
+        }
+    ],
+    "upgrades": [
+        {
+            "id": "EvermawRageUpgrade",
+            "status_effect_upgrades": [
+                {
+                    "status": "buff",
+                    "count": 5,
+                    "from_permanent_upgrade": true
+                }
+            ]
+        }
+    ],
+    "sprites": [
+        {
+            "id": "Evermaw",
+            "path": "textures/EvermawCardArt.png"
+        },
+        {
+            "id": "EvermawCharacterArt",
+            "path": "textures/EvermawCharacterArt.png"
+        }
+    ],
+    "game_objects": [
+        {
+            "id": "Evermaw",
+            "type": "card_art",
+            "extensions": {
+                "card_art": {
+                    "sprite": "@Evermaw"
+                }
+            }
+        },
+        {
+            "id": "EvermawCharacterArt",
+            "type": "character_art",
+            "extensions": {
+                "character_art": {
+                    "sprite": "@EvermawCharacterArt",
+                    "transform": {
+                        "position": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 0.4,
+                            "y": 0.4,
+                            "z": 1
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}

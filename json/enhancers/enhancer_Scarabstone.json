@@ -1,0 +1,93 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "relics": [
+        {
+            "id": "Scarabstone",
+            "type": "enhancer",
+            "names": {
+                "english": "Scarabstone",
+                "chinese": "蜣螂石"
+            },
+            "descriptions": {
+                "english": "Upgrade a unit with +[effect0.upgrade0.bonusdamage][attack] and \"[extinguish]: Summon a <b>Revered Scarab</b>.\"",
+                "chinese": "升级一个单位，使其获得 +[effect0.upgrade0.bonusdamage][attack]，'[extinguish]: 召唤一只<b>崇敬圣甲虫</b>。'"
+            },
+            "relic_effects": [
+                "@ScarabstoneEnhancer"
+            ],
+            "icon": "@ScarabstoneIcon",
+            "extensions": [
+                {
+                    "enhancer": {
+                        "class": "@ClassSandscourged",
+                        "pools": [
+                            "UnitUpgradePoolCommon"
+                        ],
+                        "rarity": "common"
+                    }
+                }
+            ]
+        }
+    ],
+    "relic_effects": [
+        {
+            "id": "ScarabstoneEnhancer",
+            "name": "RelicEffectCardUpgrade",
+            "param_card_type": "monster",
+            "param_upgrade": "@ScarabstoneUpgrade"
+        }
+    ],
+    "upgrades": [
+        {
+            "id": "ScarabstoneUpgrade",
+            "titles": {
+                "english": "Scarabstone",
+                "chinese": "蜣螂石"
+            },
+            "descriptions": {
+                "english": "Gain +[bonusdamage][attack] and \"[extinguish]: Summon a <b>Revered Scarab</b>.\"",
+                "chinese": "获得 +[bonusdamage][attack]，'[extinguish]: 召唤一只<b>崇敬圣甲虫</b>。'"
+            },
+            "bonus_damage": 5,
+            "icon": "@ScarabstoneIcon",
+            "trigger_upgrades": [
+                "@ScarabstoneExtinguishTrigger"
+            ],
+            "use_upgrade_hightlight_tags": true
+        }
+    ],
+    "character_triggers": [
+        {
+            "id": "ScarabstoneExtinguishTrigger",
+            "descriptions": {
+                "english": "Summon a <b>Revered Scarab</b>.",
+                "chinese": "召唤一只<b>崇敬圣甲虫</b>。"
+            },
+            "trigger": "on_death",
+            "effects": ["@ScarabstoneSummonScarab"]
+        }
+    ],
+    "effects": [
+        {
+            "id": "ScarabstoneSummonScarab",
+            "name": "CardEffectSpawnMonster",
+            "target_team": "monsters",
+            "target_mode": "front_in_room",
+            "param_character": "@ReveredScarab",
+            "param_int": 1,
+            "param_bool": true
+        }
+    ],
+    "sprites": [
+        {
+            "id": "ScarabstoneIcon",
+            "path": "textures/ScarabstoneIcon.png"
+        }
+    ],
+    "atlas_icons": [
+        {
+            "id": "ScarabstoneIcon",
+            "path": "textures/ScarabstoneIcon.png"
+        }
+    ]
+}

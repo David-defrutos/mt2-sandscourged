@@ -1,0 +1,61 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "relics": [
+        {
+            "id": "ShiningPearl",
+            "type": "collectable",
+            "names": {
+                "english": "Shining Pearl",
+                "chinese": "明亮珍珠"
+            },
+            "descriptions": {
+                "english": "Gain [effect0.power][ember] when a friendly unit dies.",
+                "chinese": "每当一个友方单位死亡时，获得 [effect0.power][ember]。"
+            },
+            "lore_tooltips": [
+                {
+                    "english": "This pearl is said to have been the very first to be harvested by the Scourged, a shimmering imitation of the Ur-Pharaoh's own."
+                }
+            ],
+            "disallow_in_deployment": false,
+            "lore_style": "herzal",
+            "relic_effects": [
+                "@ShiningPearlRelicEffectEmber"
+            ],
+            "relic_activated_texts": {
+                "english": "Shining Pearl"
+            },
+            "icon": "@ShiningPearlIcon",
+            "icon_small": "@ShiningPearlIcon",
+            "extensions": [
+                {
+                    "collectable": {
+                        "class": "@ClassSandscourged",
+                        "pools": [
+                            "MegaRelicPool"
+                        ],
+                        "rarity": "uncommon",
+                        "unlock_level": 3
+                    }
+                }
+            ]
+        }
+    ],
+    "relic_effects": [
+        {
+            "id": "ShiningPearlRelicEffectEmber",
+            "name": "RelicEffectEmberOnUnitTrigger",
+            "target_mode": "front_in_room",
+            "source_team": "monsters",
+            "param_int": 1,
+            "param_trigger": "on_death",
+            "notification_suppressed": true
+        }
+    ],
+    "sprites": [
+        {
+            "id": "ShiningPearlIcon",
+            "path": "textures/ShiningPearlArt.png"
+        }
+    ]
+}

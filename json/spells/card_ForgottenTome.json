@@ -1,0 +1,87 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "cards": [
+        {
+            "id": "ForgottenTome",
+            "names": {
+                "english": "Forgotten Tome",
+                "chinese": "遗忘之书"
+            },
+            "descriptions": {
+                "english": "Apply [duality] to a non-Champion unit.",
+                "chinese": "使一个非勇者单位获得[duality]。"
+            },
+            "lore_tooltips": [
+                {
+                    "english": "The Scourged were struck from the history books by Serpah's tyrannical command. Their names left unspoken, their emblems burned, until no-one in Heaven remembered they had ever existed at all."
+                }
+            ],
+            "rarity": "rare",
+            "class": "@ClassSandscourged",
+            "card_art": "@ForgottenTomeArt",
+            "unlock_level": 7,
+            "targets_room": true,
+            "targetless": false,
+            "pools": [
+                "MegaPool"
+            ],
+            "cost": 1,
+            "traits": [
+                "@Consume"
+            ],
+            "effects": [
+                "@ForgottenTomeCheckNotChampion",
+                "@ForgottenTomeAddUpgrade"
+            ]
+        }
+    ],
+    "upgrades": [
+        {
+            "id": "ForgottenTomeUpgrade",
+            "status_effect_upgrades": [
+                {
+                    "status": "duality",
+                    "count": 1
+                }
+            ],
+            "use_upgrade_hightlight_tags": true
+        }
+    ],
+    "effects": [
+        {
+            "id": "ForgottenTomeCheckNotChampion",
+            "name": "@CardEffectSubtypeRestricted",
+            "target_mode": "drop_target_character",
+            "target_team": "both",
+            "param_subtype": "SubtypesData_Champion_83f21cbe-9d9b-4566-a2c3-ca559ab8ff34",
+            "param_bool": false,
+            "should_test": true,
+            "should_fail_to_cast_if_test_fails": true,
+            "should_cancel_subsequent_effects_if_test_fails": true
+        },
+        {
+            "id": "ForgottenTomeAddUpgrade",
+            "name": "CardEffectAddTempCardUpgradeToUnits",
+            "target_mode": "last_targeted_characters",
+            "target_team": "both",
+            "param_upgrade": "@ForgottenTomeUpgrade"
+        }
+    ],
+    "sprites": [
+        {
+            "id": "ForgottenTomeArt",
+            "path": "textures/ForgottenTomeArt.png"
+        }
+    ],
+    "game_objects": [
+        {
+            "id": "ForgottenTomeArt",
+            "type": "card_art",
+            "extensions": {
+                "card_art": {
+                    "sprite": "@ForgottenTomeArt"
+                }
+            }
+        }
+    ]
+}

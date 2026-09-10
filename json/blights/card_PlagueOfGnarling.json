@@ -1,0 +1,90 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "cards": [
+        {
+            "id": "PlagueOfGnarling",
+            "names": {
+                "english": "Plague of Gnarling",
+                "chinese": "木瘤瘟疫"
+            },
+            "descriptions": {
+                "english": "Apply [mt2_sandscourged.Plugin_scourge] equal to [trait0.power]x the number of <b>Blights</b> and <b>Scourges</b> in your deck.",
+                "chinese": "施加[mt2_sandscourged.Plugin_scourge]，层数相当于你卡组中[blight]牌和[junk]牌数量的 [trait0.power] 倍。"
+            },
+            "lore_tooltips": [
+                {
+                    "english": "The third and last plague afflicted upon the Scourged. The storms of Oblivion churned with malevolence, and corrupted the flesh of all that had yet survived."
+                }
+            ],
+            "rarity": "rare",
+            "class": "@ClassSandscourged",
+            "card_art": "@PlagueOfGnarlingArt",
+            "card_type": "blight",
+            "targets_room": true,
+            "targetless": false,
+            "pools": [
+                "MegaPool"
+            ],
+            "cost": 2,
+            "traits": [
+                "@PlagueOfGnarlingScaleWarp"
+            ],
+            "effects": [
+                {
+                    "id": "@PlagueOfGnarlingApplyWarp"
+                }
+            ],
+            "triggers": [
+                "@PlagueDamageOnUnplayed"
+            ]
+        }
+    ],
+    "traits": [
+        {
+            "id": "PlagueOfGnarlingScaleWarp",
+            "name": "CardTraitScalingAddStatusEffect",
+            "param_tracked_value": {
+                "id": "@BlightsAndScourgesInDeck",
+                "mod_reference": "Conductor"
+            },
+            "param_int": 10,
+            "param_status_effects": [
+                {
+                    "status": "@scourge",
+                    "count": 0
+                }
+            ]
+        }
+    ],
+    "effects": [
+        {
+            "id": "PlagueOfGnarlingApplyWarp",
+            "name": "CardEffectAddStatusEffect",
+            "target_mode": "drop_target_character",
+            "target_team": "both",
+            "param_status_effects": [
+                {
+                    "status": "@scourge",
+                    "count": 0
+                }
+            ]
+        }
+    ],
+    "sprites": [
+        {
+            "id": "PlagueOfGnarlingArt",
+            "path": "textures/PlagueOfGnarlingArt.png"
+        }
+    ],
+    "game_objects": [
+        {
+            "id": "PlagueOfGnarlingArt",
+            "type": "card_art",
+            "extensions": {
+                "card_art": {
+                    "sprite": "@PlagueOfGnarlingArt"
+                }
+            }
+        }
+    ]
+}

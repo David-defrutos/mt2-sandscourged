@@ -1,0 +1,102 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "cards": [
+        {
+            "id": "ScryingEye",
+            "names": {
+                "english": "Scrying Eye",
+                "chinese": "探知之眼"
+            },
+            "lore_tooltips": [
+                {
+                    "english": "The warped priests of the Sandscourged use eyes plucked from the Lost to glimpse through the swirling curtains of sand that surround Oblivion. Through these lenses, they have seen their path to revenge."
+                }
+            ],
+            "card_type": "equipment",
+            "rarity": "common",
+            "class": "@ClassSandscourged",
+            "card_art": "@ScryingEyeArt",
+            "targets_room": true,
+            "targetless": false,
+            "pools": [
+                "MegaPool",
+                "RoomAndEquipmentMerchant_EquipmentPool",
+                "RoomAndEquipmentDraftPool",
+                "EquipmentPoolNonEnemy",
+                "FreeEquipmentMutatorPool",
+                "RedCrownEquipmentPool",
+                "RandomGraftedEquipmentForEvent_NoVoidArms_EquipmentPool"
+            ],
+            "cost": 1,
+            "effects": [
+                "@Equip_ScryingEye"
+            ]
+        },
+        {
+            "id": "ScryingEyeAbility",
+            "names": {
+                "english": "Glimpse",
+                "chinese": "预见"
+            },
+            "descriptions": {
+                "english": "Draw [effect0.power]. Discard [effect0.power].",
+                "chinese": "抽 [effect0.power] 张牌。舍弃 [effect0.power] 张牌。"
+            },
+            "is_an_ability": true,
+            "cooldown": 2,
+            "card_type": "spell",
+            "card_art": "@ScryingEyeArt",
+            "targetless": true,
+            "effects": [
+                "@ScryingEyeDraw",
+                "@ScryingEyeDiscard"
+            ]
+        }
+    ],
+    "upgrades": [
+        {
+            "id": "upg_ScryingEye",
+            "bonus_damage": 8,
+            "bonus_hp": 8,
+            "ability_upgrade": "@ScryingEyeAbility",
+            "icon": "@ScryingEyeArt"
+        }
+    ],
+    "effects": [
+        {
+            "id": "Equip_ScryingEye",
+            "name": "CardEffectAttachEquipment",
+            "target_mode": "drop_target_character",
+            "target_team": "monsters",
+            "param_upgrade": "@upg_ScryingEye"
+        },
+        {
+            "id": "ScryingEyeDraw",
+            "name": "CardEffectDraw",
+            "param_int": 1,
+            "target_team": "none"
+        },
+        {
+            "id": "ScryingEyeDiscard",
+            "name": "CardEffectChooseDiscard",
+            "target_team": "none"
+        }
+    ],
+    "sprites": [
+        {
+            "id": "ScryingEyeArt",
+            "path": "textures/ScryingEyeArt.png"
+        }
+    ],
+    "game_objects": [
+        {
+            "id": "ScryingEyeArt",
+            "type": "card_art",
+            "extensions": {
+                "card_art": {
+                    "sprite": "@ScryingEyeArt"
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,176 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "cards": [
+        {
+            "id": "SpawnRevenant",
+            "names": {
+                "english": "Revenant",
+                "chinese": "亡魂战士"
+            },
+            "card_art": "@Revenant",
+            "cost": 3,
+            "card_type": "monster",
+            "rarity": "rare",
+            "class": "@ClassSandscourged",
+            "targets_room": true,
+            "effects": [
+                "@SpawnRevenant"
+            ],
+            "lore_tooltips": [
+                {
+                    "english": "The toughest and most fearsome of the Scourged warriors. Revenants are sworn to beat Seraph until he admits his treason, and only then to let him die."
+                }
+            ],
+            "pools": [
+                "UnitsAllBanner"
+            ]
+        }
+    ],
+    "characters": [
+        {
+            "id": "Revenant",
+            "size": 2,
+            "attack_damage": 35,
+            "health": 25,
+            "names": {
+                "english": "Revenant",
+                "chinese": "亡魂战士"
+            },
+            "character_art": "@RevenantCharacterArt",
+            "subtypes": [
+                "SubtypesData_BannerUnit",
+                "@Sub_Ego"
+            ],
+            "triggers": [
+                "@RevenantHarvestTrigger",
+                "@RevenantResolveTrigger"
+            ]
+        }
+    ],
+    "character_triggers": [
+        {
+            "id": "RevenantHarvestTrigger",
+            "descriptions": {
+                "english": "Gain [soul] [effect0.status0.power].",
+                "chinese": "获得[soul] [effect0.status0.power]。"
+            },
+            "trigger": "on_any_unit_death_on_floor",
+            "effects": [
+                "@RevenantGainSoul"
+            ]
+        },
+        {
+            "id": "RevenantResolveTrigger",
+            "descriptions": {
+                "english": "Spend [effect0.status0.power_unmodified] [soul] stacks to gain [multistrike] [effect2.status0.power].",
+                "chinese": "花费[soul] [effect0.status0.power_unmodified] 并获得[multistrike] [effect2.status0.power]。"
+            },
+            "trigger": "post_combat",
+            "effects": [
+                "@RevenantCheckSouls",
+                "@RevenantRemoveSouls",
+                "@RevenantGainMultistrike"
+            ]
+        }
+    ],
+    "effects": [
+        {
+            "id": "SpawnRevenant",
+            "name": "CardEffectSpawnMonster",
+            "target_mode": "room",
+            "param_character": "@Revenant"
+        },
+        {
+            "id": "RevenantGainSoul",
+            "name": "CardEffectAddStatusEffect",
+            "target_mode": "self",
+            "param_status_effects": [
+                {
+                    "status": "captured_soul",
+                    "count": 1
+                }
+            ]
+        },
+        {
+            "id": "RevenantCheckSouls",
+            "name": {
+                "id": "@CardEffectRequireStatusThreshold",
+                "mod_reference": "Conductor"
+            },
+            "target_mode": "self",
+            "should_test": true,
+            "should_cancel_subsequent_effects_if_test_fails": true,
+            "param_bool": true,
+            "param_status_effects": [
+                {
+                    "status": "captured_soul",
+                    "count": 4
+                }
+            ]
+        },
+        {
+            "id": "RevenantRemoveSouls",
+            "name": "CardEffectRemoveStatusEffect",
+            "target_mode": "self",
+            "param_status_effects": [
+                {
+                    "status": "captured_soul",
+                    "count": 4
+                }
+            ]
+        },
+        {
+            "id": "RevenantGainMultistrike",
+            "name": "CardEffectAddStatusEffect",
+            "target_mode": "self",
+            "param_status_effects": [
+                {
+                    "status": "multistrike",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "sprites": [
+        {
+            "id": "Revenant",
+            "path": "textures/RevenantCardArt.png"
+        },
+        {
+            "id": "RevenantCharacterArt",
+            "path": "textures/RevenantCharacterArt.png"
+        }
+    ],
+    "game_objects": [
+        {
+            "id": "Revenant",
+            "type": "card_art",
+            "extensions": {
+                "card_art": {
+                    "sprite": "@Revenant"
+                }
+            }
+        },
+        {
+            "id": "RevenantCharacterArt",
+            "type": "character_art",
+            "extensions": {
+                "character_art": {
+                    "sprite": "@RevenantCharacterArt",
+                    "transform": {
+                        "position": {
+                            "x": 0,
+                            "y": 0.82,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 0.4,
+                            "y": 0.4,
+                            "z": 1
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}

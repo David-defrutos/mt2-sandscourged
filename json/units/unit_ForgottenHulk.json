@@ -1,0 +1,150 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "cards": [
+        {
+            "id": "SpawnForgottenHulk",
+            "names": {
+                "english": "Forgotten Hulk",
+                "chinese": "遗忘巨人"
+            },
+            "lore_tooltips": [
+                {
+                    "english": "However mighty this creature once was, now it is reduced to a warped mass of flesh and sinew."
+                }
+            ],
+            "card_art": "@ForgottenHulk",
+            "cost": 2,
+            "card_type": "monster",
+            "rarity": "uncommon",
+            "class": "@ClassSandscourged",
+            "unlock_level": 4,
+            "targets_room": true,
+            "pools": [
+                "UnitsAllBanner"
+            ],
+            "effects": [
+                "@SpawnForgottenHulk"
+            ]
+        }
+    ],
+    "characters": [
+        {
+            "id": "ForgottenHulk",
+            "size": 3,
+            "attack_damage": 0,
+            "health": 45,
+            "names": {
+                "english": "Forgotten Hulk",
+                "chinese": "遗忘巨人"
+            },
+            "character_art": "@ForgottenHulkCharacterArt",
+            "subtypes": [
+                "@Sub_Lost",
+                "SubtypesData_BannerUnit"
+            ],
+            "triggers": [
+                "@ForgottenHulkRevengeTrigger",
+                "@ForgottenHulkAccursedTrigger"
+            ]
+        }
+    ],
+    "character_triggers": [
+        {
+            "id": "ForgottenHulkRevengeTrigger",
+            "descriptions": {
+                "english": "Apply [mt2_sandscourged.Plugin_scourge] [effect0.status0.power] to the attacker.",
+                "chinese": "对攻击者施加[mt2_sandscourged.Plugin_scourge] [effect0.status0.power]。"
+            },
+            "trigger": "on_hit",
+            "effects": [
+                "@ForgottenHulkApplyScourge"
+            ]
+        },
+        {
+            "id": "ForgottenHulkAccursedTrigger",
+            "descriptions": {
+                "english": "Gain [undying] [effect0.status0.power].",
+                "chinese": "获得[undying] [effect0.status0.power]。"
+            },
+            "trigger": {
+                "id": "@Accursed",
+                "mod_reference": "Conductor"
+            },
+            "effects": [
+                "@ForgottenHulkGainReanimate"
+            ]
+        }
+    ],
+    "effects": [
+        {
+            "id": "SpawnForgottenHulk",
+            "name": "CardEffectSpawnMonster",
+            "target_mode": "room",
+            "param_character": "@ForgottenHulk"
+        },
+        {
+            "id": "ForgottenHulkApplyScourge",
+            "name": "CardEffectAddStatusEffect",
+            "target_mode": "last_attacker_character",
+            "param_status_effects": [
+                {
+                    "status": "@scourge",
+                    "count": 3
+                }
+            ]
+        },
+        {
+            "id": "ForgottenHulkGainReanimate",
+            "name": "CardEffectAddStatusEffect",
+            "target_mode": "self",
+            "param_status_effects": [
+                {
+                    "status": "undying",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "sprites": [
+        {
+            "id": "ForgottenHulk",
+            "path": "textures/ForgottenHulkCardArt.png"
+        },
+        {
+            "id": "ForgottenHulkCharacterArt",
+            "path": "textures/ForgottenHulkCharacterArt.png"
+        }
+    ],
+    "game_objects": [
+        {
+            "id": "ForgottenHulk",
+            "type": "card_art",
+            "extensions": {
+                "card_art": {
+                    "sprite": "@ForgottenHulk"
+                }
+            }
+        },
+        {
+            "id": "ForgottenHulkCharacterArt",
+            "type": "character_art",
+            "extensions": {
+                "character_art": {
+                    "sprite": "@ForgottenHulkCharacterArt",
+                    "transform": {
+                        "position": {
+                            "x": -0.2,
+                            "y": 1.08,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 0.4,
+                            "y": 0.4,
+                            "z": 1
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}

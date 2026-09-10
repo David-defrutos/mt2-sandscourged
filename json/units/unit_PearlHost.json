@@ -1,0 +1,145 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "cards": [
+        {
+            "id": "SpawnPearlHost",
+            "names": {
+                "english": "Pearl Host",
+                "chinese": "珍珠宿主"
+            },
+            "card_art": "@PearlHost",
+            "cost": 1,
+            "card_type": "monster",
+            "rarity": "uncommon",
+            "class": "@ClassSandscourged",
+            "targets_room": true,
+            "effects": [
+                "@SpawnPearlHost"
+            ],
+            "lore_tooltips": [
+                {
+                    "english": "Pearl tapping is said to be an excruciating ordeal for the host. As the pearl grows larger, so does the torment endured. In their agony, hosts lash out violently, quite unlike their otherwise placid nature."
+                }
+            ],
+            "pools": [
+                "UnitsAllBanner"
+            ]
+        }
+    ],
+    "characters": [
+        {
+            "id": "PearlHost",
+            "size": 2,
+            "attack_damage": 20,
+            "health": 20,
+            "names": {
+                "english": "Pearl Host",
+                "chinese": "珍珠宿主"
+            },
+            "character_art": "@PearlHostCharacterArt",
+            "subtypes": [
+                "SubtypesData_BannerUnit",
+                "@Sub_Lost"
+            ],
+            "triggers": [
+                "@PearlHostSummonTrigger",
+                "@PearlHostAccursedTrigger"
+            ]
+        }
+    ],
+    "character_triggers": [
+        {
+            "id": "PearlHostSummonTrigger",
+            "descriptions": {
+                "english": "Shuffle a <b>Vexation</b> into your draw pile.",
+                "chinese": "将一张<b>苦恼</b>卡牌加入你的抽牌堆。"
+            },
+            "trigger": "on_spawn",
+            "effects": [
+                "@ShuffleVexationSingle"
+            ]
+        },
+        {
+            "id": "PearlHostAccursedTrigger",
+            "descriptions": {
+                "english": "Gain [effect1.power][ember] and [rage] [effect0.status0.power].",
+                "chinese": "获得 [effect1.power][ember] 和[rage] [effect0.status0.power]。"
+            },
+            "trigger": {
+                "id": "@Accursed",
+                "mod_reference": "Conductor"
+            },
+            "effects": [
+                "@PearlHostGainRage",
+                "@PearlHostGainEmber"
+            ]
+        }
+    ],
+    "effects": [
+        {
+            "id": "SpawnPearlHost",
+            "name": "CardEffectSpawnMonster",
+            "target_mode": "room",
+            "param_character": "@PearlHost"
+        },
+        {
+            "id": "PearlHostGainRage",
+            "name": "CardEffectAddStatusEffect",
+            "target_mode": "self",
+            "target_team": "monsters",
+            "param_status_effects": [
+                {
+                    "status": "buff",
+                    "count": 3
+                }
+            ]
+        },
+        {
+            "id": "PearlHostGainEmber",
+            "name": "CardEffectGainEnergy",
+            "param_int": 1
+        }
+    ],
+    "sprites": [
+        {
+            "id": "PearlHost",
+            "path": "textures/PearlHostCardArt.png"
+        },
+        {
+            "id": "PearlHostCharacterArt",
+            "path": "textures/PearlHostCharacterArt.png"
+        }
+    ],
+    "game_objects": [
+        {
+            "id": "PearlHost",
+            "type": "card_art",
+            "extensions": {
+                "card_art": {
+                    "sprite": "@PearlHost"
+                }
+            }
+        },
+        {
+            "id": "PearlHostCharacterArt",
+            "type": "character_art",
+            "extensions": {
+                "character_art": {
+                    "sprite": "@PearlHostCharacterArt",
+                    "transform": {
+                        "position": {
+                            "x": 0,
+                            "y": 1,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 0.9,
+                            "y": 0.9,
+                            "z": 1
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,139 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "cards": [
+        {
+            "id": "SpawnReveredScarab",
+            "names": {
+                "english": "Revered Scarab",
+                "chinese": "崇敬圣甲虫"
+            },
+            "card_art": "@ReveredScarab",
+            "cost": 1,
+            "card_type": "monster",
+            "rarity": "common",
+            "class": "@ClassSandscourged",
+            "targets_room": true,
+            "pools": [
+                "StarterCardsOnly"
+            ],
+            "effects": [
+                "@SpawnReveredScarab"
+            ],
+            "lore_tooltips": [
+                {
+                    "english": "The spawn of the Ur-Pharaoh. They gnaw through flesh and bone alike, embodying of the god-king's insatiable hunger. Zealous worshippers offer up their own bodies to the creatures in fervent devotion."
+                }
+            ]
+        }
+    ],
+    "characters": [
+        {
+            "id": "ReveredScarab",
+            "size": 1,
+            "attack_damage": 1,
+            "health": 1,
+            "names": {
+                "english": "Revered Scarab",
+                "chinese": "崇敬圣甲虫"
+            },
+            "character_art": "@ReveredScarabCharacterArt",
+            "subtypes": [
+                "@Sub_Scarab"
+            ],
+            "triggers": [
+                "@ReveredScarabTrigger",
+                "@ScarabStrikeTrigger"
+            ]
+        }
+    ],
+    "character_triggers": [
+        {
+            "id": "ReveredScarabTrigger",
+            "descriptions": {
+                "english": "Apply +[effect0.upgrade.bonusdamage][attack] and +[effect0.upgrade.bonushp][health] to friendly units.",
+                "chinese": "友方单位获得 +[effect0.upgrade.bonusdamage][attack]，+[effect0.upgrade.bonushp][health]。"
+            },
+            "trigger": "on_death",
+            "effects": [
+                "@ReveredScarabGiveStats"
+            ]
+        },
+        {
+            "id": "ScarabStrikeTrigger",
+            "descriptions": {
+                "english": "[advance].",
+                "chinese": "[advance]。"
+            },
+            "trigger": "on_attacking",
+            "effects": [
+                {
+                    "id": "@ScarabAdvanceEffect"
+                }
+            ]
+        }        
+    ],
+    "effects": [
+        {
+            "id": "SpawnReveredScarab",
+            "name": "CardEffectSpawnMonster",
+            "target_mode": "room",
+            "param_character": "@ReveredScarab"
+        },
+        {
+            "id": "ReveredScarabGiveStats",
+            "name": "CardEffectAddTempCardUpgradeToUnits",
+            "target_mode": "room",
+            "target_team": "monsters",
+            "param_upgrade": "@ScarabThreeAttackOneHealth"
+        },
+        {
+            "id": "ScarabAdvanceEffect",
+            "name": "CardEffectFloorRearrange",
+            "target_mode": "self",
+            "target_team": "monsters",
+            "param_int": 0
+        }        
+    ],
+    "sprites": [
+        {
+            "id": "ReveredScarab",
+            "path": "textures/ReveredScarabCardArt.png"
+        },
+        {
+            "id": "ReveredScarabCharacterArt",
+            "path": "textures/ReveredScarabCharacterArt.png"
+        }
+    ],
+    "game_objects": [
+        {
+            "id": "ReveredScarab",
+            "type": "card_art",
+            "extensions": {
+                "card_art": {
+                    "sprite": "@ReveredScarab"
+                }
+            }
+        },
+        {
+            "id": "ReveredScarabCharacterArt",
+            "type": "character_art",
+            "extensions": {
+                "character_art": {
+                    "sprite": "@ReveredScarabCharacterArt",
+                    "transform": {
+                        "position": {
+                            "x": 0,
+                            "y": 0.4,
+                            "z": 0.2
+                        },
+                        "scale": {
+                            "x": 0.25,
+                            "y": 0.25,
+                            "z": 1
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}

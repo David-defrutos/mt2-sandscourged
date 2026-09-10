@@ -1,0 +1,97 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "cards": [
+        {
+            "id": "SpikeOfTheScourged",
+            "names": {
+                "english": "Spike of the Scourged",
+                "chinese": "沙蚀道钉"
+            },
+            "descriptions": {
+                "english": "Apply [trait1.statusmultiplier][x] [mt2_sandscourged.Plugin_hex]. Add [x] random <b>Torments</b> to your hand.",
+                "chinese": "施加 [trait1.statusmultiplier][x] [mt2_sandscourged.Plugin_hex]。将 [x] 张随机<b>折磨</b>卡牌加入你的手牌。"
+            },
+            "lore_tooltips": [
+                {
+                    "english": "It was Fel who first discovered the Scourged upon their emergence from Limbo. United in enmity towards Seraph, she and Izketri forged a spike for the Scourged and drove it into the rail. A symbol of concordance. For now."
+                }
+            ],
+            "rarity": "rare",
+            "class": "@ClassSandscourged",
+            "card_art": "@SpikeOfTheScourgedArt",
+            "unlock_level": 8,
+            "targets_room": true,
+            "targetless": false,
+            "pools": [
+                "MegaPool"
+            ],
+            "cost_type": "x",
+            "traits": [
+                "@Consume",
+                "@SpikeOfTheScourgedScaleHex",
+                "@SpikeOfTheScourgedScaleCards"
+            ],
+            "effects": [
+                "@SpikeOfTheScourgedApplyHex"
+            ]
+        }
+    ],
+    "traits": [
+        {
+            "id": "SpikeOfTheScourgedScaleHex",
+            "name": "CardTraitScalingAddStatusEffect",
+            "param_tracked_value": "played_cost",
+            "param_int": 1,
+            "effect_text_suppressed": true,
+            "param_status_effects": [
+                {
+                    "status": "@hex",
+                    "count": 0
+                }
+            ]
+        },
+        {
+            "id": "SpikeOfTheScourgedScaleCards",
+            "name": "@CardTraitScalingAddBattleCardToHandFromPool",
+            "param_card_pool": "@TormentPool",
+            "param_tracked_value": "played_cost",
+            "param_entry_duration": "this_turn",
+            "param_use_scaling_params": true,
+            "param_int": 1
+        }
+    ],
+    "effects": [
+        {
+            "id": "SpikeOfTheScourgedApplyHex",
+            "name": "CardEffectAddStatusEffect",
+            "target_mode": "drop_target_character",
+            "target_team": "both",
+            "param_status_effects": [
+                {
+                    "status": "@hex",
+                    "count": 0
+                }
+            ],
+            "additional_tooltips": [
+                "@TormentTooltip"
+            ]
+        }
+    ],
+    "sprites": [
+        {
+            "id": "SpikeOfTheScourgedArt",
+            "path": "textures/SpikeOfTheScourgedArt.png"
+        }
+    ],
+    "game_objects": [
+        {
+            "id": "SpikeOfTheScourgedArt",
+            "type": "card_art",
+            "extensions": {
+                "card_art": {
+                    "sprite": "@SpikeOfTheScourgedArt"
+                }
+            }
+        }
+    ]
+}

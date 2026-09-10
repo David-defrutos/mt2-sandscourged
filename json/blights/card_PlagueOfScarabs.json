@@ -1,0 +1,82 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "cards": [
+        {
+            "id": "PlagueOfScarabs",
+            "names": {
+                "english": "Plague of Scarabs",
+                "chinese": "圣甲虫瘟疫"
+            },
+            "descriptions": {
+                "english": "Add [effect1.secondarypower] <b>Revered Scarab</b> cards to your hand and apply <b>0</b>[ember] and [ephemeral].",
+                "chinese": "将 [effect1.secondarypower] 张<b>崇敬圣甲虫</b>单位加入你的手牌，并使其获得[ephemeral]和 <b>0</b>[ember]。"
+            },
+            "lore_tooltips": [
+                {
+                    "english": "The second plague to afflict the Scourged. From the desolate sands arose swarms of scarabs, to feast upon the flesh of the fallen and living alike. But one merchant would follow the scarabs, and discover their enigmatic progenitor - the Ur-Pharaoh."
+                }
+            ],
+            "rarity": "uncommon",
+            "class": "@ClassSandscourged",
+            "card_art": "@PlagueOfScarabsArt",
+            "card_type": "blight",
+            "targets_room": true,
+            "targetless": true,
+            "pools": [
+                "MegaPool"
+            ],
+            "cost": 1,
+            "effects": [
+                "@EphemeralTooltipEffect",
+                "@PlagueOfScarabsAddCards"
+            ],
+            "triggers": [
+                "@PlagueDamageOnUnplayed"
+            ]
+        }
+    ],
+    "effects": [
+        {
+            "id": "PlagueOfScarabsAddCards",
+            "name": "CardEffectAddBattleCard",
+            "target_mode": "room",
+            "target_team": "none",
+            "param_card_pool": "@ReveredScarabOnlyPool",
+            "param_int": 3,
+            "param_int_2": 3,
+            "param_upgrade": "@ScarabCostReductionAndEphemeral"
+        }
+    ],
+    "upgrades": [
+        {
+            "id": "ScarabCostReductionAndEphemeral",
+            "cost_reduction": 99,
+            "trait_upgrades": [
+                "@ScarabEphemeral"
+            ]
+        }
+    ],
+    "traits": [
+        {
+            "id": "ScarabEphemeral",
+            "name": "CardTraitEphemeral"
+        }
+    ],
+    "sprites": [
+        {
+            "id": "PlagueOfScarabsArt",
+            "path": "textures/PlagueOfScarabsArt.png"
+        }
+    ],
+    "game_objects": [
+        {
+            "id": "PlagueOfScarabsArt",
+            "type": "card_art",
+            "extensions": {
+                "card_art": {
+                    "sprite": "@PlagueOfScarabsArt"
+                }
+            }
+        }
+    ]
+}

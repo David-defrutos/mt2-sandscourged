@@ -1,0 +1,80 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "cards": [
+        {
+            "id": "OblivionSands",
+            "names": {
+                "english": "Oblivion Sands",
+                "chinese": "湮灭之沙"
+            },
+            "descriptions": {
+                "english": "Apply [mt2_sandscourged.Plugin_hex] [effect0.status0.power], then apply [mt2_sandscourged.Plugin_scourge] [effect1.status0.power].",
+                "chinese": "施加[mt2_sandscourged.Plugin_hex] [effect0.status0.power]，然后施加[mt2_sandscourged.Plugin_scourge] [effect1.status0.power]。"
+            },
+            "lore_tooltips": [
+                {
+                    "english": "Sands from Oblivion, a desert hidden away within Limbo, bottled by the Ur-Pharaoh's obsequious supplicants."
+                }
+            ],
+            "rarity": "common",
+            "class": "@ClassSandscourged",
+            "card_art": "@OblivionSandsArt",
+            "targets_room": true,
+            "targetless": false,
+            "pools": [
+                "MegaPool"
+            ],
+            "cost": 1,
+            "traits": [
+                "@Consume"
+            ],
+            "effects": [
+                "@OblivionSandsApplyHex",
+                "@OblivionSandsApplyScourge"
+            ]
+        }
+    ],
+    "effects": [
+        {
+            "id": "OblivionSandsApplyHex",
+            "name": "CardEffectAddStatusEffect",
+            "target_mode": "drop_target_character",
+            "target_team": "both",
+            "param_status_effects": [
+                {
+                    "status": "@hex",
+                    "count": 1
+                }
+            ]
+        },
+        {
+            "id": "OblivionSandsApplyScourge",
+            "name": "CardEffectAddStatusEffect",
+            "target_mode": "last_targeted_characters",
+            "target_team": "both",
+            "param_status_effects": [
+                {
+                    "status": "@scourge",
+                    "count": 7
+                }
+            ]
+        }
+    ],
+    "sprites": [
+        {
+            "id": "OblivionSandsArt",
+            "path": "textures/OblivionSandsArt.png"
+        }
+    ],
+    "game_objects": [
+        {
+            "id": "OblivionSandsArt",
+            "type": "card_art",
+            "extensions": {
+                "card_art": {
+                    "sprite": "@OblivionSandsArt"
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+{
+  "namespace": "David",
+  "name": "Sandscourged_David",
+  "description": "Adds the Sandscourged clan to Monster Train 2",
+  "version_number": "0.5.1",
+  "dependencies": [
+    "BepInEx-BepInExPack-5.4.2100",
+    "MT2-Trainworks_Reloaded-0.6.1",
+    "Conductor-Conductor-0.3.0"
+  ],
+  "website_url": "https://github.com/AidenSheehan/MT2_Sandscourged",
+  "FullName": "David-Sandscourged_David"
+}

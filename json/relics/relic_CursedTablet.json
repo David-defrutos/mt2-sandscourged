@@ -1,0 +1,63 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+  "relics": [
+    {
+      "id": "CursedTablet",
+      "type": "collectable",
+      "names": {
+        "english": "Cursed Tablet",
+        "chinese": "诅咒石板"
+      },
+      "descriptions": {
+        "english": "When a unit gains [mt2_sandscourged.Plugin_hex], it gains +[effect0.power] stacks.",
+        "chinese": "当一个单位获得[mt2_sandscourged.Plugin_hex]时，获得的层数 +[effect0.power]。"
+      },
+      "lore_tooltips": [
+        {
+          "english": "The wicked inscriptions upon this tablet were etched into the stone by High Vizier Izketri. Her hand was said to be guided by bitter winds, whispering perditious secrets into her ear as she carved."
+        }
+      ],
+      "disallow_in_deployment": false,
+      "lore_style": "herzal",
+      "relic_effects": [
+        "@CursedTabletRelicEffect"
+      ],
+      "icon": "@CursedTabletIcon",
+      "icon_small": "@CursedTabletIcon",
+      "extensions": [
+        {
+          "collectable": {
+            "class": "@ClassSandscourged",
+            "pools": [
+              "MegaRelicPool"
+            ],
+            "rarity": "uncommon",
+            "unlock_level": 5
+          }
+        }
+      ]
+    }
+  ],
+  "relic_effects": [
+    {
+      "id": "CursedTabletRelicEffect",
+      "name": "RelicEffectAddStatusEffectOnStatusApplied",
+      "target_mode": "front_in_room",
+      "source_team": "none",
+      "param_int": 1,
+      "param_bool": true,
+      "param_status_effects": [
+        {
+          "status": "@hex",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "sprites": [
+    {
+      "id": "CursedTabletIcon",
+      "path": "textures/CursedTabletArt.png"
+    }
+  ]
+}

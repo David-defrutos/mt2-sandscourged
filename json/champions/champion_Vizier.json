@@ -1,0 +1,707 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/schemas/cards.json",
+    "cards": [
+        {
+            "id": "SpawnVizier",
+            "names": {
+                "english": "Vizier Izketri",
+                "chinese": "伊兹克大臣"
+            },
+            "card_art": "@Vizier",
+            "cost": 0,
+            "card_type": "monster",
+            "rarity": "champion",
+            "class": "@ClassSandscourged",
+            "unlock_level": 5,
+            "targets_room": true,
+            "targetless": false,
+            "effects": [
+                "@SpawnVizier"
+            ],
+            "lore_tooltips": [
+                {
+                    "english": "Once a simple merchant, now High Vizier of the Sandscourged. She struck a terrible pact with the Ur-Pharaoh, thereby becoming the \"First Blessed\". She leads the Scourged in their struggle for vengeance against Seraph, and conducts profane rituals in the Ur-Pharaoh's name."
+                }
+            ]
+        },
+        {
+            "id": "StormSplitter1Ability",
+            "names": {
+                "english": "Obliterate",
+                "chinese": "抹杀"
+            },
+            "descriptions": {
+                "english": "Deal damage equal to [trait0.power]x the number of cards in your hand.<br>Discard your hand.",
+                "chinese": "造成伤害，伤害值为手牌数量的 [trait0.power] 倍。<br>舍弃全部手牌。"
+            },
+            "card_art": "@Vizier",
+            "is_an_ability": true,
+            "cooldown": 2,
+            "targetless": false,
+            "targets_room": true,
+            "card_type": "spell",
+            "traits": [
+                "@StormSplitter1AbilityTrait"
+            ],
+            "effects": [
+                "@StormSplitterDealDamage",
+                "@StormSplitterDiscardHand"
+            ]
+        },
+        {
+            "id": "StormSplitter2Ability",
+            "names": {
+                "english": "Obliterate II",
+                "chinese": "抹杀 II"
+            },
+            "descriptions": {
+                "english": "Deal damage equal to [trait0.power]x the number of cards in your hand.<br>Discard your hand.",
+                "chinese": "造成伤害，伤害值为手牌数量的 [trait0.power] 倍。<br>舍弃全部手牌。"
+            },
+            "card_art": "@Vizier",
+            "is_an_ability": true,
+            "cooldown": 2,
+            "targetless": false,
+            "targets_room": true,
+            "card_type": "spell",
+            "traits": [
+                "@StormSplitter2AbilityTrait"
+            ],
+            "effects": [
+                "@StormSplitterDealDamage",
+                "@StormSplitterDiscardHand"
+            ]
+        },
+        {
+            "id": "StormSplitter3Ability",
+            "names": {
+                "english": "Obliterate III",
+                "chinese": "抹杀 III"
+            },
+            "descriptions": {
+                "english": "Deal damage equal to [trait0.power]x the number of cards in your hand.<br>Discard your hand.",
+                "chinese": "造成伤害，伤害值为手牌数量的 [trait0.power] 倍。<br>舍弃全部手牌。"
+            },
+            "card_art": "@Vizier",
+            "is_an_ability": true,
+            "cooldown": 1,
+            "targetless": false,
+            "targets_room": true,
+            "card_type": "spell",
+            "traits": [
+                "@StormSplitter3AbilityTrait"
+            ],
+            "effects": [
+                "@StormSplitterDealDamage",
+                "@StormSplitterDiscardHand"
+            ]
+        }
+    ],
+    "characters": [
+        {
+            "id": "Vizier",
+            "names": {
+                "english": "Vizier Izketri",
+                "chinese": "伊兹克大臣"
+            },
+            "character_art": "@VizierCharacterArt",
+            "chatter": "@CTR_Vizier",
+            "size": 2,
+            "attack_damage": 10,
+            "health": 10,
+            "subtypes": [
+                "SubtypesData_Champion_83f21cbe-9d9b-4566-a2c3-ca559ab8ff34"
+            ]
+        }
+    ],
+    "upgrades": [
+        {
+            "id": "upg_FirstBlessed1",
+            "titles": {
+                "english": "First Blessed",
+                "chinese": "第一恩泽"
+            },
+            "descriptions": {
+                "english": "Why do i need this"
+            },
+            "bonus_damage": 15,
+            "bonus_hp": 5,
+            "trigger_upgrades": [
+                "@FirstBlessed1SummonTrigger",
+                "@FirstBlessed1AccursedTrigger"
+            ]
+        },
+        {
+            "id": "upg_FirstBlessed2",
+            "titles": {
+                "english": "First Blessed II",
+                "chinese": "第一恩泽 II"
+            },
+            "descriptions": {
+                "english": "Why do i need this"
+            },
+            "bonus_damage": 15,
+            "bonus_hp": 25,
+            "trigger_upgrades": [
+                "@FirstBlessed2SummonTrigger",
+                "@FirstBlessed2AccursedTrigger"
+            ]
+        },
+        {
+            "id": "upg_FirstBlessed3",
+            "titles": {
+                "english": "First Blessed III",
+                "chinese": "第一恩泽 III"
+            },
+            "descriptions": {
+                "english": "Why do i need this"
+            },
+            "bonus_damage": 15,
+            "bonus_hp": 25,
+            "status_effect_upgrades": [
+                {
+                    "status": "multistrike",
+                    "count": 1
+                }
+            ],
+            "trigger_upgrades": [
+                "@FirstBlessed3SummonTrigger",
+                "@FirstBlessed3AccursedTrigger"
+            ]
+        },
+        {
+            "id": "FirstBlessed1AccursedUprade",
+            "bonus_damage": 2
+        },
+        {
+            "id": "FirstBlessed2AccursedUprade",
+            "bonus_damage": 3
+        },
+        {
+            "id": "FirstBlessed3AccursedUprade",
+            "bonus_damage": 4
+        },
+        {
+            "id": "upg_EvilEye1",
+            "titles": {
+                "english": "Evil Eye",
+                "chinese": "邪眼"
+            },
+            "descriptions": {
+                "english": "Why do i need this"
+            },
+            "bonus_damage": 5,
+            "bonus_hp": 15,
+            "trigger_upgrades": [
+                "@EvilEye1ResolveTrigger",
+                "@EvilEye1EnchantTrigger"
+            ]
+        },
+        {
+            "id": "upg_EvilEye2",
+            "titles": {
+                "english": "Evil Eye II",
+                "chinese": "邪眼 II"
+            },
+            "descriptions": {
+                "english": "Why do i need this"
+            },
+            "bonus_damage": 10,
+            "bonus_hp": 25,
+            "trigger_upgrades": [
+                "@EvilEye2ResolveTrigger",
+                "@EvilEye2EnchantTrigger"
+            ]
+        },
+        {
+            "id": "upg_EvilEye3",
+            "titles": {
+                "english": "Evil Eye III",
+                "chinese": "邪眼 III"
+            },
+            "descriptions": {
+                "english": "Why do i need this"
+            },
+            "bonus_damage": 15,
+            "bonus_hp": 35,
+            "trigger_upgrades": [
+                "@EvilEye3ResolveTrigger",
+                "@EvilEye3EnchantTrigger"
+            ]
+        },
+        {
+            "id": "upg_StormSplitter1",
+            "titles": {
+                "english": "Storm Splitter",
+                "chinese": "风暴分流"
+            },
+            "descriptions": {
+                "english": "Why do i need this"
+            },
+            "bonus_damage": 5,
+            "bonus_hp": 10,
+            "ability_upgrade": "@StormSplitter1Ability"
+        },
+        {
+            "id": "upg_StormSplitter2",
+            "titles": {
+                "english": "Storm Splitter II",
+                "chinese": "风暴分流 II"
+            },
+            "descriptions": {
+                "english": "Why do i need this"
+            },
+            "bonus_damage": 15,
+            "bonus_hp": 15,
+            "ability_upgrade": "@StormSplitter2Ability",
+            "trigger_upgrades": [
+                "@StormSplitter2SlayTrigger"
+            ]
+        },
+        {
+            "id": "upg_StormSplitter3",
+            "titles": {
+                "english": "Storm Splitter III",
+                "chinese": "风暴分流 III"
+            },
+            "descriptions": {
+                "english": "Why do i need this"
+            },
+            "bonus_damage": 40,
+            "bonus_hp": 20,
+            "ability_upgrade": "@StormSplitter3Ability",
+            "trigger_upgrades": [
+                "@StormSplitter3SlayTrigger"
+            ]
+        }
+    ],
+    "traits": [
+        {
+            "id": "StormSplitter1AbilityTrait",
+            "name": "@CardTraitScalingByHandCount",
+            "param_int": 15,
+            "param_int_2": 1
+        },
+        {
+            "id": "StormSplitter2AbilityTrait",
+            "name": "@CardTraitScalingByHandCount",
+            "param_int": 25,
+            "param_int_2": 1
+        },
+        {
+            "id": "StormSplitter3AbilityTrait",
+            "name": "@CardTraitScalingByHandCount",
+            "param_int": 50,
+            "param_int_2": 1
+        }
+    ],
+    "character_triggers": [
+        {
+            "id": "FirstBlessed1SummonTrigger",
+            "trigger": "on_spawn",
+            "descriptions": {
+                "english": "Shuffle [effect0.secondarypower] <b>Vexations</b> into your draw pile.",
+                "chinese": "将 [effect0.secondarypower] 张<b>苦恼</b>卡牌加入你的抽牌堆。"
+            },
+            "effects": [
+                "@FirstBlessed1AddVexations"
+            ]
+        },
+        {
+            "id": "FirstBlessed2SummonTrigger",
+            "trigger": "on_spawn",
+            "descriptions": {
+                "english": "Shuffle [effect0.secondarypower] <b>Vexations</b> into your draw pile.",
+                "chinese": "将 [effect0.secondarypower] 张<b>苦恼</b>卡牌加入你的抽牌堆。"
+            },
+            "effects": [
+                "@FirstBlessed2AddVexations"
+            ]
+        },
+        {
+            "id": "FirstBlessed3SummonTrigger",
+            "trigger": "on_spawn",
+            "descriptions": {
+                "english": "Shuffle [effect0.secondarypower] <b>Vexations</b> into your draw pile.",
+                "chinese": "将 [effect0.secondarypower] 张<b>苦恼</b>卡牌加入你的抽牌堆。"
+            },
+            "effects": [
+                "@FirstBlessed3AddVexations"
+            ]
+        },
+        {
+            "id": "FirstBlessed1AccursedTrigger",
+            "trigger": {
+                "id": "@Accursed",
+                "mod_reference": "Conductor"
+            },
+            "descriptions": {
+                "english": "+[effect0.upgrade.bonusdamage][attack] permanently.",
+                "chinese": "永久获得 +[effect0.upgrade.bonusdamage][attack]。"
+            },
+            "effects": [
+                "@FirstBlessed1GainStats"
+            ]
+        },
+        {
+            "id": "FirstBlessed2AccursedTrigger",
+            "trigger": {
+                "id": "@Accursed",
+                "mod_reference": "Conductor"
+            },
+            "descriptions": {
+                "english": "+[effect0.upgrade.bonusdamage][attack] permanently.",
+                "chinese": "永久获得 +[effect0.upgrade.bonusdamage][attack]。"
+            },
+            "effects": [
+                "@FirstBlessed2GainStats"
+            ]
+        },
+        {
+            "id": "FirstBlessed3AccursedTrigger",
+            "trigger": {
+                "id": "@Accursed",
+                "mod_reference": "Conductor"
+            },
+            "descriptions": {
+                "english": "+[effect0.upgrade.bonusdamage][attack] permanently.",
+                "chinese": "永久获得 +[effect0.upgrade.bonusdamage][attack]。"
+            },
+            "effects": [
+                "@FirstBlessed3GainStats"
+            ]
+        },
+        {
+            "id": "EvilEye1ResolveTrigger",
+            "trigger": "post_combat",
+            "descriptions": {
+                "english": "Add [effect0.secondarypower] random <b>Torments</b> to your hand.",
+                "chinese": "将 [effect0.secondarypower] 张随机<b>折磨</b>卡牌加入你的手牌。"
+            },
+            "effects": [
+                "@EvilEye1AddTorments"
+            ]
+        },
+        {
+            "id": "EvilEye2ResolveTrigger",
+            "trigger": "post_combat",
+            "descriptions": {
+                "english": "Add [effect0.secondarypower] random <b>Torments</b> to your hand.",
+                "chinese": "将 [effect0.secondarypower] 张随机<b>折磨</b>卡牌加入你的手牌。"
+            },
+            "effects": [
+                "@EvilEye2AddTorments"
+            ]
+        },
+        {
+            "id": "EvilEye3ResolveTrigger",
+            "trigger": "post_combat",
+            "descriptions": {
+                "english": "Add [effect0.secondarypower] random <b>Torments</b> to your hand.",
+                "chinese": "将 [effect0.secondarypower] 张随机<b>折磨</b>卡牌加入你的手牌。"
+            },
+            "effects": [
+                "@EvilEye3AddTorments"
+            ]
+        },        
+        {
+            "id": "EvilEye1EnchantTrigger",
+            "trigger": "card_spell_played",
+            "descriptions": {
+                "english": "Apply [mt2_sandscourged.Plugin_hex] [effect0.status0.power] to enemy units."
+            },
+            "effects": [
+                "@EvilEye2EnchantEffect"
+            ]
+        },        
+        {
+            "id": "EvilEye2EnchantTrigger",
+            "trigger": "card_spell_played",
+            "descriptions": {
+                "english": "Apply [mt2_sandscourged.Plugin_hex] [effect0.status0.power] to enemy units."
+            },
+            "effects": [
+                "@EvilEye2EnchantEffect"
+            ]
+        },
+        {
+            "id": "EvilEye3EnchantTrigger",
+            "trigger": "card_spell_played",
+            "descriptions": {
+                "english": "Apply [mt2_sandscourged.Plugin_hex] [effect0.status0.power] to enemy units."
+            },
+            "effects": [
+                "@EvilEye3EnchantEffect"
+            ]
+        },
+        {
+            "id": "StormSplitter2SlayTrigger",
+            "trigger": "on_kill",
+            "descriptions": {
+                "english": "Draw +[effect0.power] next turn.",
+                "chinese": "下个回合抽 +[effect0.power] 张牌。"
+            },
+            "effects": [
+                "@StormSplitter2Draw"
+            ]
+        },
+        {
+            "id": "StormSplitter3SlayTrigger",
+            "trigger": "on_kill",
+            "descriptions": {
+                "english": "Draw +[effect0.power] next turn.",
+                "chinese": "下个回合抽 +[effect0.power] 张牌。"
+            },
+            "effects": [
+                "@StormSplitter3Draw"
+            ]
+        }
+    ],
+    "effects": [
+        {
+            "id": "SpawnVizier",
+            "name": "CardEffectSpawnMonster",
+            "target_mode": "room",
+            "target_card_type": "spell",
+            "param_character": "@Vizier"
+        },
+        {
+            "id": "FirstBlessed1AddVexations",
+            "name": "CardEffectAddBattleCard",
+            "target_mode": "room",
+            "target_team": "none",
+            "param_card_pool": "@VexationOnlyPool",
+            "param_int": 7,
+            "param_int_2": 2,
+            "additional_tooltips": [
+                "@TormentTooltip"
+            ]
+        },
+        {
+            "id": "FirstBlessed2AddVexations",
+            "name": "CardEffectAddBattleCard",
+            "target_mode": "room",
+            "target_team": "none",
+            "param_card_pool": "@VexationOnlyPool",
+            "param_int": 7,
+            "param_int_2": 3,
+            "additional_tooltips": [
+                "@TormentTooltip"
+            ]
+        },
+        {
+            "id": "FirstBlessed3AddVexations",
+            "name": "CardEffectAddBattleCard",
+            "target_mode": "room",
+            "target_team": "none",
+            "param_card_pool": "@VexationOnlyPool",
+            "param_int": 7,
+            "param_int_2": 4,
+            "additional_tooltips": [
+                "@TormentTooltip"
+            ]
+        },
+        {
+            "id": "FirstBlessed1GainStats",
+            "name": "CardEffectAddCardUpgradeToUnits",
+            "target_mode": "self",
+            "param_upgrade": "@FirstBlessed1AccursedUprade",
+            "param_bool": true,
+            "param_int": 0,
+            "param_int_2": 1,
+            "param_int_3": 2
+        },
+        {
+            "id": "FirstBlessed2GainStats",
+            "name": "CardEffectAddCardUpgradeToUnits",
+            "target_mode": "self",
+            "param_upgrade": "@FirstBlessed2AccursedUprade",
+            "param_bool": true,
+            "param_int": 0,
+            "param_int_2": 1,
+            "param_int_3": 2
+        },
+        {
+            "id": "FirstBlessed3GainStats",
+            "name": "CardEffectAddCardUpgradeToUnits",
+            "target_mode": "self",
+            "param_upgrade": "@FirstBlessed3AccursedUprade",
+            "param_bool": true,
+            "param_int": 0,
+            "param_int_2": 1,
+            "param_int_3": 2
+        },
+        {
+            "id": "EvilEye1AddTorments",
+            "name": "CardEffectAddBattleCard",
+            "target_mode": "room",
+            "param_int": 3,
+            "param_int_2": 1,
+            "param_card_pool": "@TormentPool",
+            "additional_tooltips": [
+                "@TormentTooltip"
+            ]
+        },
+        {
+            "id": "EvilEye2AddTorments",
+            "name": "CardEffectAddBattleCard",
+            "target_mode": "room",
+            "param_int": 3,
+            "param_int_2": 2,
+            "param_card_pool": "@TormentPool",
+            "additional_tooltips": [
+                "@TormentTooltip"
+            ]
+        },
+        {
+            "id": "EvilEye3AddTorments",
+            "name": "CardEffectAddBattleCard",
+            "target_mode": "room",
+            "param_int": 3,
+            "param_int_2": 3,
+            "param_card_pool": "@TormentPool",
+            "additional_tooltips": [
+                "@TormentTooltip"
+            ]
+        },        
+        {
+            "id": "EvilEye1EnchantEffect",
+            "name": "CardEffectAddStatusEffect",
+            "target_mode": "room",
+            "target_team": "heroes",
+            "param_status_effects": [
+                {
+                    "status": "@hex",
+                    "count": 1
+                }
+            ]
+        },        
+        {
+            "id": "EvilEye2EnchantEffect",
+            "name": "CardEffectAddStatusEffect",
+            "target_mode": "room",
+            "target_team": "heroes",
+            "param_status_effects": [
+                {
+                    "status": "@hex",
+                    "count": 1
+                }
+            ]
+        },
+        {
+            "id": "EvilEye3EnchantEffect",
+            "name": "CardEffectAddStatusEffect",
+            "target_mode": "room",
+            "target_team": "heroes",
+            "param_status_effects": [
+                {
+                    "status": "@hex",
+                    "count": 1
+                }
+            ]
+        },
+        {
+            "id": "StormSplitterDiscardHand",
+            "name": "CardEffectDiscardHand"
+        },
+        {
+            "id": "StormSplitterDealDamage",
+            "name": "CardEffectDamage",
+            "target_mode": "drop_target_character",
+            "target_team": "both",
+            "param_int": 0
+        },
+        {
+            "id": "StormSplitter2Draw",
+            "name": "CardEffectDrawAdditionalNextTurn",
+            "param_int": 1
+        },
+        {
+            "id": "StormSplitter3Draw",
+            "name": "CardEffectDrawAdditionalNextTurn",
+            "param_int": 2
+        }
+    ],
+    "sprites": [
+        {
+            "id": "Vizier",
+            "path": "textures/VizierCardArt.png"
+        },
+        {
+            "id": "VizierCharacterArt",
+            "path": "textures/VizierCharacterArt.png"
+        }
+    ],
+    "game_objects": [
+        {
+            "id": "Vizier",
+            "type": "card_art",
+            "extensions": {
+                "card_art": {
+                    "sprite": "@Vizier"
+                }
+            }
+        },
+        {
+            "id": "VizierCharacterArt",
+            "type": "character_art",
+            "extensions": {
+                "character_art": {
+                    "sprite": "@VizierCharacterArt",
+                    "transform": {
+                        "position": {
+                            "x": -0.1,
+                            "y": 1,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 0.9,
+                            "y": 0.85,
+                            "z": 1
+                        }
+                    }
+                }
+            }
+        }
+    ],
+    "chatter": [
+        {
+            "id": "CTR_Vizier",
+            "gender": "female",
+            "added_expressions": [
+                {
+                    "english": "For the Scourged!"
+                },
+                {
+                    "english": "Our revenge will be cruel and enduring."
+                },
+                {
+                    "english": "This \"train\" is fascinating. Who made it?"
+                }
+            ],
+            "idle_expressions": [
+                {
+                    "english": "I'm so sick of sand."
+                },
+                {
+                    "english": "*Chants*"
+                },
+                {
+                    "english": "I'll make hosts of every one of you!"
+                },
+                {
+                    "english": "Oblivion awaits you."
+                },
+                {
+                    "english": "What do you mean I'm not allowed to curse? That's my job!"
+                },
+                {
+                    "english": "I'll split you in half!"
+                },
+                {
+                    "english": "Let's make a deal."
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,135 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "cards": [
+        {
+            "id": "SpawnSuperiorEgo",
+            "names": {
+                "english": "Superior Ego",
+                "chinese": "超我"
+            },
+            "card_art": "@SuperiorEgo",
+            "cost": 3,
+            "card_type": "monster",
+            "rarity": "rare",
+            "class": "@ClassSandscourged",
+            "targets_room": true,
+            "effects": [
+                "@SpawnSuperiorEgo"
+            ],
+            "lore_tooltips": [
+                {
+                    "english": "The commanders of the Scourged, Superiors are given charge of droves of Lost, enforcing their will by might and magic. On their command, hordes of the mindless attack with reckless abandon."
+                }
+            ],
+            "pools": [
+                "UnitsAllBanner"
+            ]
+        }
+    ],
+    "characters": [
+        {
+            "id": "SuperiorEgo",
+            "size": 3,
+            "attack_damage": 50,
+            "health": 50,
+            "names": {
+                "english": "Superior Ego",
+                "chinese": "超我"
+            },
+            "character_art": "@SuperiorEgoCharacterArt",
+            "subtypes": [
+                "SubtypesData_BannerUnit",
+                "@Sub_Ego"
+            ],
+            "triggers": [
+                "@SuperiorEgoAccursedTrigger"
+            ]
+        }
+    ],
+    "character_triggers": [
+        {
+            "id": "SuperiorEgoAccursedTrigger",
+            "descriptions": {
+                "english": "Apply this unit's [attack] and [health] to the front friendly unit. It attacks immediately, then dies.",
+                "chinese": "使前排友方单位获得此单位的[attack]和[health]，然后使其立即发动攻击，之后使其死亡。"
+            },
+            "trigger": {
+                "id": "@Accursed",
+                "mod_reference": "Conductor"
+            },
+            "effects": [
+                "@SuperiorEgoApplyStatsAndStatusEffects",
+                "@SuperiorEgoAttackImmediately",
+                "@SuperiorEgoDie"
+            ]
+        }
+    ],
+    "effects": [
+        {
+            "id": "SpawnSuperiorEgo",
+            "name": "CardEffectSpawnMonster",
+            "target_mode": "room",
+            "param_character": "@SuperiorEgo"
+        },
+        {
+            "id": "SuperiorEgoApplyStatsAndStatusEffects",
+            "name": "CardEffectAddStatsFromSelf",
+            "target_mode": "front_in_room",
+            "target_team": "monsters"
+        },
+        {
+            "id": "SuperiorEgoAttackImmediately",
+            "name": "CardEffectAttackWithUnit",
+            "target_mode": "front_in_room",
+            "target_team": "monsters"
+        },
+        {
+            "id": "SuperiorEgoDie",
+            "name": "CardEffectKill",
+            "target_mode": "front_in_room",
+            "target_team": "monsters"
+        }
+    ],
+    "sprites": [
+        {
+            "id": "SuperiorEgo",
+            "path": "textures/SuperiorEgoCardArt.png"
+        },
+        {
+            "id": "SuperiorEgoCharacterArt",
+            "path": "textures/SuperiorEgoCharacterArt.png"
+        }
+    ],
+    "game_objects": [
+        {
+            "id": "SuperiorEgo",
+            "type": "card_art",
+            "extensions": {
+                "card_art": {
+                    "sprite": "@SuperiorEgo"
+                }
+            }
+        },
+        {
+            "id": "SuperiorEgoCharacterArt",
+            "type": "character_art",
+            "extensions": {
+                "character_art": {
+                    "sprite": "@SuperiorEgoCharacterArt",
+                    "transform": {
+                        "position": {
+                            "x": 0.5,
+                            "y": 1.5,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 0.4,
+                            "y": 0.4,
+                            "z": 1
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}
