@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>mt2_sandscourged.Plugin</RootNamespace>
+    <LangVersion>latest</LangVersion>
+    <Version>0.5.5</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BepInEx.Analyzers" Version="1.0.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="BepInEx.PluginInfoProps" Version="2.*" />
+    <PackageReference Include="MonsterTrain2.Api" Version="4.5.21908879" />
+    <PackageReference Include="TrainworksReloaded.Base" Version="0.7.8" />
+    <PackageReference Include="Conductor" Version="0.5.2" />
+  </ItemGroup>
+
+  <!-- Las reglas de copia de json/ y textures/ se quitaron a proposito:
+       en este repo cuelgan de la raiz (la carpeta del plugin), no de src/.
+       El build solo produce el DLL. -->
+</Project>
+

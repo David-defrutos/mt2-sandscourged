@@ -411,7 +411,7 @@
                 "english": "Apply [mt2_sandscourged.Plugin_hex] [effect0.status0.power] to enemy units."
             },
             "effects": [
-                "@EvilEye2EnchantEffect"
+                "@EvilEye1EnchantEffect"
             ]
         },        
         {

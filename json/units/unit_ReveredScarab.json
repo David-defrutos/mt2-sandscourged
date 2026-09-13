@@ -41,8 +41,7 @@
                 "@Sub_Scarab"
             ],
             "triggers": [
-                "@ReveredScarabTrigger",
-                "@ScarabStrikeTrigger"
+                "@ReveredScarabTrigger"
             ]
         }
     ],
@@ -127,8 +126,8 @@
                             "z": 0.2
                         },
                         "scale": {
-                            "x": 0.25,
-                            "y": 0.25,
+                            "x": 0.64,
+                            "y": 0.64,
                             "z": 1
                         }
                     }

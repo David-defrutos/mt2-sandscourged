@@ -43,7 +43,7 @@
             "target_mode": "pyre",
             "target_team": "both",
             "param_int": 3,
-            "supress_pyre_room_focus": true
+            "suppress_pyre_room_focus": true
         },
         {
             "id": "EphemeralTooltipEffect",
