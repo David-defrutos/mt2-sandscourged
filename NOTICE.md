@@ -33,8 +33,11 @@ quitaron las reglas `<None Update="json/**">` y `<None Update="textures/**">`. E
 montaje esas dos carpetas cuelgan de la raiz del repo, no de `src\`, asi que copiarlas a la
 salida del build no tenia sentido y solo despistaba.
 
-El `src\Plugin.cs` esta **sin tocar**: sigue con las 68 rutas del tag. Cuando se anada un
-JSON nuevo, la ruta se mete ahi y se recompila.
+En `src\Plugin.cs` hay **tres lineas anadidas**, de 68 rutas a **71**: los ficheros que
+salieron al partir `unit_GildedScarab.json`, que llevaba dentro tres unidades
+(`json/units/unit_BlessedScarab.json`, `json/units/unit_GoldenScarab.json` y
+`json/units/scarab_shared.json`). Cuando se anada otro JSON, la ruta se mete ahi y se
+recompila.
 
 ## El contenido
 

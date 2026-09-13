@@ -2,22 +2,22 @@
     "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
     "cards": [
         {
-            "id": "SpawnGildedScarab",
+            "id": "SpawnBlessedScarab",
             "names": {
-                "english": "Gilded Scarab",
+                "english": "Blessed Scarab",
                 "chinese": "镀金圣甲虫"
             },
-            "card_art": "@GildedScarab",
+            "card_art": "@BlessedScarab",
             "cost": 1,
             "card_type": "monster",
-            "rarity": "common",
+            "rarity": "uncommon",
             "class": "@ClassSandscourged",
             "targets_room": true,
             "pools": [
                 "MegaPool"
             ],
             "effects": [
-                "@SpawnGildedScarab"
+                "@SpawnBlessedScarab"
             ],
             "lore_tooltips": [
                 {
@@ -28,87 +28,88 @@
     ],
     "characters": [
         {
-            "id": "GildedScarab",
+            "id": "BlessedScarab",
             "size": 1,
-            "attack_damage": 3,
+            "attack_damage": 1,
             "health": 1,
             "names": {
-                "english": "Gilded Scarab",
+                "english": "Blessed Scarab",
                 "chinese": "镀金圣甲虫"
             },
-            "character_art": "@GildedScarabCharacterArt",
+            "character_art": "@BlessedScarabCharacterArt",
             "subtypes": [
                 "@Sub_Scarab"
             ],
+            "ability": "@ScarabAutoSacrificeAbility",
             "starting_status_effects": [
                 {
                     "status": "undying",
-                    "count": 1
+                    "count": 2
                 }
             ],
             "triggers": [
-                "@GildedScarabTrigger"
+                "@BlessedScarabTrigger"
             ]
         }
     ],
     "character_triggers": [
         {
-            "id": "GildedScarabTrigger",
+            "id": "BlessedScarabTrigger",
             "descriptions": {
                 "english": "Apply +[effect0.upgrade.bonusdamage][attack] and +[effect0.upgrade.bonushp][health] to friendly units."
             },
             "trigger": "on_death",
             "effects": [
-                "@GildedScarabGiveStats"
+                "@BlessedScarabGiveStats"
             ]
         }
     ],
     "effects": [
         {
-            "id": "SpawnGildedScarab",
+            "id": "SpawnBlessedScarab",
             "name": "CardEffectSpawnMonster",
             "target_mode": "room",
-            "param_character": "@GildedScarab"
+            "param_character": "@BlessedScarab"
         },
         {
-            "id": "GildedScarabGiveStats",
+            "id": "BlessedScarabGiveStats",
             "name": "CardEffectAddTempCardUpgradeToUnits",
             "target_mode": "room",
             "target_team": "monsters",
-            "param_upgrade": "@ScarabThreeAttackOneHealth"
+            "param_upgrade": "@ScarabZeroAttackFourHealth"
         }
     ],
     "sprites": [
         {
-            "id": "GildedScarab",
-            "path": "textures/GildedScarabCardArt.png"
+            "id": "BlessedScarab",
+            "path": "textures/BlessedScarabCardArt.png"
         },
         {
-            "id": "GildedScarabCharacterArt",
-            "path": "textures/GildedScarabCharacterArt.png"
+            "id": "BlessedScarabCharacterArt",
+            "path": "textures/BlessedScarabCharacterArt.png"
         }
     ],
     "game_objects": [
         {
-            "id": "GildedScarab",
+            "id": "BlessedScarab",
             "type": "card_art",
             "extensions": {
                 "card_art": {
-                    "sprite": "@GildedScarab"
+                    "sprite": "@BlessedScarab"
                 }
             }
         },
         {
-            "id": "GildedScarabCharacterArt",
+            "id": "BlessedScarabCharacterArt",
             "type": "character_art",
             "extensions": {
                 "character_art": {
-                    "sprite": "@GildedScarabCharacterArt",
+                    "sprite": "@BlessedScarabCharacterArt",
                     "transform": {
                         "position": {
                             "x": 0,
-                            "y": 0.4,
-                            "z": 0.1
+                            "y": 0,
+                            "z": 0.2
                         },
                         "scale": {
                             "x": 1.024,

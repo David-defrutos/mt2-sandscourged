@@ -2,13 +2,13 @@
     "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
     "cards": [
         {
-            "id": "SpawnGildedScarab",
+            "id": "SpawnGoldenScarab",
             "names": {
-                "english": "Gilded Scarab",
+                "english": "Golden Scarab",
                 "chinese": "镀金圣甲虫"
             },
-            "card_art": "@GildedScarab",
-            "cost": 1,
+            "card_art": "@GoldenScarab",
+            "cost": 0,
             "card_type": "monster",
             "rarity": "common",
             "class": "@ClassSandscourged",
@@ -17,7 +17,7 @@
                 "MegaPool"
             ],
             "effects": [
-                "@SpawnGildedScarab"
+                "@SpawnGoldenScarab"
             ],
             "lore_tooltips": [
                 {
@@ -28,91 +28,98 @@
     ],
     "characters": [
         {
-            "id": "GildedScarab",
+            "id": "GoldenScarab",
             "size": 1,
-            "attack_damage": 3,
+            "attack_damage": 0,
             "health": 1,
             "names": {
-                "english": "Gilded Scarab",
+                "english": "Golden Scarab",
                 "chinese": "镀金圣甲虫"
             },
-            "character_art": "@GildedScarabCharacterArt",
+            "character_art": "@GoldenScarabCharacterArt",
             "subtypes": [
                 "@Sub_Scarab"
             ],
+            "ability": "@ScarabAutoSacrificeAbility",
             "starting_status_effects": [
                 {
-                    "status": "undying",
-                    "count": 1
+                    "status": "avarice",
+                    "count": 10
                 }
             ],
             "triggers": [
-                "@GildedScarabTrigger"
+                "@GoldenScarabTrigger"
             ]
         }
     ],
     "character_triggers": [
         {
-            "id": "GildedScarabTrigger",
+            "id": "GoldenScarabTrigger",
             "descriptions": {
-                "english": "Apply +[effect0.upgrade.bonusdamage][attack] and +[effect0.upgrade.bonushp][health] to friendly units."
+                "english": "Apply +[effect0.upgrade.bonusdamage][attack] and +[effect0.upgrade.bonushp][health] to friendly units. Gain 10 [coin]"
             },
             "trigger": "on_death",
             "effects": [
-                "@GildedScarabGiveStats"
+                "@GoldenScarabGiveStats",
+                "@GoldenScarabGold"
             ]
         }
     ],
     "effects": [
         {
-            "id": "SpawnGildedScarab",
-            "name": "CardEffectSpawnMonster",
-            "target_mode": "room",
-            "param_character": "@GildedScarab"
+            "id": "GoldenScarabGold",
+            "name": "CardEffectRewardGold",
+            "param_int": 10
         },
         {
-            "id": "GildedScarabGiveStats",
+            "id": "SpawnGoldenScarab",
+            "name": "CardEffectSpawnMonster",
+            "target_mode": "room",
+            "param_character": "@GoldenScarab"
+        },
+        {
+            "id": "GoldenScarabGiveStats",
             "name": "CardEffectAddTempCardUpgradeToUnits",
             "target_mode": "room",
             "target_team": "monsters",
-            "param_upgrade": "@ScarabThreeAttackOneHealth"
+            "param_upgrade": "@ScarabZeroAttackOneHealth"
         }
     ],
     "sprites": [
         {
-            "id": "GildedScarab",
-            "path": "textures/GildedScarabCardArt.png"
+            "id": "GoldenScarab",
+            "path": "textures/GoldenScarabCardArt.png"
         },
         {
-            "id": "GildedScarabCharacterArt",
-            "path": "textures/GildedScarabCharacterArt.png"
+            "id": "GoldenScarabCharacterArt",
+            "path": "textures/GoldenScarabCharacterArt.png"
         }
     ],
     "game_objects": [
         {
-            "id": "GildedScarab",
+            "id": "GoldenScarab",
             "type": "card_art",
             "extensions": {
                 "card_art": {
-                    "sprite": "@GildedScarab"
+                    "sprite": "@GoldenScarab"
                 }
             }
         },
         {
-            "id": "GildedScarabCharacterArt",
+            "id": "GoldenScarabCharacterArt",
             "type": "character_art",
             "extensions": {
                 "character_art": {
-                    "sprite": "@GildedScarabCharacterArt",
+                    "sprite": "@GoldenScarabCharacterArt",
                     "transform": {
                         "position": {
                             "x": 0,
-                            "y": 0.4,
-                            "z": 0.1
+                            "y": 0.3,
+                            "z": 0
                         },
                         "scale": {
-                            "x": 1.024,
-                            "y": 1.024,
+                            "x": 0.512,
+                            "y": 0.512,
                             "z": 1
                         }
                     }
