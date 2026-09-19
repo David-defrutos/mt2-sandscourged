@@ -5,7 +5,7 @@
       "id": "ScarabPit",
       "names": {
         "english": "Scarab Pit",
-        "chinese": "圣甲虫巢"
+        "chinese": "圣甲虫穴"
       },
       "descriptions": {
         "english": "+[effect0.upgrade.roommodifier0.power][capacity]. When a friendly unit dies, apply +[effect0.upgrade.charactertrigger0.effect0.upgrade.bonusdamage][attack] and +[effect0.upgrade.charactertrigger0.effect0.upgrade.bonushp][health] to friendly units.",

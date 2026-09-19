@@ -40,6 +40,7 @@
             },
             "card_art": "@Pharaoh",
             "is_an_ability": true,
+            "is_room_ability": false,
             "cooldown": 1,
             "targetless": false,
             "targets_room": true,
@@ -62,6 +63,7 @@
             },
             "card_art": "@Pharaoh",
             "is_an_ability": true,
+            "is_room_ability": false,
             "cooldown": 1,
             "targetless": false,
             "targets_room": true,
@@ -84,6 +86,7 @@
             },
             "card_art": "@Pharaoh",
             "is_an_ability": true,
+            "is_room_ability": false,
             "cooldown": 1,
             "targetless": false,
             "targets_room": true,
@@ -119,9 +122,6 @@
             "titles": {
                 "english": "Pharaoh"
             },
-            "descriptions": {
-                "english": "initial upgrade yo"
-            },
             "trigger_upgrades": [
                 "@PharaohHarvest"
             ]
@@ -144,9 +144,6 @@
                 "english": "Swarm Lord",
                 "chinese": "虫群领主"
             },
-            "descriptions": {
-                "english": "Why do i need this"
-            },
             "bonus_damage": 0,
             "bonus_hp": 0,
             "ability_upgrade": "@SwarmLord1Ability"
@@ -157,9 +154,6 @@
                 "english": "Swarm Lord II",
                 "chinese": "虫群领主 II"
             },
-            "descriptions": {
-                "english": "Do I really need this"
-            },
             "bonus_damage": 5,
             "bonus_hp": 5,
             "ability_upgrade": "@SwarmLord2Ability"
@@ -169,9 +163,6 @@
             "titles": {
                 "english": "Swarm Lord III",
                 "chinese": "虫群领主 III"
-            },
-            "descriptions": {
-                "english": "Still not sure I need this"
             },
             "bonus_damage": 15,
             "bonus_hp": 15,
@@ -198,9 +189,6 @@
                 "english": "Pearlescent",
                 "chinese": "珍珠光泽"
             },
-            "descriptions": {
-                "english": "wow its pearls"
-            },
             "remove_upgrades": [
                 "@PharaohInitialUpgrade"
             ],
@@ -223,9 +211,6 @@
                 "english": "Pearlescent II",
                 "chinese": "珍珠光泽 II"
             },
-            "descriptions": {
-                "english": "wow its still pearls"
-            },
             "remove_upgrades": [
                 "@PharaohInitialUpgrade"
             ],
@@ -247,9 +232,6 @@
             "titles": {
                 "english": "Pearlescent III",
                 "chinese": "珍珠光泽 III"
-            },
-            "descriptions": {
-                "english": "I guess we doing pearls now"
             },
             "remove_upgrades": [
                 "@PharaohInitialUpgrade"
@@ -288,9 +270,6 @@
                 "english": "Soulmonger",
                 "chinese": "灵魂商贩"
             },
-            "descriptions": {
-                "english": "what a tender soul"
-            },
             "bonus_damage": 0,
             "bonus_hp": 15,
             "trigger_upgrades": [
@@ -303,9 +282,6 @@
                 "english": "Soulmonger II",
                 "chinese": "灵魂商贩 II"
             },
-            "descriptions": {
-                "english": "what a tenderer soul"
-            },
             "bonus_damage": 15,
             "bonus_hp": 15,
             "trigger_upgrades": [
@@ -317,9 +293,6 @@
             "titles": {
                 "english": "Soulmonger III",
                 "chinese": "灵魂商贩 III"
-            },
-            "descriptions": {
-                "english": "what a tenderist soul"
             },
             "bonus_damage": 30,
             "bonus_hp": 30,

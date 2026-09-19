@@ -5,7 +5,7 @@
             "id": "ScryingEye",
             "names": {
                 "english": "Scrying Eye",
-                "chinese": "探知之眼"
+                "chinese": "窥视之眼"
             },
             "lore_tooltips": [
                 {
@@ -43,6 +43,7 @@
                 "chinese": "抽 [effect0.power] 张牌。舍弃 [effect0.power] 张牌。"
             },
             "is_an_ability": true,
+            "is_room_ability": false,
             "cooldown": 2,
             "card_type": "spell",
             "card_art": "@ScryingEyeArt",

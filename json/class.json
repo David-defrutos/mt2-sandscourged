@@ -205,7 +205,7 @@
                 "map_node_icon": {
                     "disabled_sprite": "@Sandscourged_Disabled",
                     "enabled_sprite": "@Sandscourged_Enabled",
-                    "frozen_sprite": "@Sandscourged_Enabled",
+                    "frozen_sprite": "@Sandscourged_Frozen",
                     "visited_sprite_disabled": "@Sandscourged_VisitedDisabled",
                     "visited_sprite_enabled": "@Sandscourged_VisitedEnabled"
                 }

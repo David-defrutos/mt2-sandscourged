@@ -46,7 +46,7 @@
             "name": "CardEffectDamage",
             "target_mode": "drop_target_character",
             "target_team": "both",
-            "param_int": 25
+            "param_int": 30
         }
     ],
     "sprites": [

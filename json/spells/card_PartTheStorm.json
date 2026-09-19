@@ -8,8 +8,8 @@
                 "chinese": "劈开风暴"
             },
             "descriptions": {
-                "english": "Costs -[trait0.power][ember] for each friendly unit death this battle.<br>Deal [effect0.power] damage.",
-                "chinese": "每有一个友方单位在战斗中阵亡，费用 -[trait0.power][ember]。<br>造成 [effect0.power] 点伤害。"
+                "english": "Costs -[trait1.power][ember] for each friendly unit death this battle.<br>Deal [effect0.power] damage.",
+                "chinese": "每有一个友方单位在战斗中阵亡，费用 -[trait1.power][ember]。<br>造成 [effect0.power] 点伤害。"
             },
             "lore_tooltips": [
                 {
@@ -26,6 +26,7 @@
             ],
             "cost": 6,
             "traits": [
+                "@PartTheStormAttuned",
                 "@PartTheStormReduceCostTrait"
             ],
             "effects": [
@@ -34,6 +35,10 @@
         }
     ],
     "traits": [
+        {
+            "id": "PartTheStormAttuned",
+            "name": "CardTraitStrongerMagicPower"
+        },
         {
             "id": "PartTheStormReduceCostTrait",
             "name": "CardTraitScalingReduceCost",

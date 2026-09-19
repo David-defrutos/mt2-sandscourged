@@ -5,7 +5,7 @@
             "id": "GravenRite",
             "names": {
                 "english": "Graven Rite",
-                "chinese": "铭刻仪式"
+                "chinese": "刻身仪式"
             },
             "descriptions": {
                 "english": "Apply [undying] [effect0.status0.power] to friendly units, then deal [effect1.power] damage to them.",

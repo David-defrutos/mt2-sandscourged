@@ -37,6 +37,7 @@
             },
             "card_art": "@Wretch",
             "is_an_ability": true,
+            "is_room_ability": false,
             "cooldown": 2,
             "targetless": true,
             "targets_room": true,

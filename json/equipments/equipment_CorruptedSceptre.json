@@ -42,7 +42,7 @@
     "upgrades": [
         {
             "id": "upg_CorruptedSceptre",
-            "bonus_damage": 20,
+            "bonus_damage": 25,
             "bonus_hp": 0,
             "room_modifier_upgrades": [
                 "@CorruptedSceptreRoomModifier"
@@ -67,7 +67,7 @@
                 "english": "+[power][attack] for each distinct [debuff] among enemy units.",
                 "chinese": "敌方单位之中每有一种[debuff]，获得 +[power][attack]。"
             },
-            "param_int": 20,
+            "param_int": 25,
             "param_int_2": 2
         }
     ],

@@ -5,7 +5,7 @@
             "id": "Expose",
             "names": {
                 "english": "Expose",
-                "chinese": "暴露"
+                "chinese": "揭露"
             },
             "descriptions": {
                 "english": "Apply [sap] [effect0.status0.power], [meleeweakness] [effect1.status0.power], and [spellweakness] [effect2.status0.power].",

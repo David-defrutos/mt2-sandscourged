@@ -5,11 +5,11 @@
             "id": "PlagueOfGnarling",
             "names": {
                 "english": "Plague of Gnarling",
-                "chinese": "木瘤瘟疫"
+                "chinese": "扭曲灾祸"
             },
             "descriptions": {
                 "english": "Apply [mt2_sandscourged.Plugin_scourge] equal to [trait0.power]x the number of <b>Blights</b> and <b>Scourges</b> in your deck.",
-                "chinese": "施加[mt2_sandscourged.Plugin_scourge]，层数相当于你卡组中[blight]牌和<b>天灾</b>牌数量的 [trait0.power] 倍。"
+                "chinese": "施加[mt2_sandscourged.Plugin_scourge]，层数相当于你卡组中[blight]牌和[junk]牌数量的 [trait0.power] 倍。"
             },
             "lore_tooltips": [
                 {

@@ -37,6 +37,7 @@
             },
             "card_art": "@PriestOfLostThoughts",
             "is_an_ability": true,
+            "is_room_ability": false,
             "cooldown": 3,
             "targetless": true,
             "targets_room": false,

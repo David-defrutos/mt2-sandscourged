@@ -5,11 +5,11 @@
             "id": "PlagueOfBlood",
             "names": {
                 "english": "Plague of Blood",
-                "chinese": "鲜血瘟疫"
+                "chinese": "鲜血灾祸"
             },
             "descriptions": {
-                "english": "Draw a spell and apply -[effect1.upgrade.costreduction][ember] and +[effect1.upgrade.bonusdamage] [magicpower].",
-                "chinese": "抽一张法术牌，并使其获得 +[effect1.upgrade.bonusdamage] [magicpower]和 -[effect1.upgrade.costreduction][ember]。"
+                "english": "Draw a non-starter spell and apply -[effect1.upgrade.costreduction][ember] and +[effect1.upgrade.bonusdamage] [magicpower].",
+                "chinese": "抽一张非初始法术牌，并使其获得 +[effect1.upgrade.bonusdamage] [magicpower]和 -[effect1.upgrade.costreduction][ember]。"
             },
             "lore_tooltips": [
                 {
@@ -67,7 +67,8 @@
             "name": "@CardEffectDrawTypeWithDiscardFix",
             "target_mode": "draw_pile",
             "target_card_type": "spell",
-            "param_int": 1
+            "param_int": 1,
+            "param_card_filter": "@PlagueOfBloodNoStarter"
         }
     ],
     "upgrades": [
@@ -77,6 +78,15 @@
             "bonus_heal": 20,
             "cost_reduction": 1,
             "x_cost_reduction": 1
+        }
+    ],
+    "upgrade_masks": [
+        {
+            "id": "PlagueOfBloodNoStarter",
+            "card_type": "spell",
+            "disallowed_pools": [
+                "StarterCardsOnly"
+            ]
         }
     ],
     "sprites": [

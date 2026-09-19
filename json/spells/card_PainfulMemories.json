@@ -46,7 +46,7 @@
         {
             "id": "PainfulMemoriesGainEmber",
             "name": "CardEffectGainEnergy",
-            "param_int": 1
+            "param_int": 2
         }
     ],
     "sprites": [

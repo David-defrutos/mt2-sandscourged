@@ -6,7 +6,7 @@
       "type": "collectable",
       "names": {
         "english": "Broken Seal",
-        "chinese": "破碎印记"
+        "chinese": "破碎封印"
       },
       "descriptions": {
         "english": "[mt2_sandscourged.Plugin_scourge] deals twice as much damage.",
@@ -27,9 +27,6 @@
       },
       "icon": "@BrokenSealIcon",
       "icon_small": "@BrokenSealIcon",
-      "additional_tooltips": [
-        "@TestTooltip"
-      ],
       "extensions": [
         {
           "collectable": {
